@@ -1,6 +1,6 @@
-package bal.hotelwebapp.logic;
+package oc.plataformaweb.logic;
 
-import bal.hotelwebapp.database.DatabaseX;
+import oc.plataformaweb.database.DatabaseX;
 
 public class Logic 
 {
