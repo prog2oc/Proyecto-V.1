@@ -1,6 +1,7 @@
 
 package oc.plataformaweb.logic;
 
+
 import escuadron.usuario.objetos.UsuarioObj;
 import java.sql.ResultSet;
 import java.sql.SQLException;
