@@ -1,5 +1,5 @@
 
-package escuadron.usuario.objetos;
+package oc.plataformaweb.objects;
 
 
 public class UsuarioObj {
