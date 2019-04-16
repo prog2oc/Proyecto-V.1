@@ -1,13 +1,13 @@
 
-package escuadron.usario.logic;
+package oc.plataformaweb.logic;
 
-import escuadron.usuario.databasex.DatabaseX;
 import escuadron.usuario.objetos.UsuarioObj;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import oc.plataformaweb.database.DatabaseX;
 
 
 public class UsuarioLogic extends Logic{
