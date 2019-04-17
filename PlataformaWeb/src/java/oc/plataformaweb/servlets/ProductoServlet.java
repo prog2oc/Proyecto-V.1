@@ -80,12 +80,17 @@ public class ProductoServlet extends HttpServlet {
                 int iId = Integer.parseInt(strId);
                 
                 //access logic
-                ProductoLogic CLogic = new ProductoLogic();
-                ProductoObj CProducto = CLogic.getProductoById(iId);
+                ProductoLogic PLogic = new ProductoLogic();
+                ProductoObj CProducto = PLogic.getProductoById(iId);
+                
+                CategoriaLogic CLogic = new CategoriaLogic();
+                ArrayList<CategoriaObj> CArray = CLogic.getAllCategorias();
                 
                 //send to frontend
+                request.getSession().setAttribute("categoria", CArray);
+                //send to frontend
                 request.getSession().setAttribute("producto", CProducto);
-                response.sendRedirect("categoriaUpdateForm.jsp");
+                response.sendRedirect("productoUpdateForm.jsp");
             }   
             
             if(strFormId.equals("5"))

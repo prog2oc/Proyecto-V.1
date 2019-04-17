@@ -31,7 +31,7 @@
             <br><br>
             
             <label>Precio:</label><br>
-            <input type="number" id="preciounidad" name="preciounidad" />
+            <input type="number" step="0.01" id="preciounidad" name="preciounidad" />
             <br><br>
             
             <label>Unidades:</label><br>
