@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package oc.plataformaweb.servlets;
 
 import java.io.IOException;
@@ -14,24 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import oc.plataformaweb.logic.CategoriaLogic;
+import oc.plataformaweb.logic.ProductoLogic;
 import oc.plataformaweb.objects.CategoriaObj;
+import oc.plataformaweb.objects.ProductoObj;
 
-/**
- *
- * @author erick
- */
-@WebServlet(name = "CategoriaServlet", urlPatterns = {"/CategoriaServlet"})
-public class CategoriaServlet extends HttpServlet {
+@WebServlet(name = "ProductoServlet", urlPatterns = {"/ProductoServlet"})
+public class ProductoServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+   
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -42,28 +27,35 @@ public class CategoriaServlet extends HttpServlet {
             if(strFormId.equals("1"))
             {
                 //get parameters
-                String strName = request.getParameter("nombre");
-                String strDescripcion = request.getParameter("descripcion");
+                String strNombreProducto = request.getParameter("nombre");
+                String strPrecioUnidad = request.getParameter("preciounidad");
+                String strUnidades = request.getParameter("unidades");
+                String strIdCategoria = request.getParameter("idcategoria");
+                String strIdEmpresa = request.getParameter("idempresa");
+                double dPrecioUnidad = Double.parseDouble(strPrecioUnidad);
+                int iUnidades = Integer.parseInt(strUnidades);
+                int iIdCategoria = Integer.parseInt(strIdCategoria);
+                int iIdEmpresa = Integer.parseInt(strIdEmpresa);
                
                 //access logic
-                CategoriaLogic CLogic = new CategoriaLogic();
-                int iRows = CLogic.insertCategoriaRows(strName, strDescripcion);
-                System.out.println("inser categoria rows: " + iRows);
+                ProductoLogic CLogic = new ProductoLogic();
+                int iRows = CLogic.insertProductoRows(strNombreProducto, dPrecioUnidad, iUnidades, iIdCategoria, iIdEmpresa);
+                System.out.println("insert producto rows: " + iRows);
                 
                 //send to frontend
                 request.getSession().setAttribute("rows", new Integer(iRows));
-                response.sendRedirect("genericMessageCategoria.jsp");
+                response.sendRedirect("genericMessageProducto.jsp");
             }
             
             if(strFormId.equals("2"))
             {
                 //access logic
-                CategoriaLogic CLogic = new CategoriaLogic();
-                ArrayList<CategoriaObj> CArray = CLogic.getAllCategorias();
+                ProductoLogic CLogic = new ProductoLogic();
+                ArrayList<ProductoObj> PArray = CLogic.getAllProductos();
                 
                 //send to frontend
-                request.getSession().setAttribute("categoria", CArray);
-                response.sendRedirect("categoriaForm.jsp");
+                request.getSession().setAttribute("producto", PArray);
+                response.sendRedirect("productoForm.jsp");
             }
             
             if(strFormId.equals("3"))
@@ -73,12 +65,12 @@ public class CategoriaServlet extends HttpServlet {
                 int iId = Integer.parseInt(strId);
                 
                 //access logic
-                CategoriaLogic CLogic = new CategoriaLogic();
-                int iRows = CLogic.deleteCategoriaRows(iId);
+                ProductoLogic CLogic = new ProductoLogic();
+                int iRows = CLogic.deleteProductoRows(iId);
                 
                 //send to frontend
                 request.getSession().setAttribute("rows", iRows);
-                response.sendRedirect("genericMessageCategoria.jsp");
+                response.sendRedirect("genericMessageProducto.jsp");
             }
             
             if(strFormId.equals("4"))
@@ -88,11 +80,11 @@ public class CategoriaServlet extends HttpServlet {
                 int iId = Integer.parseInt(strId);
                 
                 //access logic
-                CategoriaLogic CLogic = new CategoriaLogic();
-                CategoriaObj CCategoria = CLogic.getCategoriaById(iId);
+                ProductoLogic CLogic = new ProductoLogic();
+                ProductoObj CProducto = CLogic.getProductoById(iId);
                 
                 //send to frontend
-                request.getSession().setAttribute("categoria", CCategoria);
+                request.getSession().setAttribute("producto", CProducto);
                 response.sendRedirect("categoriaUpdateForm.jsp");
             }   
             
@@ -100,18 +92,35 @@ public class CategoriaServlet extends HttpServlet {
             {
                 //get parameters
                 String strId = request.getParameter("id");
-                String strName = request.getParameter("nombre");
-                String strDescripcion = request.getParameter("descripcion");
+                String strNombreProducto = request.getParameter("nombre");
+                String strPrecioUnidad = request.getParameter("preciounidad");
+                String strUnidades = request.getParameter("unidades");
+                String strIdCategoria = request.getParameter("idcategoria");
+                String strIdEmpresa = request.getParameter("idempresa");
+                double dPrecioUnidad = Double.parseDouble(strPrecioUnidad);
+                int iUnidades = Integer.parseInt(strUnidades);
+                int iIdCategoria = Integer.parseInt(strIdCategoria);
+                int iIdEmpresa = Integer.parseInt(strIdEmpresa);
                 int iId = Integer.parseInt(strId);
                 
                 //access logic
-                CategoriaLogic CLogic = new CategoriaLogic();
-                int iRows = CLogic.updateCategoriaRows(iId, strName, strDescripcion);
+                ProductoLogic CLogic = new ProductoLogic();
+                int iRows = CLogic.updateProductoRows(iId, strNombreProducto, dPrecioUnidad, iUnidades, iIdCategoria, iIdEmpresa);
                 System.out.println("update client rows: " + iRows);
                 
                 //send to frontend
                 request.getSession().setAttribute("rows", new Integer(iRows));
-                response.sendRedirect("genericMessageCategoria.jsp");
+                response.sendRedirect("genericMessageProducto.jsp");
+            }
+            
+            if(strFormId.equals("6"))
+            {
+                CategoriaLogic CLogic = new CategoriaLogic();
+                ArrayList<CategoriaObj> CArray = CLogic.getAllCategorias();
+                
+                //send to frontend
+                request.getSession().setAttribute("categoria", CArray);
+                response.sendRedirect("NewProducto.jsp");
             }
             
             

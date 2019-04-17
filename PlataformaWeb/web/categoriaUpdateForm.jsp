@@ -8,7 +8,7 @@
     </head>
     <%
         CategoriaObj CCategoria = 
-                (CategoriaObj)request.getSession().getAttribute("client");
+                (CategoriaObj)request.getSession().getAttribute("categoria");
         
     %>
     <body>
