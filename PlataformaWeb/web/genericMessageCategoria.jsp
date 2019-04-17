@@ -1,9 +1,3 @@
-<%-- 
-    Document   : genericMessageCategoria
-    Created on : 16/04/2019, 04:41:04 PM
-    Author     : erick
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

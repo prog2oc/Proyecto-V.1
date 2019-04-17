@@ -83,7 +83,7 @@ public boolean insertCategoriaBool(String p_strNombre, String p_strDescripcion)
     public CategoriaObj getCategoriaById(int p_iId) 
     {
         DatabaseX database = getDatabase();
-        String strSql = "select * from ocplataformaweb.Categoria where id="+p_iId+" ";
+        String strSql = "SELECT * FROM ocplataformaweb.categoria where id= "+p_iId+" ;";
         System.out.println(strSql);
         ResultSet CResult = database.executeQuery(strSql);
         CategoriaObj CTemp = null;
@@ -99,8 +99,9 @@ public boolean insertCategoriaBool(String p_strNombre, String p_strDescripcion)
                 while(CResult.next())
                 {
                     iId = CResult.getInt("id");
-                    strName = CResult.getString("name");
+                    strName = CResult.getString("nombre");
                     strDescripcion = CResult.getString("descripcion");
+                    
                     
                     CTemp = new CategoriaObj(iId, strName, strDescripcion);
                 }
@@ -119,7 +120,7 @@ public boolean insertCategoriaBool(String p_strNombre, String p_strDescripcion)
     {
         
         DatabaseX database = getDatabase();
-        String strSql = "UPDATE ocplataformaweb.Categoria set name= '"+p_strNombre+"' ,age = "+p_strDescripcion+" "
+        String strSql = "UPDATE ocplataformaweb.Categoria set nombre= '"+p_strNombre+"' ,descripcion = '"+p_strDescripcion+"' "
                 + "WHERE id= "+p_iId+";";
         System.out.println(strSql);
         int iRows = database.executeNonQueryRows(strSql);

@@ -78,7 +78,7 @@ public class CategoriaServlet extends HttpServlet {
                 
                 //send to frontend
                 request.getSession().setAttribute("rows", iRows);
-                response.sendRedirect("genericMessage.jsp");
+                response.sendRedirect("genericMessageCategoria.jsp");
             }
             
             if(strFormId.equals("4"))
@@ -93,7 +93,7 @@ public class CategoriaServlet extends HttpServlet {
                 
                 //send to frontend
                 request.getSession().setAttribute("client", CClient);
-                response.sendRedirect("clientUpdateForm.jsp");
+                response.sendRedirect("categoriaUpdateForm.jsp");
             }   
             
             if(strFormId.equals("5"))
