@@ -1,9 +1,3 @@
-<%-- 
-    Document   : categoriaForm
-    Created on : 16/04/2019, 04:41:28 PM
-    Author     : erick
---%>
-
 <%@page import="java.util.Iterator"%>
 <%@page import="oc.plataformaweb.objects.CategoriaObj"%>
 <%@page import="java.util.ArrayList"%>
@@ -12,7 +6,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Categorias</title>
     </head>
     <%
         ArrayList<CategoriaObj> CArray = 

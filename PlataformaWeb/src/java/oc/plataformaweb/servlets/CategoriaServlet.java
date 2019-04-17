@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package oc.plataformaweb.servlets;
 
 import java.io.IOException;
@@ -11,9 +16,22 @@ import javax.servlet.http.HttpServletResponse;
 import oc.plataformaweb.logic.CategoriaLogic;
 import oc.plataformaweb.objects.CategoriaObj;
 
-@WebServlet(name = "Categoria", urlPatterns = {"/Categoria"})
+/**
+ *
+ * @author erick
+ */
+@WebServlet(name = "CategoriaServlet", urlPatterns = {"/CategoriaServlet"})
 public class CategoriaServlet extends HttpServlet {
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -24,13 +42,13 @@ public class CategoriaServlet extends HttpServlet {
             if(strFormId.equals("1"))
             {
                 //get parameters
-                String strNombre = request.getParameter("nombre");
+                String strName = request.getParameter("nombre");
                 String strDescripcion = request.getParameter("descripcion");
-                
+               
                 //access logic
                 CategoriaLogic CLogic = new CategoriaLogic();
-                int iRows = CLogic.insertCategoriaRows(strNombre, strDescripcion);
-                System.out.println("insert categoria rows: " + iRows);
+                int iRows = CLogic.insertCategoriaRows(strName, strDescripcion);
+                System.out.println("inser categoria rows: " + iRows);
                 
                 //send to frontend
                 request.getSession().setAttribute("rows", new Integer(iRows));
@@ -60,7 +78,7 @@ public class CategoriaServlet extends HttpServlet {
                 
                 //send to frontend
                 request.getSession().setAttribute("rows", iRows);
-                response.sendRedirect("genericMessageCategoria.jsp");
+                response.sendRedirect("genericMessage.jsp");
             }
             
             if(strFormId.equals("4"))
@@ -71,31 +89,32 @@ public class CategoriaServlet extends HttpServlet {
                 
                 //access logic
                 CategoriaLogic CLogic = new CategoriaLogic();
-                CategoriaObj CCategoria = CLogic.getCategoriaById(iId);
+                CategoriaObj CClient = CLogic.getCategoriaById(iId);
                 
                 //send to frontend
-                request.getSession().setAttribute("categoria", CCategoria);
-                response.sendRedirect("categoriaUpdateForm.jsp");
+                request.getSession().setAttribute("client", CClient);
+                response.sendRedirect("clientUpdateForm.jsp");
             }   
             
             if(strFormId.equals("5"))
             {
                 //get parameters
                 String strId = request.getParameter("id");
-                String strNombre = request.getParameter("name");
-                String strDescripcion = request.getParameter("age");
+                String strName = request.getParameter("nombre");
+                String strDescripcion = request.getParameter("descripcion");
                 int iId = Integer.parseInt(strId);
-                
                 
                 //access logic
                 CategoriaLogic CLogic = new CategoriaLogic();
-                int iRows = CLogic.updateCategoriaRows(iId, strNombre, strDescripcion);
-                System.out.println("update categoria rows: " + iRows);
+                int iRows = CLogic.updateCategoriaRows(iId, strName, strDescripcion);
+                System.out.println("update client rows: " + iRows);
                 
                 //send to frontend
                 request.getSession().setAttribute("rows", new Integer(iRows));
                 response.sendRedirect("genericMessageCategoria.jsp");
             }
+            
+            
         }
     }
 
