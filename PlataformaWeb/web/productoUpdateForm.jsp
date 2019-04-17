@@ -40,8 +40,8 @@
             <br><br>
             
             <label>Categoria:</label><br>
-            <select name="idcategoria" >                        
-            
+            <select id="idcategoria" name="idcategoria">                        
+            <option value="<%= CProducto.getIdCategoria() %>" selected disabled hidden><%= CProducto.getIdCategoria() %></option>
             <%
             if(iteArray!=null)
             {

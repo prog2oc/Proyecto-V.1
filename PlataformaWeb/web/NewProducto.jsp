@@ -39,7 +39,7 @@
             <br><br>
             
             <label>Categoria:</label><br>
-            <select name="idcategoria" >                        
+            <select id="idcategoria" name="idcategoria" >                        
             
             <%
             if(iteArray!=null)
