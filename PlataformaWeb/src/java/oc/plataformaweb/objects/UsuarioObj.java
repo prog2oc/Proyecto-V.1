@@ -3,28 +3,31 @@ package oc.plataformaweb.objects;
 
 
 public class UsuarioObj {
-    private int m_iId;
-    private String m_strNombre;
-    private String m_strApellido;
-    private String m_strNombreUsuario;
-    private String m_strGenero;
-    private String m_strCorreo;
-    private String m_strContrasena;
-    private String m_strDireccion;
+    
+private int m_iId;   
+private String m_strNombre;
+private String m_strApellido;
+private String m_strNombreUsuario;
+private String m_strGenero;
+private String m_strFechaNacimiento;
+private String m_strCorreo;
+private String m_strContrasena;
+private String m_strDepartamento;
+private String m_strDireccion;
 
-    public UsuarioObj(int p_iId, String p_strNombre, String p_strApellido, String p_strNombreUsuario, String p_strGenero, String p_strCorreo, String p_strContrasena) {
+    public UsuarioObj(int p_iId, String p_strNombre, String p_strApellido, String p_strNombreUsuario, String p_strGenero, String p_strFechaNacimiento, String p_strCorreo, String p_strContrasena, String p_strDepartamento, String p_strDireccion) {
         setId(p_iId);
         setNombre(p_strNombre);
         setApellido(p_strApellido);
         setNombreUsuario(p_strNombreUsuario);
         setGenero(p_strGenero);
+        setFechaNacimiento(p_strFechaNacimiento);
         setCorreo(p_strCorreo);
         setContrasena(p_strContrasena);
+        setDepartamento(p_strDepartamento);
+        setDireccion(p_strDireccion);
     }
 
-    public UsuarioObj(int iId, String strNombre, String strApellido, String strNombreUsuario, String strGenero, String strCorreo, String strContrasena, String strDireccion) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     public int getId() {
         return m_iId;
@@ -66,6 +69,14 @@ public class UsuarioObj {
         m_strGenero = p_strGenero;
     }
 
+    public String getFechaNacimiento() {
+        return m_strFechaNacimiento;
+    }
+
+    private void setFechaNacimiento(String p_strFechaNacimiento) {
+        m_strFechaNacimiento = p_strFechaNacimiento;
+    }
+
     public String getCorreo() {
         return m_strCorreo;
     }
@@ -81,6 +92,15 @@ public class UsuarioObj {
     private void setContrasena(String p_strContrasena) {
         m_strContrasena = p_strContrasena;
     }
+
+    public String getDepartamento() {
+        return m_strDepartamento;
+    }
+
+    private void setDepartamento(String p_strDepartamento) {
+        m_strDepartamento = p_strDepartamento;
+    }
+
     public String getDireccion() {
         return m_strDireccion;
     }
@@ -88,4 +108,5 @@ public class UsuarioObj {
     private void setDireccion(String p_strDireccion) {
         m_strDireccion = p_strDireccion;
     }
+
 }

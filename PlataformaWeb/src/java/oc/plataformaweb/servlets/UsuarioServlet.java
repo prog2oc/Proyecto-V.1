@@ -1,19 +1,26 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package oc.plataformaweb.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import oc.plataformaweb.logic.UsuarioLogic;
+import oc.plataformaweb.objects.UsuarioObj;
 
 /**
  *
  * @author GabrielaB
  */
-@WebServlet(name = "UserServlet", urlPatterns = {"/UserServlet"})
+@WebServlet(name = "UsuarioServlet", urlPatterns = {"/UsuarioServlet"})
 public class UsuarioServlet extends HttpServlet {
 
     /**
@@ -28,17 +35,88 @@ public class UsuarioServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet UserServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet UserServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        try (PrintWriter out = response.getWriter()) 
+        {
+                String strFormId = request.getParameter("formid");
+            
+            if(strFormId.equals("1"))
+            {
+                String strNombre = request.getParameter("nombre");
+                String strApellido = request.getParameter("apellido");
+                String strNombreUsuario = request.getParameter("usuario");
+                String strGenero = request.getParameter("genero"); 
+                String strFechaNacimiento = request.getParameter("fechanacimiento");
+                String strCorreo = request.getParameter("correo"); 
+                String strContrasena = request.getParameter("contrasena"); 
+                String strDepartamento = request.getParameter("departamento");
+                String strDireccion = request.getParameter("direccion");
+                
+                               
+             
+                UsuarioLogic ULogic = new UsuarioLogic();
+                int iRows = ULogic.insertUsuarioRows(strNombre, strApellido, strNombreUsuario, strGenero, strFechaNacimiento, strCorreo, strContrasena, strDepartamento, strDireccion);
+                System.out.println("insert usuario rows: " + iRows);
+              
+                request.getSession().setAttribute("rows", new Integer(iRows));
+                response.sendRedirect("UsuariogenericMessage.jsp");
+            }
+            
+            if(strFormId.equals("2"))
+            {
+                UsuarioLogic ULogic = new UsuarioLogic();
+                ArrayList<UsuarioObj> UArray = ULogic.getAllUsuarios();
+              
+                request.getSession().setAttribute("usuario", UArray);
+                response.sendRedirect("usuarioForm.jsp");
+            }
+            
+            if(strFormId.equals("3"))
+            {
+                String strId = request.getParameter("id");
+                int iId = Integer.parseInt(strId);
+                
+                UsuarioLogic ULogic = new UsuarioLogic();
+                int iRows = ULogic.deleteUsuarioRows(iId);
+                
+                request.getSession().setAttribute("rows", iRows);
+                response.sendRedirect("UsuariogenericMessage.jsp");
+            }
+            
+            if(strFormId.equals("4"))
+            {
+                String strId = request.getParameter("id");
+                int iId = Integer.parseInt(strId);
+                
+                UsuarioLogic ULogic = new UsuarioLogic();
+                UsuarioObj UUsuario = ULogic.getUsuarioById(iId);
+          
+                request.getSession().setAttribute("usuario", UUsuario);
+                response.sendRedirect("usuarioUpdate.jsp");
+            }   
+            
+            if(strFormId.equals("5"))
+            {
+                String strId=request.getParameter("id");
+                String strNombre = request.getParameter("nombre");
+                String strApellido = request.getParameter("apellido");
+                String strNombreUsuario = request.getParameter("usuario");
+                String strGenero = request.getParameter("genero"); 
+                String strFechaNacimiento = request.getParameter("fechanacimiento");
+                String strCorreo = request.getParameter("correo"); 
+                String strContrasena = request.getParameter("contrasena"); 
+                String strDepartamento = request.getParameter("departamento");
+                String strDireccion = request.getParameter("direccion");    
+                int iId = Integer.parseInt(strId);
+               
+                UsuarioLogic ULogic = new UsuarioLogic();
+                int iRows = ULogic.updateUsuarioRows(iId, strNombre, strApellido, strNombreUsuario, strGenero, strFechaNacimiento, strCorreo, strContrasena, strDepartamento, strDireccion);
+                System.out.println("update usuario rows: " + iRows);
+                
+                //send to frontend
+                request.getSession().setAttribute("rows", new Integer(iRows) );
+                response.sendRedirect("UsuariogenericMessage.jsp");
+            }
+            
         }
     }
 
