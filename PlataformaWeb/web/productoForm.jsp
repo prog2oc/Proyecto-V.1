@@ -50,7 +50,7 @@
                     <td><%= CTemp.getIdCategoria() %></td>
                     <td><%= CTemp.getIdEmpresa() %></td>
                     <td>
-                        <a href="ProductoServlet?formid=4&id=<%= CTemp.getId() %>">
+                        <a href="ProductoServlet?formid=4&id=<%= CTemp.getId() %>&idCat=<%= CTemp.getIdCategoria() %>">
                             Update
                         </a>
                     </td>

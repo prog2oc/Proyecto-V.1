@@ -1,3 +1,4 @@
+<%@page import="oc.plataformaweb.logic.CategoriaLogic"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="oc.plataformaweb.objects.CategoriaObj"%>
 <%@page import="java.util.ArrayList"%>
@@ -17,6 +18,8 @@
                 (ArrayList<CategoriaObj>)request.getSession().getAttribute("categoria");
         Iterator<CategoriaObj> iteArray = CArray.iterator();
         
+        CategoriaLogic CatLog = new CategoriaLogic();
+        CategoriaObj Categoria = CatLog.getCategoriaById(CProducto.getIdCategoria());
     %>
     <body>
         <h1>Actualizar Categoria</h1>
@@ -41,7 +44,7 @@
             
             <label>Categoria:</label><br>
             <select id="idcategoria" name="idcategoria">                        
-            <option value="<%= CProducto.getIdCategoria() %>" selected disabled hidden><%= CProducto.getIdCategoria() %></option>
+            <option value="<%= Categoria.getId() %>" selected disabled hidden><%=Categoria.getNombre() %></option>
             <%
             if(iteArray!=null)
             {

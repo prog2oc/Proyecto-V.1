@@ -17,7 +17,7 @@
     
     <%
         ArrayList<CategoriaObj> CArray = 
-                (ArrayList<CategoriaObj>)request.getSession().getAttribute("categoria");
+                (ArrayList<CategoriaObj>)request.getSession().getAttribute("categorias");
         Iterator<CategoriaObj> iteArray = CArray.iterator();
     %>    
     

@@ -87,7 +87,7 @@ public class ProductoServlet extends HttpServlet {
                 ArrayList<CategoriaObj> CArray = CLogic.getAllCategorias();
                 
                 //send to frontend
-                request.getSession().setAttribute("categoria", CArray);
+                request.getSession().setAttribute("categorias", CArray);
                 //send to frontend
                 request.getSession().setAttribute("producto", CProducto);
                 response.sendRedirect("productoUpdateForm.jsp");
@@ -124,7 +124,7 @@ public class ProductoServlet extends HttpServlet {
                 ArrayList<CategoriaObj> CArray = CLogic.getAllCategorias();
                 
                 //send to frontend
-                request.getSession().setAttribute("categoria", CArray);
+                request.getSession().setAttribute("categorias", CArray);
                 response.sendRedirect("NewProducto.jsp");
             }
             
