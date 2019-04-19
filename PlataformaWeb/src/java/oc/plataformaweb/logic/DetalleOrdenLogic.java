@@ -1,19 +1,19 @@
+
 package oc.plataformaweb.logic;
-/**
- * @author Gabriela Centeno
- */
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import oc.plataformaweb.database.DatabaseX;
-import oc.plataformaweb.objects.NuevaOrdenObj;
+import oc.plataformaweb.objects.DetalleOrdenObj;
 
 
-public class NuevaOrdenLogic extends Logic{
+public class DetalleOrdenLogic extends Logic
+{
 
-  public boolean insertNuevaOrdenBool(int p_idproducto, int p_idorden, int p_cantidad,double p_descuento)
+    public boolean insertNuevaOrdenBool(int p_idproducto, int p_idorden, int p_cantidad,double p_descuento)
     {
         DatabaseX database = getDatabase();
         String strSql = "INSERT INTO ocplataformaweb.detalleorden (idproducto, idorden, cantidad, descuento)"
@@ -33,13 +33,13 @@ public class NuevaOrdenLogic extends Logic{
         return iRows;
     }
 
-    public ArrayList<NuevaOrdenObj> getAllUsuarios() 
+    public ArrayList<DetalleOrdenObj> getAllUsuarios() 
     {
         DatabaseX database = getDatabase();
         String strSql = "select * from ocplataformaweb.detalleorden ";
         System.out.println(strSql);
         ResultSet CResult = database.executeQuery(strSql);
-        ArrayList<NuevaOrdenObj> CArray = null;
+        ArrayList<DetalleOrdenObj> CArray = null;
         
         if(CResult!=null)
         {
@@ -48,7 +48,7 @@ public class NuevaOrdenLogic extends Logic{
             int cantidad;
             double descuento;
             
-            NuevaOrdenObj CTemp;
+            DetalleOrdenObj CTemp;
             CArray = new ArrayList<>();
             
             try 
@@ -60,13 +60,13 @@ public class NuevaOrdenLogic extends Logic{
                      cantidad = CResult.getInt("cantidad");
                      descuento = CResult.getDouble("descuento");
                                          
-                    CTemp = new NuevaOrdenObj(idproducto, idorden, cantidad, descuento);
+                    CTemp = new DetalleOrdenObj(idproducto, idorden, cantidad, descuento);
                     CArray.add(CTemp);
                 }
             } 
             catch (SQLException ex) 
             {
-                Logger.getLogger(NuevaOrdenLogic.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(UsuarioLogic.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         
@@ -84,13 +84,13 @@ public class NuevaOrdenLogic extends Logic{
         return iRows;
     }
         
-    public NuevaOrdenObj getNuevaOrdenById(int idproducto,int idorden)
+    public DetalleOrdenObj getNuevaOrdenById(int idproducto,int idorden)
     {
         DatabaseX database = getDatabase();
         String strSql = "select * from ocplataformaweb.detalleorden where id="+idproducto+" and idorden="+idorden+"";
         System.out.println(strSql);
         ResultSet CResult = database.executeQuery(strSql);
-        NuevaOrdenObj CTemp = null;
+        DetalleOrdenObj CTemp = null;
         
         if(CResult!=null)
         {
@@ -108,16 +108,17 @@ public class NuevaOrdenLogic extends Logic{
                     cantidad = CResult.getInt("cantidad");
                     descuento = CResult.getDouble("descuento");
                     
-                    CTemp = new NuevaOrdenObj(idproducto, idorden, cantidad, descuento);
+                    CTemp = new DetalleOrdenObj(idproducto, idorden, cantidad, descuento);
                 }
             } 
             catch (SQLException ex) 
             {
-                Logger.getLogger(NuevaOrdenLogic.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(UsuarioLogic.class.getName()).log(Level.SEVERE, null, ex);
             }   
         }
         
         return CTemp;
         
     }
+    
 }

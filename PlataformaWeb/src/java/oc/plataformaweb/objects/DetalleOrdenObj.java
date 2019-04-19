@@ -1,16 +1,14 @@
 package oc.plataformaweb.objects;
-/**
- * @author Gabriela Centeno
- */
-    public class NuevaOrdenObj 
-    {
-        private int m_iIdproducto;
+
+public class DetalleOrdenObj {
+    
+     private int m_iIdproducto;
         private int m_iIdorden;
         private int m_iCantidad;
         private double m_dDescuento;
        
         // CONSTRUCTOR
-        public NuevaOrdenObj(int p_iIdproducto, int p_iIdorden, int p_iCantidad, double p_dDescuento)
+        public DetalleOrdenObj(int p_iIdproducto, int p_iIdorden, int p_iCantidad, double p_dDescuento)
             {
 
                 setIdproducto(p_iIdproducto);
@@ -59,10 +57,5 @@ package oc.plataformaweb.objects;
             {
                 m_dDescuento = p_dDescuento;
             }
-        
-    }
     
-    
-
-
-
+}
