@@ -4,14 +4,76 @@
         <title>EBuy</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+        <link href="Style/index.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <h1>EBuy</h1>
+        
+        <!--
         <br>
         <a href="CategoriaServlet?formid=2">Categoria</a>
         <br>
         <a href="ProductoServlet?formid=2">Producto</a>
         <br>
         <a href="EmpresaServlet?formid=2">Ver empresas</a>
+        -->
+        <dir></dir>
+        <div class="header">
+            <h1 class="logo">e<span class="blue">S</span>e<span class="blue">V</span>olado</h1>
+            <input type="checkbox" id="chk">
+            <label for="chk" class="show-menu-btn">
+                <i class="fas fa-ellipsis-h"></i>
+            </label>
+
+            <ul class="menu">
+                <a onclick="document.getElementById('id01').style.display='block'">Iniciar Sesión</a>
+                o
+                <a href="#">Registrarse</a>
+                ----
+                <a href="#">Empresas</a>
+                <label for="chk" class="hide-menu-btn" >
+                        <i class="fas fa-times"></i>
+                </label>
+                
+            </ul>
+
+        </div>
+
+        <span>
+                <!-- El Form de Inicio sesión -->
+                <div id="id01" class="modal">
+                <span onclick="document.getElementById('id01').style.display='none'" 
+                class="close" title="Close Modal">&times;</span>
+
+                <!-- Modal Content -->
+                <form class="modal-content animate" action="/action_page.php">
+                      
+                        <div class="container">
+                          <label for="uname"><b>Username</b></label>
+                          <input type="text" placeholder="Enter Username" name="uname" required>
+                      
+                          <label for="psw"><b>Password</b></label>
+                          <input type="password" placeholder="Enter Password" name="psw" required>
+                      
+                          <button type="submit">Login</button>
+                          <label>
+                            <input type="checkbox" checked="checked" name="remember"> Remember me
+                          </label>
+                        </div>
+                      
+                        <div class="container" style="background-color:#f1f1f1">
+                                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                          <span class="psw">Forgot <a href="#">password?</a></span>
+                        </div>
+                      </form>
+                </div>
+        </span>
+
+       
+            <p>
+                afmlhdshfadshfadshfakldfshk
+            </p>
+       
+
     </body>
 </html>
