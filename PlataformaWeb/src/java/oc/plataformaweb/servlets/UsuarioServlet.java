@@ -91,7 +91,7 @@ public class UsuarioServlet extends HttpServlet {
                 UsuarioObj UUsuario = ULogic.getUsuarioById(iId);
           
                 request.getSession().setAttribute("usuario", UUsuario);
-                response.sendRedirect("usuarioUpdate.jsp");
+                response.sendRedirect("usuarioUpdateForm.jsp");
             }   
             
             if(strFormId.equals("5"))
