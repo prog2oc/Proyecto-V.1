@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Nuevo Usuario</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>New Empresa</h1>
+        <br><br>
+        
+        <form id="myform" name="myform" action="UsuarioServlet" method="get">
+            
+            
+            <label>Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre" />
+            <br><br>
+            
+            <label>Apellido:</label><br>
+            <input type="text" id="apellido" name="apellido" />
+            <br><br>
+            
+            <label>Usuario:</label><br>
+            <input type="text" id="usuario" name="usuario" />
+            <br><br>
+            
+            <label>Género:</label><br>
+            <select name="genero">
+                <option value="F">Femenino</option>
+                <option value="M">Masculino</option>
+                <option value="O">Otros</option>
+            </select>
+            <br><br>
+            
+            <label>Fecha de nacimiento:</label><br>
+            <input type="date" id="fechanacimiento" name="fechanacimiento" />
+            <br><br>
+            
+            <label>Correo:</label><br>
+            <input type="text" id="correo" name="correo" />
+            <br><br>
+            
+            <label>Contrasena:</label><br>
+            <input type="text" id="contrasena" name="contrasena" />
+            <br><br>
+            
+             <label>Departamento:</label><br>
+            <select name="departamento">
+                <option value="AH">Ahuachapan</option>
+                <option value="CA">Cabañas</option>
+                <option value="CH">Chalatenango</option>
+                <option value="CU">Cuscatlán</option>
+                <option value="LI">La Libertad</option>
+                <option value="MO">Morazán</option>
+                <option value="PA">La Paz</option>
+                <option value="SA">Santa Ana</option>
+                <option value="SM">San Miguel</option>
+                <option value="SO">Sonsonate</option>
+                <option value="SS">San Salvador</option>
+                <option value="SV">San Vicente</option>
+                <option value="UN">La Unión</option>
+                <option value="US">Usulután</option>
+            </select>
+            <br><br>
+             <label>Dirección:</label><br>
+            <input type="text" id="direccion" name="direccion" />
+            <br><br>
+            <input type="submit" id="mysubmit" name="mysubmit" value="Create"/>
+            <input type="hidden" id="formid" name="formid" value="1" />
+        </form>
+    </body>
+</html>
