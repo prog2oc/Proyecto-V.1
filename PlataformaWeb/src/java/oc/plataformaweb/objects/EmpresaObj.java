@@ -1,31 +1,26 @@
 
 package oc.plataformaweb.objects;
 
-public class EmpresaObj 
-{
+public final class EmpresaObj {
+    
     private int m_iId;
     private String m_strNombre;
-    private String m_strDescripcion;
-    private byte m_bImagen;
-    private String m_strCorreo;
+    private String m_strDireccion;
+    private String m_strDepartamento;
+    private String m_strCiudad;
     private String m_strTelefono;
-    private String m_strContrasena;
-    private int m_iIdDireccion;
+    private String m_strSitioWeb;
 
-    public EmpresaObj(int p_iId, String p_strNombre, String p_strDescripcion, byte p_bImagen, String p_strCorreo, 
-            String p_strTelefono, String p_strContrasena, int p_iIdDireccion) {
+    public EmpresaObj(int p_iId, String p_strNombre, String p_strDireccion, String p_strDepartamento, String p_strCiudad, String p_strTelefono, String p_strSitioWeb) {
         setId(p_iId);
         setNombre(p_strNombre);
-        setDescripcion(p_strDescripcion);
-        setImagen(p_bImagen);
-        setCorreo(p_strCorreo);
+        setDireccion(p_strDireccion);
+        setDepartamento(p_strDepartamento);
+        setCiudad(p_strCiudad);
         setTelefono(p_strTelefono);
-        setContrasena(p_strContrasena);
-        setIdDireccion(p_iIdDireccion);
+        setSitioWeb(p_strSitioWeb);
     }
     
-    
-
     public int getId() {
         return m_iId;
     }
@@ -42,54 +37,45 @@ public class EmpresaObj
         m_strNombre = p_strNombre;
     }
 
-    public String getDescripcion() {
-        return m_strDescripcion;
+    public String getDireccion() {
+        return m_strDireccion;
     }
 
-    private void setDescripcion(String p_strDescripcion) {
-        m_strDescripcion = p_strDescripcion;
+    private void setDireccion(String p_strDireccion) {
+        m_strDireccion = p_strDireccion;
     }
 
-    public byte getImagen() {
-        return m_bImagen;
+    public String getDepartamento() {
+        return m_strDepartamento;
     }
 
-    private void setImagen(byte p_bImagen) {
-        m_bImagen = p_bImagen;
+    public void setDepartamento(String p_strDepartamento) {
+        m_strDepartamento = p_strDepartamento;
     }
 
-    public String getCorreo() {
-        return m_strCorreo;
+    public String getCiudad() {
+        return m_strCiudad;
     }
 
-    private void setCorreo(String p_strCorreo) {
-        m_strCorreo = p_strCorreo;
+    public void setCiudad(String p_strCiudad) {
+        m_strCiudad = p_strCiudad;
     }
 
     public String getTelefono() {
         return m_strTelefono;
     }
 
-    private void setTelefono(String p_strTelefono) {
+    public void setTelefono(String p_strTelefono) {
         m_strTelefono = p_strTelefono;
     }
 
-    public String getContrasena() {
-        return m_strContrasena;
+    public String getSitioWeb() {
+        return m_strSitioWeb;
     }
 
-    private void setContrasena(String p_strContrasena) {
-        m_strContrasena = p_strContrasena;
+    public void setSitioWeb(String p_strSitioWeb) {
+        m_strSitioWeb = p_strSitioWeb;
     }
-
-    public int getIdDireccion() {
-        return m_iIdDireccion;
-    }
-
-    private void setIdDireccion(int p_iIdDireccion) {
-        m_iIdDireccion = p_iIdDireccion;
-    }
-    
     
     
 }
