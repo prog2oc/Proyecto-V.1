@@ -1,9 +1,3 @@
-<%-- 
-    Document   : VistaPorEmpresa
-    Created on : 18/04/2019, 11:54:44 PM
-    Author     : erick
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
