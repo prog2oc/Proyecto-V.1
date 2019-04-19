@@ -4,6 +4,10 @@
     Author     : erick
 --%>
 
+<%@page import="oc.plataformaweb.objects.EmpresaObj"%>
+<%@page import="oc.plataformaweb.logic.EmpresaLogic"%>
+<%@page import="oc.plataformaweb.objects.CategoriaObj"%>
+<%@page import="oc.plataformaweb.logic.CategoriaLogic"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="oc.plataformaweb.objects.ProductoObj"%>
 <%@page import="java.util.ArrayList"%>
@@ -18,6 +22,7 @@
         ArrayList<ProductoObj> CArray = 
                 (ArrayList<ProductoObj>)request.getSession().getAttribute("producto");
         Iterator<ProductoObj> iteArray = CArray.iterator();
+        
     %>    
     <body>
         <h1>Categorias</h1>
@@ -41,16 +46,22 @@
                 while(iteArray.hasNext())
                 {
                     CTemp = iteArray.next();
+                                       
+                    CategoriaLogic CatLog = new CategoriaLogic();
+                    CategoriaObj Categoria = CatLog.getCategoriaById(CTemp.getIdCategoria());
+                    
+                    EmpresaLogic EmpLog = new EmpresaLogic();
+                    EmpresaObj Empresa = EmpLog.getEmpresaById(CTemp.getIdEmpresa());
         %>
                 <tr>
                     <td><%= CTemp.getId() %></td>
                     <td><%= CTemp.getNombreProducto() %></td>
                     <td><%= CTemp.getPrecioUnidad() %></td>
                     <td><%= CTemp.getUnidades() %></td>
-                    <td><%= CTemp.getIdCategoria() %></td>
-                    <td><%= CTemp.getIdEmpresa() %></td>
+                    <td><%= Categoria.getNombre() %></td>
+                    <td><%= Empresa.getNombre() %></td>
                     <td>
-                        <a href="ProductoServlet?formid=4&id=<%= CTemp.getId() %>&idCat=<%= CTemp.getIdCategoria() %>">
+                        <a href="ProductoServlet?formid=4&id=<%= CTemp.getId() %>">
                             Update
                         </a>
                     </td>
