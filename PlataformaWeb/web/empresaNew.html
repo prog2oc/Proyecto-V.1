@@ -10,10 +10,13 @@
         <h1>New Empresa</h1>
         <br><br>
         
-        <form id="myform" name="myform" action="EmpresaServlet" method="get">
-            <label>Nombre:</label><br>
-            
+        <form id="myform" name="myform" action="EmpresaServlet" method="post" enctype="multipart/form-data">
+            <label>Nombre:</label><br>            
             <input type="text" id="nombre" name="nombre" />
+            <br><br>
+            
+            <label>Logo:</label><br>            
+            <input type="file" id="logo" name="logo" />
             <br><br>
             
             <label>Direccion:</label><br>
