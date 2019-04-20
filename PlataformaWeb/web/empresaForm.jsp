@@ -18,12 +18,13 @@
     <body>
         <h1>Empresa</h1>
         <br>
-        <a href="empresaNew.html">Nueva Empresa</a>
+        <a href="empresaNew.jsp">Nueva Empresa</a>
         <br><br>
         <table>
         <tr>
             <th>Id</th>
             <th>Nombre</th>
+            <th>Logo</th>
             <th>Direccion</th>
             <th>Direccion</th>
             <th>Departamento</th>
@@ -42,6 +43,17 @@
                 <tr>
                     <td><%= ETemp.getId() %></td>
                     <td><%= ETemp.getNombre() %></td>
+                    <%
+                        if(ETemp.getLogo()!= null){
+                    %>
+                    <td> <img src="img/Logos/<%=ETemp.getLogo()%>"> </td>
+                    <%
+                        } else {
+                    %>
+                    <td> No hay imagen. </td>
+                    <%
+                        }
+                    %>
                     <td><%= ETemp.getDireccion() %></td>
                     <td><%= ETemp.getDepartamento() %></td>
                     <td><%= ETemp.getCiudad() %></td>
