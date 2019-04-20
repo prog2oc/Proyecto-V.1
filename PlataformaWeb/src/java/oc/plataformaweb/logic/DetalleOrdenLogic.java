@@ -13,7 +13,7 @@ import oc.plataformaweb.objects.DetalleOrdenObj;
 public class DetalleOrdenLogic extends Logic
 {
 
-    public boolean insertNuevaOrdenBool(int p_idproducto, int p_idorden, int p_cantidad,double p_descuento)
+    public boolean insertDetalleOrdenBool(int p_idproducto, int p_idorden, int p_cantidad,double p_descuento)
     {
         DatabaseX database = getDatabase();
         String strSql = "INSERT INTO ocplataformaweb.detalleorden (idproducto, idorden, cantidad, descuento)"
@@ -23,7 +23,7 @@ public class DetalleOrdenLogic extends Logic
         return bsuccess;
     }
     
-    public int insertNuevaOrdenRows(int p_idproducto, int p_idorden, int p_cantidad,double p_descuento)
+    public int insertDetalleOrdenRows(int p_idproducto, int p_idorden, int p_cantidad,double p_descuento)
     {
         DatabaseX database = getDatabase();
         String strSql = "INSERT INTO ocplataformaweb.detalleorden (idproducto, idorden, cantidad, descuento)"
@@ -33,7 +33,7 @@ public class DetalleOrdenLogic extends Logic
         return iRows;
     }
 
-    public ArrayList<DetalleOrdenObj> getAllUsuarios() 
+    public ArrayList<DetalleOrdenObj> getAllDetallesOrden() 
     {
         DatabaseX database = getDatabase();
         String strSql = "select * from ocplataformaweb.detalleorden ";
@@ -74,7 +74,7 @@ public class DetalleOrdenLogic extends Logic
         
     }
 
-    public int deleteNuevaOrdenRows(int idproducto, int idorden) 
+    public int deleteDetalleOrdenRows(int idproducto, int idorden) 
     {
         DatabaseX database = getDatabase();
         String strSql = "delete from ocplataformaweb.detalleorden "
@@ -84,7 +84,7 @@ public class DetalleOrdenLogic extends Logic
         return iRows;
     }
         
-    public DetalleOrdenObj getNuevaOrdenById(int idproducto,int idorden)
+    public DetalleOrdenObj getDetalleOrdenById(int idproducto,int idorden)
     {
         DatabaseX database = getDatabase();
         String strSql = "select * from ocplataformaweb.detalleorden where id="+idproducto+" and idorden="+idorden+"";
