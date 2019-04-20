@@ -1,24 +1,19 @@
 
 package oc.plataformaweb.objects;
 
-import java.io.InputStream;
-
 public final class EmpresaObj {
     
     private int m_iId;
     private String m_strNombre;
-    private InputStream m_isLogo;
-    private byte[] m_bLogo;
     private String m_strDireccion;
     private String m_strDepartamento;
     private String m_strCiudad;
     private String m_strTelefono;
     private String m_strSitioWeb;
 
-    public EmpresaObj(int p_iId, String p_strNombre, byte[] p_bLogo, String p_strDireccion, String p_strDepartamento, String p_strCiudad, String p_strTelefono, String p_strSitioWeb) {
+    public EmpresaObj(int p_iId, String p_strNombre, String p_strDireccion, String p_strDepartamento, String p_strCiudad, String p_strTelefono, String p_strSitioWeb) {
         setId(p_iId);
         setNombre(p_strNombre);
-        setbLogo(p_bLogo);
         setDireccion(p_strDireccion);
         setDepartamento(p_strDepartamento);
         setCiudad(p_strCiudad);
@@ -41,24 +36,6 @@ public final class EmpresaObj {
     private void setNombre(String p_strNombre) {
         m_strNombre = p_strNombre;
     }
-
-    public InputStream getLogo() {
-        return m_isLogo;
-    }
-
-    public void setLogo(InputStream p_ISLogo) {
-        m_isLogo = p_ISLogo;
-    }
-
-    public byte[] getbLogo() {
-        return m_bLogo;
-    }
-
-    public void setbLogo(byte[] p_bLogo) {
-        this.m_bLogo = p_bLogo;
-    }
-    
-    
 
     public String getDireccion() {
         return m_strDireccion;

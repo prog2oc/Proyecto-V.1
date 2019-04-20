@@ -15,7 +15,7 @@
         <h1>Update Client</h1>
         <br><br>
         
-        <form id="myform" name="myform" action="EmpresaServlet" method="get" enctype="multipart/form-data">
+        <form id="myform" name="myform" action="EmpresaServlet" method="get">
             
             <label>Id:</label><br>
             <input type="number" id="nonId" name="nonId" value="<%= CEmpresa.getId() %>" disabled/>
@@ -23,10 +23,6 @@
             
             <label>Nombre:</label><br>
             <input type="text" id="nombre" name="nombre" value="<%= CEmpresa.getNombre() %>" />
-            <br><br>
-            
-            <label>Logo:</label><br>            
-            <input type="file" id="logo" name="logo" value="<%= CEmpresa.getLogo() %>"/>
             <br><br>
             
             <label>Direccion:</label><br>

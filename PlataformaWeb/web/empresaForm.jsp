@@ -24,7 +24,6 @@
         <tr>
             <th>Id</th>
             <th>Nombre</th>
-            <th>Imagen</th>
             <th>Direccion</th>
             <th>Direccion</th>
             <th>Departamento</th>
@@ -43,7 +42,6 @@
                 <tr>
                     <td><%= ETemp.getId() %></td>
                     <td><%= ETemp.getNombre() %></td>
-                    <td><img src="CargarImagen?id=<%= ETemp.getId() %>" width="250px" height="250px"></td>
                     <td><%= ETemp.getDireccion() %></td>
                     <td><%= ETemp.getDepartamento() %></td>
                     <td><%= ETemp.getCiudad() %></td>

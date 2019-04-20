@@ -2,20 +2,16 @@
 package oc.plataformaweb.servlets;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 import oc.plataformaweb.logic.EmpresaLogic;
 import oc.plataformaweb.objects.EmpresaObj;
 
-@MultipartConfig
 @WebServlet(name = "EmpresaServlet", urlPatterns = {"/EmpresaServlet"})
 public class EmpresaServlet extends HttpServlet 
 {
@@ -32,16 +28,14 @@ public class EmpresaServlet extends HttpServlet
             if(strFormId.equals("1"))
             {
                 String strNombre = request.getParameter("nombre");
-                Part part = request.getPart("logo");
                 String strDireccion = request.getParameter("direccion");
                 String strDepartamento = request.getParameter("departamento");
                 String strCiudad = request.getParameter("ciudad");
                 String strTelefono = request.getParameter("telefono");
-                String strSitioWeb = request.getParameter("sitioweb"); 
-                InputStream isLogo = part.getInputStream();
+                String strSitioWeb = request.getParameter("sitioweb");                
              
                 EmpresaLogic ELogic = new EmpresaLogic();
-                int iRows = ELogic.insertEmpresaRows(strNombre, isLogo, strDireccion, strDepartamento, strCiudad, strTelefono, strSitioWeb);
+                int iRows = ELogic.insertEmpresaRows(strNombre, strDireccion, strDepartamento, strCiudad, strTelefono, strSitioWeb);
                 System.out.println("insert empresa rows: " + iRows);
               
                 request.getSession().setAttribute("rows", new Integer(iRows));
@@ -85,17 +79,15 @@ public class EmpresaServlet extends HttpServlet
             {
                 String strId = request.getParameter("id");
                 String strNombre = request.getParameter("nombre");
-                Part part = request.getPart("logo");
                 String strDireccion = request.getParameter("direccion");
                 String strDepartamento = request.getParameter("departamento");
                 String strCiudad = request.getParameter("ciudad");
                 String strTelefono = request.getParameter("telefono");
                 String strSitioWeb = request.getParameter("sitioweb");    
                 int iId = Integer.parseInt(strId);
-                InputStream isLogo = part.getInputStream();
                
                 EmpresaLogic ELogic = new EmpresaLogic();
-                int iRows = ELogic.updateEmpresaRows(iId,strNombre,isLogo ,strDireccion,strDepartamento,strCiudad,strTelefono,strSitioWeb);
+                int iRows = ELogic.updateEmpresaRows(iId,strNombre,strDireccion,strDepartamento,strCiudad,strTelefono,strSitioWeb);
                 System.out.println("update empresa rows: " + iRows);
                 
                 //send to frontend
