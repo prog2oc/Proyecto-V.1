@@ -1,17 +1,25 @@
 
 package oc.plataformaweb.servlets;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import oc.plataformaweb.logic.EmpresaLogic;
 import oc.plataformaweb.objects.EmpresaObj;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+@MultipartConfig
 @WebServlet(name = "EmpresaServlet", urlPatterns = {"/EmpresaServlet"})
 public class EmpresaServlet extends HttpServlet 
 {
@@ -26,18 +34,22 @@ public class EmpresaServlet extends HttpServlet
             String strFormId = request.getParameter("formid");
             
             if(strFormId.equals("1"))
-            {
+            {             
+                
                 String strNombre = request.getParameter("nombre");
+                Part pLogo = request.getPart("logo");
                 String strDireccion = request.getParameter("direccion");
                 String strDepartamento = request.getParameter("departamento");
                 String strCiudad = request.getParameter("ciudad");
                 String strTelefono = request.getParameter("telefono");
-                String strSitioWeb = request.getParameter("sitioweb");                
+                String strSitioWeb = request.getParameter("sitioweb");
+                String strLogo = pLogo.getSubmittedFileName();
              
                 EmpresaLogic ELogic = new EmpresaLogic();
-                int iRows = ELogic.insertEmpresaRows(strNombre, strDireccion, strDepartamento, strCiudad, strTelefono, strSitioWeb);
+                int iRows = ELogic.insertEmpresaRows(strNombre, strLogo, strDireccion, strDepartamento, strCiudad, strTelefono, strSitioWeb);
                 System.out.println("insert empresa rows: " + iRows);
-              
+                
+                request.getSession().setAttribute("logo", pLogo);
                 request.getSession().setAttribute("rows", new Integer(iRows));
                 response.sendRedirect("EmpresagenericMessage.jsp");
             }
@@ -78,21 +90,34 @@ public class EmpresaServlet extends HttpServlet
             if(strFormId.equals("5"))
             {
                 String strId = request.getParameter("id");
-                String strNombre = request.getParameter("nombre");
+                String strNombre = request.getParameter("nombre");                
+                Part pLogo = request.getPart("logo");
                 String strDireccion = request.getParameter("direccion");
                 String strDepartamento = request.getParameter("departamento");
                 String strCiudad = request.getParameter("ciudad");
                 String strTelefono = request.getParameter("telefono");
                 String strSitioWeb = request.getParameter("sitioweb");    
                 int iId = Integer.parseInt(strId);
+                String strLogo = pLogo.getSubmittedFileName();
+                
+                int iRows;
                
                 EmpresaLogic ELogic = new EmpresaLogic();
-                int iRows = ELogic.updateEmpresaRows(iId,strNombre,strDireccion,strDepartamento,strCiudad,strTelefono,strSitioWeb);
+                if (strLogo != null)
+                {
+                    iRows = ELogic.updateEmpresaRows(iId,strNombre, strLogo, strDireccion,strDepartamento,strCiudad,strTelefono,strSitioWeb);
+                    request.getSession().setAttribute("rows", new Integer(iRows) );
+                    response.sendRedirect("EmpresagenericMessageLogo.jsp");
+                } else {
+                    iRows = ELogic.updateEmpresaSinImagenRows(iId,strNombre,strDireccion,strDepartamento,strCiudad,strTelefono,strSitioWeb);
+                    request.getSession().setAttribute("rows", new Integer(iRows) );
+                    response.sendRedirect("EmpresagenericMessage.jsp");
+                }
                 System.out.println("update empresa rows: " + iRows);
                 
                 //send to frontend
                 request.getSession().setAttribute("rows", new Integer(iRows) );
-                response.sendRedirect("EmpresagenericMessage.jsp");
+                response.sendRedirect("EmpresagenericMessageLogo.jsp");
             }
         }
     }
