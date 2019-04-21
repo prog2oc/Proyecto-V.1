@@ -13,7 +13,7 @@ public class DatabaseX
 
     //variables de clase
     private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/plataformadb"
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/ocplataformaweb"
                 + "?autoReconnect=true"
                 + "&useUnicode=true"
                 + "&useSSL=false"
@@ -21,7 +21,7 @@ public class DatabaseX
                 + "&useLegacyDatetimeCode=false"
                 + "&serverTimezone=UTC";
     private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "1234";
+    private static final String DB_PASSWORD = "12345";
     
     //para hacer la conexion
     private Connection     m_CConnection;
