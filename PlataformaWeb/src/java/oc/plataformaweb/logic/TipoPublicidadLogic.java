@@ -41,7 +41,7 @@ public class TipoPublicidadLogic extends Logic {
             } 
             catch (SQLException ex) 
             {
-                Logger.getLogger(PublicidadLogic.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TipoPublicidadLogic.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         
@@ -97,7 +97,7 @@ public class TipoPublicidadLogic extends Logic {
             } 
             catch (SQLException ex) 
             {
-                Logger.getLogger(PublicidadLogic.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TipoPublicidadLogic.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         
