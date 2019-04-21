@@ -136,18 +136,18 @@ public class EmpresaLogic extends Logic
         
     }
     
-    public int updateEmpresaRows(int p_iId, String p_strNombre, String p_strLogo, String p_strDireccion, String p_strDepartamento, String p_strCiudad, String p_strTelefono, String p_strSitioWeb) 
+    public int updateEmpresaImagenRows(int p_iId, String p_strLogo) 
     {
         DatabaseX database = getDatabase();
         String strSql = "UPDATE ocplataformaweb.empresa" +
-                        " SET nombre = '"+p_strNombre+"', logo = '"+ p_strLogo +"', direccion = '"+p_strDireccion+"', departamento = '"+p_strDepartamento+"', ciudad = '"+p_strCiudad+"', telefono = '"+p_strTelefono+"', sitioweb = '"+p_strSitioWeb+"'" +
-                        " WHERE id = "+p_iId+";";
+                        " SET logo = '"+ p_strLogo +
+                        "' WHERE id = "+p_iId+";";
         System.out.println(strSql);
         int iRows = database.executeNonQueryRows(strSql);
         return iRows;
     }
     
-    public int updateEmpresaSinImagenRows(int p_iId, String p_strNombre, String p_strDireccion, String p_strDepartamento, String p_strCiudad, String p_strTelefono, String p_strSitioWeb) 
+    public int updateEmpresaRows(int p_iId, String p_strNombre, String p_strDireccion, String p_strDepartamento, String p_strCiudad, String p_strTelefono, String p_strSitioWeb) 
     {
         DatabaseX database = getDatabase();
         String strSql = "UPDATE ocplataformaweb.empresa" +

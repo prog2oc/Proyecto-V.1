@@ -18,7 +18,7 @@
     <body>
         <h1>Empresa</h1>
         <br>
-        <a href="empresaNew.jsp">Nueva Empresa</a>
+        <a href="empresaNewLogo.jsp">Nueva Empresa</a>
         <br><br>
         <table>
         <tr>
@@ -44,9 +44,9 @@
                     <td><%= ETemp.getId() %></td>
                     <td><%= ETemp.getNombre() %></td>
                     <%
-                        if(ETemp.getLogo()!= null){
+                        if(ETemp.getLogo()!= ""){
                     %>
-                    <td> <img src="img/Logos/<%=ETemp.getLogo()%>"> </td>
+                    <td> <img src="img/Logos/<%=ETemp.getLogo()%>" width="200px" height="200px"> </td>
                     <%
                         } else {
                     %>
@@ -62,7 +62,12 @@
                     
                     <td>
                         <a href="EmpresaServlet?formid=4&id=<%= ETemp.getId() %>">
-                            update
+                            Cambiar Información
+                        </a>
+                    </td>
+                     <td>
+                        <a href="EmpresaServlet?formid=6&id=<%= ETemp.getId() %>">
+                            Cambiar Logo
                         </a>
                     </td>
                     <td>

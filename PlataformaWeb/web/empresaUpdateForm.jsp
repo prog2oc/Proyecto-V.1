@@ -24,17 +24,30 @@
             <label>Nombre:</label><br>
             <input type="text" id="nombre" name="nombre" value="<%= CEmpresa.getNombre() %>" />
             <br><br>
-            
-            <label>Logo:</label><br>
-            <input type="file" id="logo" name="logo"/>
-            <br><br>
+
             
             <label>Direccion:</label><br>
             <input type="text" id="direccion" name="direccion" value="<%= CEmpresa.getDireccion() %>" />
             <br><br>
             
             <label>Departamento:</label><br>
-            <input type="text" id="departamento" name="departamento" value="<%= CEmpresa.getDepartamento() %>" />
+            <select name="departamento">
+                <option value="<%= CEmpresa.getDepartamento() %>" selected hidden><%= CEmpresa.getDepartamento() %></option>
+                <option value="Ahuachapan">Ahuachapan</option>
+                <option value="Cabanas">Cabanas</option>
+                <option value="Chalatenango">Chalatenango</option>
+                <option value="Cuscatlan">Cuscatlan</option>
+                <option value="La Libertad">La Libertad</option>
+                <option value="Morazan">Morazan</option>
+                <option value="La Paz">La Paz</option>
+                <option value="Santa Ana">Santa Ana</option>
+                <option value="San Miguel">San Miguel</option>
+                <option value="Sonsonate">Sonsonate</option>
+                <option value="San Salvador">San Salvador</option>
+                <option value="San Vicente">San Vicente</option>
+                <option value="La Union">La Union</option>
+                <option value="Usulután">Usulután</option>
+            </select>
             <br><br>
             
             <label>Ciudad:</label><br>

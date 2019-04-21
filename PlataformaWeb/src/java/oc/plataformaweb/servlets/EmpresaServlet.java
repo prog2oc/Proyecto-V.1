@@ -34,22 +34,20 @@ public class EmpresaServlet extends HttpServlet
             String strFormId = request.getParameter("formid");
             
             if(strFormId.equals("1"))
-            {             
-                
+            {            
+               
                 String strNombre = request.getParameter("nombre");
-                Part pLogo = request.getPart("logo");
                 String strDireccion = request.getParameter("direccion");
                 String strDepartamento = request.getParameter("departamento");
                 String strCiudad = request.getParameter("ciudad");
                 String strTelefono = request.getParameter("telefono");
                 String strSitioWeb = request.getParameter("sitioweb");
-                String strLogo = pLogo.getSubmittedFileName();
+                String strLogo = request.getParameter("logo");
              
                 EmpresaLogic ELogic = new EmpresaLogic();
                 int iRows = ELogic.insertEmpresaRows(strNombre, strLogo, strDireccion, strDepartamento, strCiudad, strTelefono, strSitioWeb);
-                System.out.println("insert empresa rows: " + iRows);
-                
-                request.getSession().setAttribute("logo", pLogo);
+                System.out.println("insert empresa rows: " + iRows);                
+        
                 request.getSession().setAttribute("rows", new Integer(iRows));
                 response.sendRedirect("EmpresagenericMessage.jsp");
             }
@@ -90,34 +88,46 @@ public class EmpresaServlet extends HttpServlet
             if(strFormId.equals("5"))
             {
                 String strId = request.getParameter("id");
-                String strNombre = request.getParameter("nombre");                
-                Part pLogo = request.getPart("logo");
+                String strNombre = request.getParameter("nombre");               
                 String strDireccion = request.getParameter("direccion");
                 String strDepartamento = request.getParameter("departamento");
                 String strCiudad = request.getParameter("ciudad");
                 String strTelefono = request.getParameter("telefono");
                 String strSitioWeb = request.getParameter("sitioweb");    
                 int iId = Integer.parseInt(strId);
-                String strLogo = pLogo.getSubmittedFileName();
                 
                 int iRows;
                
                 EmpresaLogic ELogic = new EmpresaLogic();
-                if (strLogo != null)
-                {
-                    iRows = ELogic.updateEmpresaRows(iId,strNombre, strLogo, strDireccion,strDepartamento,strCiudad,strTelefono,strSitioWeb);
-                    request.getSession().setAttribute("rows", new Integer(iRows) );
-                    response.sendRedirect("EmpresagenericMessageLogo.jsp");
-                } else {
-                    iRows = ELogic.updateEmpresaSinImagenRows(iId,strNombre,strDireccion,strDepartamento,strCiudad,strTelefono,strSitioWeb);
-                    request.getSession().setAttribute("rows", new Integer(iRows) );
-                    response.sendRedirect("EmpresagenericMessage.jsp");
-                }
+                
+                iRows = ELogic.updateEmpresaRows(iId,strNombre,strDireccion,strDepartamento,strCiudad,strTelefono,strSitioWeb);                
                 System.out.println("update empresa rows: " + iRows);
                 
-                //send to frontend
                 request.getSession().setAttribute("rows", new Integer(iRows) );
-                response.sendRedirect("EmpresagenericMessageLogo.jsp");
+                response.sendRedirect("EmpresagenericMessage.jsp");
+            }
+            
+            if(strFormId.equals("6")){
+                String strId = request.getParameter("id");
+                int iId = Integer.parseInt(strId);
+                          
+                request.getSession().setAttribute("id", new Integer(iId));
+                response.sendRedirect("empresaUpdateLogo.jsp");
+            }
+            
+            if(strFormId.equals("7")){
+                String strId = request.getParameter("id");
+                String strLogo = request.getParameter("logo");
+                int iId = Integer.parseInt(strId);
+                
+                int iRows;
+                
+                EmpresaLogic ELogic = new EmpresaLogic();
+                
+                iRows = ELogic.updateEmpresaImagenRows(iId, strLogo);
+          
+                request.getSession().setAttribute("rows", new Integer(iRows) );
+                response.sendRedirect("EmpresagenericMessage.jsp");
             }
         }
     }

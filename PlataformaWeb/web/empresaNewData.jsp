@@ -1,5 +1,6 @@
 
 
+<%@page import="javax.servlet.annotation.MultipartConfig"%>
 <%@page import="java.util.List"%>
 <%@page import="org.apache.commons.fileupload.FileItem"%>
 <%@page import="java.io.File"%>
@@ -8,6 +9,7 @@
 <%@page import="org.apache.commons.fileupload.servlet.ServletFileUpload"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,7 +18,13 @@
         <title>JSP Page</title>
     </head>
     <body>
+        
+    <h1>Añadir Información Empresa</h1>
+        
+    <form id="myform" name="myform" action="EmpresaServlet" method="post" enctype="multipart/form-data" >   
+        
     <%
+        
         
             String archivourl = "D:\\Documents\\Erick\\ESEN\\Tercer Año\\Ciclo I\\Programación II\\Proyecto\\Proyecto\\Proyecto-V.1\\PlataformaWeb\\web\\img\\Logos";
             
@@ -26,31 +34,29 @@
             
             factory.setRepository(new File(archivourl));
             
-            ServletFileUpload upload = new ServletFileUpload(factory);
+            ServletFileUpload upload = new ServletFileUpload(factory); 
             
-            
+            String strLogo;
+                        
             try{
                 
                 List<FileItem> partes = upload.parseRequest(request);
                 
                 for(FileItem items: partes){
                     File file = new File(archivourl,items.getName());
-                    String strlogo = items.getName();
                     items.write(file);
+                    strLogo = items.getName();
+                    %>
+                    <input type="hidden" id="logo" name="logo" value="<%= strLogo %>" />
+                    <%                   
                 }
                 
-                out.print("<h2>¿Confirmar datos?</h2>"+"\n\n"+"<a href='index.jsp'>Aceptar</a>");
-                
             }catch(Exception e){
-                out.print("Exception: "+e.getMessage()+"");
-            }
-            
-            
-        %>
-        
-        <form id="myform" name="myform" action="EmpresaServlet" method="post" enctype="multipart/form-data" >
-            <input type="hidden" id="logo" name="logo" value="<%= strlogo %>"/>
-            
+               
+            }             
+                       
+        %>                
+                    
             <label>Nombre:</label><br>            
             <input type="text" id="nombre" name="nombre" />
             <br><br>
@@ -61,20 +67,20 @@
             
             <label>Departamento:</label><br>
             <select name="departamento">
-                <option value="AH">Ahuachapan</option>
-                <option value="CA">Cabañas</option>
-                <option value="CH">Chalatenango</option>
-                <option value="CU">Cuscatlán</option>
-                <option value="LI">La Libertad</option>
-                <option value="MO">Morazán</option>
-                <option value="PA">La Paz</option>
-                <option value="SA">Santa Ana</option>
-                <option value="SM">San Miguel</option>
-                <option value="SO">Sonsonate</option>
-                <option value="SS">San Salvador</option>
-                <option value="SV">San Vicente</option>
-                <option value="UN">La Unión</option>
-                <option value="US">Usulután</option>
+                <option value="Ahuachapan">Ahuachapan</option>
+                <option value="Cabanas">Cabanas</option>
+                <option value="Chalatenango">Chalatenango</option>
+                <option value="Cuscatlan">Cuscatlan</option>
+                <option value="La Libertad">La Libertad</option>
+                <option value="Morazan">Morazan</option>
+                <option value="La Paz">La Paz</option>
+                <option value="Santa Ana">Santa Ana</option>
+                <option value="San Miguel">San Miguel</option>
+                <option value="Sonsonate">Sonsonate</option>
+                <option value="San Salvador">San Salvador</option>
+                <option value="San Vicente">San Vicente</option>
+                <option value="La Union">La Union</option>
+                <option value="Usulután">Usulután</option>
             </select>
             <br><br>
             

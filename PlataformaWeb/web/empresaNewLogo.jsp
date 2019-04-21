@@ -12,15 +12,14 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>New Empresa</h1>
+        <h1>Subir Logo Empresa</h1>
         <br><br>
         
-        <form id="myform" name="myform" action="EmpresagenericMessageLogo.jsp" method="post" enctype="multipart/form-data" >
+        <form id="myform" name="myform" action="empresaNewData.jsp" method="post" enctype="multipart/form-data" >
                        
             <label>Logo:</label><br>            
             <input type="file" id="logo" name="logo" />
             <br><br>
-            
             
             <input type="submit" id="mysubmit" name="mysubmit" value="Create"/>
         </form>
