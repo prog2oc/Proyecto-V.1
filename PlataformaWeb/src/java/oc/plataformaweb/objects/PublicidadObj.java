@@ -9,9 +9,7 @@ public class PublicidadObj {
         setId(p_iId);
         setDestinoDeImagen(p_DestinoDeImagen);
         setcosto(p_costo);
-    }
-
-       
+    }    
        
        
        
