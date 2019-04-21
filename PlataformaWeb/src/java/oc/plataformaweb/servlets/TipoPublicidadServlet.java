@@ -30,7 +30,7 @@ public class TipoPublicidadServlet extends HttpServlet {
                 //access logic
                 TipoPublicidadLogic CLogic = new TipoPublicidadLogic();
                 int iRows = CLogic.insertTipoPublicidadRows(strName, strDescription);
-                System.out.println("inser meal rows: " + iRows);
+                System.out.println("inser tipo publicidad rows: " + iRows);
                 
                 //send to frontend
                 request.getSession().setAttribute("rows", new Integer(iRows) );
