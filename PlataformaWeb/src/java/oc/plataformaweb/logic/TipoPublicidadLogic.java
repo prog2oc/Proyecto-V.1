@@ -13,7 +13,7 @@ public class TipoPublicidadLogic extends Logic {
     public ArrayList<TipoPublicidadObj> getAllTipoPublicidad(){
         //select * from travelsys.client;
         DatabaseX database = getDatabase();
-        String strSql = "select * from travelsys.meal ";
+        String strSql = "select * from ocplataformaweb.tipopublicidad ";
         System.out.println(strSql);
         ResultSet PResult = database.executeQuery(strSql);
         ArrayList<TipoPublicidadObj> PArray = null;
@@ -33,7 +33,7 @@ public class TipoPublicidadLogic extends Logic {
                 {
                     iId = PResult.getInt("id");
                     strName = PResult.getString("name");
-                    strDescription = PResult.getString("description");
+                    strDescription = PResult.getString("descripcion");
                     
                     PTemp = new TipoPublicidadObj(iId, strName, strDescription);
                     PArray.add(PTemp);
@@ -41,7 +41,7 @@ public class TipoPublicidadLogic extends Logic {
             } 
             catch (SQLException ex) 
             {
-                Logger.getLogger(PublicidadLogic.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TipoPublicidadLogic.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         
@@ -51,7 +51,7 @@ public class TipoPublicidadLogic extends Logic {
     {
         //INSERT INTO travelsys.client(id,name,age) VALUES(0,'pepito',24);
         DatabaseX database = getDatabase();
-        String strSql = "INSERT INTO bdescuedron.tipopublicidad(idTipoPublicidad,Nombre,Descripcion) "
+        String strSql = "INSERT INTO ocplataformaweb.tipopublicidad(id,nombre,descripcion) "
                 + "VALUES(0,'"+p_strName+"','"+p_strDescription+"'); ";
         System.out.println(strSql);
         int iRows = database.executeNonQueryRows(strSql);
@@ -62,7 +62,7 @@ public class TipoPublicidadLogic extends Logic {
     {
         //delete from travelsys.client where id=0;
         DatabaseX database = getDatabase();
-        String strSql = "delete from bdescuadron.tipopublicidad "
+        String strSql = "delete from ocplataformaweb.tipopublicidad "
                 + "where id="+p_iId+" ";
         System.out.println(strSql);
         int iRows = database.executeNonQueryRows(strSql);
@@ -72,7 +72,7 @@ public class TipoPublicidadLogic extends Logic {
     {
         //select * from travelsys.client;
         DatabaseX database = getDatabase();
-        String strSql = "select * from bdescuadron.tipopublicidad "
+        String strSql = "select * from ocplataformaweb.tipopublicidad "
                 + "where id="+p_iId+" ";
         System.out.println(strSql);
         ResultSet PResult = database.executeQuery(strSql);
@@ -90,14 +90,14 @@ public class TipoPublicidadLogic extends Logic {
                 {
                     iId = PResult.getInt("id");
                     strName = PResult.getString("name");
-                    strDescription = PResult.getString("description");
+                    strDescription = PResult.getString("descripcion");
                     
-                    PTemp = new TipoPublicidadObj(p_iId, strName, strDescription);
+                    PTemp = new TipoPublicidadObj(iId, strName, strDescription);
                 }
             } 
             catch (SQLException ex) 
             {
-                Logger.getLogger(PublicidadLogic.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TipoPublicidadLogic.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         
@@ -108,8 +108,8 @@ public class TipoPublicidadLogic extends Logic {
     {
         //update travelsys.client set name = 'fabricio',age = 25 where id = 9;
         DatabaseX database = getDatabase();
-        String strSql = "update dbescuadron.tipopublicidad "
-                + "set name = '"+p_strName+"',description = '"+p_strDescription+"' "
+        String strSql = "update ocplataformaweb.tipopublicidad "
+                + "set name = '"+p_strName+"',descripcion = '"+p_strDescription+"' "
                 + "where id = "+p_iId+" ";
         System.out.println(strSql);
         int iRows = database.executeNonQueryRows(strSql);
