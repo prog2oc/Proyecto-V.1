@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Nueva Publicidad</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Nueva Publicidad</h1>
+        <br><br>
+        <form id="myform" name="myform" action="TipoPublicidadServlet" method="get">
+            <label>Destino De Imagen:</label><br>
+            <input type="text" id="destinodeimagen" name="destinodeimagen" />
+            <br><br>
+            
+            <label>Costo:</label><br>
+            <input type="number" id="costo" name="costo" />
+            <br><br>
+            
+            <input type="submit" id="mysubmit" name="mysubmit" value="Create"/>
+            <input type="hidden" id="formid" name="formid" value="1" />
+            
+        </form>
+    </body>
+</html>
