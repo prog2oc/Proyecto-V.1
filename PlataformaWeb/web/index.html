@@ -20,6 +20,7 @@
         <a href="EmpresaServlet?formid=2">Ver empresas</a>
         <br>
         <a href="TipoPublicidadServlet?formid=2">Tipo de publicidad</a>
+        
         -->
         <div class="header">
             <h1 class="logo">e<span class="blue">S</span>e<span class="blue">V</span>olado</h1>
@@ -29,37 +30,11 @@
             </label>
 
             <div class="menu">
-                <a onclick="document.getElementById('id01').style.display='block'">Iniciar Sesión</a>
+                <a href="inicioSesion.html">Iniciar Sesión</a>
                 <a href="usuarioNew.html">Registrarse</a>
                 <label for="chk" class="hide-menu-btn" >
                         <i class="fas fa-times"></i>
-                </label>
-                
-            </div>
-
-            <!-- El Form de Inicio sesión -->
-            <div id="id01" class="modal">
-                    <span onclick="document.getElementById('id01').style.display='none'" 
-                        class="close animate" title="Close Modal">&times;</span>
-        
-                        <!-- Modal Content -->
-                        <form class="modal-content animate" action="UsuarioServlet">
-                        
-                        <div class="container">
-                            <label class="text"><b>Usuario:</b></label>
-                            <input type="text" id="nombreusuario" name="nombreusuario">
-                        
-                            <label class="text"><b>Constraseña:</b></label>
-                            <input type="password" id="constrasena" name="contrasena">
-                        
-                            <button type="submit" id="mysubmit" name="mysubmit">Iniciar Sesión</button>
-                            <input type="hidden" id="formid" name="formid" value="6" />
-                        </div>
-                        
-                        <div class="container" style="background-color:#f1f1f1">
-                                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-                        </div>
-                        </form>
+                </label>                
             </div>
 
         </div>
@@ -68,15 +43,12 @@
         <div class="navbar">
                 <a href="ProductoServlet?formid=7">Inicio</a>
                 <a href="#news">Categorias</a>
-                <a href="#news">Por menos de $10</a>
-                
-                
+                <a href="#news">Por menos de $10</a>                         
         </div>
 
        
         <div class="slideshow-container">
-
-                <!-- Full-width images with number and caption text -->
+            
                 <div class="mySlides fade">                  
                   <img src="img/Publicidad/officedepot1.png" style="width:100%">
                 </div>
@@ -91,7 +63,7 @@
               </div>
               <br>
               <br>
-        <a href="PublicidadServlet?formid=2">Ver empresas</a>
+        
         <div class="navbar">
                 <a id="right" href="#">Empresas</a>
         </div>

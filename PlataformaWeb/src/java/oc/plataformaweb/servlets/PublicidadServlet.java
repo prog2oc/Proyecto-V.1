@@ -135,8 +135,7 @@ public class PublicidadServlet extends HttpServlet {
                 PublicidadLogic ULogic = new PublicidadLogic();
                 
                 iRows = ULogic.updatePublicidadImagenRows(iId, strLogo);
-                
-                request.getSession().setAttribute("id", new Integer(iId));
+                                
                 request.getSession().setAttribute("rows", new Integer(iRows) );
                 response.sendRedirect("publicidadInfoMessage.jsp");
             }

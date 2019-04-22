@@ -26,8 +26,8 @@ public class ProductoServlet extends HttpServlet {
             
             if(strFormId.equals("1"))
             {
-                //get parameters
                 String strNombreProducto = request.getParameter("nombre");
+                String strImagen = request.getParameter("imagen");
                 String strPrecioUnidad = request.getParameter("preciounidad");
                 String strUnidades = request.getParameter("unidades");
                 String strIdCategoria = request.getParameter("idcategoria");
@@ -39,7 +39,7 @@ public class ProductoServlet extends HttpServlet {
                
                 //access logic
                 ProductoLogic CLogic = new ProductoLogic();
-                int iRows = CLogic.insertProductoRows(strNombreProducto, dPrecioUnidad, iUnidades, iIdCategoria, iIdEmpresa);
+                int iRows = CLogic.insertProductoRows(strNombreProducto, strImagen, dPrecioUnidad, iUnidades, iIdCategoria, iIdEmpresa);
                 System.out.println("insert producto rows: " + iRows);
                 
                 //send to frontend
@@ -118,11 +118,15 @@ public class ProductoServlet extends HttpServlet {
             
             if(strFormId.equals("6"))
             {
+                String strIdEmpresa = request.getParameter("id");
+                int iIdEmpresa = Integer.parseInt(strIdEmpresa);
+                
                 CategoriaLogic CLogic = new CategoriaLogic();
                 ArrayList<CategoriaObj> CArray = CLogic.getAllCategorias();
                                
+                request.getSession().setAttribute("id", new Integer(iIdEmpresa));
                 request.getSession().setAttribute("categorias", CArray);
-                response.sendRedirect("NewProducto.jsp");
+                response.sendRedirect("productoNewImagen.jsp");
             }
             
             
@@ -145,18 +149,104 @@ public class ProductoServlet extends HttpServlet {
             {
                 
                 CategoriaLogic CLogic = new CategoriaLogic();
-                ArrayList<CategoriaObj> CArray = CLogic.getAllCategorias();
-                                
-                request.getSession().setAttribute("categorias", CArray);
-                response.sendRedirect("NewProducto.jsp");
+                ArrayList<CategoriaObj> CArray = CLogic.getAllCategorias();                                            
                 
                 ProductoLogic PLogic = new ProductoLogic();
                 ArrayList<ProductoObj> PArray = PLogic.getAllProductos();
                                 
+                request.getSession().setAttribute("categorias", CArray);
                 request.getSession().setAttribute("producto", PArray);
-                response.sendRedirect("inicioSinSesion.jsp");
+                response.sendRedirect("InicioUsuario.jsp");
             }
             
+            if(strFormId.equals("9")){
+                String strId = request.getParameter("id");
+                int iId = Integer.parseInt(strId);
+                          
+                request.getSession().setAttribute("id", new Integer(iId));
+                response.sendRedirect("productoUpdateImagen.jsp");
+            }
+            
+            if(strFormId.equals("10")){
+                String strId = request.getParameter("id");
+                String strImagen = request.getParameter("imagen");
+                int iId = Integer.parseInt(strId);
+                
+                int iRows;
+                
+                ProductoLogic PLogic = new ProductoLogic();
+                
+                iRows = PLogic.updateImagenProductoRows(iId, strImagen);                
+                request.getSession().setAttribute("rows", new Integer(iRows) );
+                response.sendRedirect("productoInfoMessage.jsp");
+            }
+            
+            if(strFormId.equals("11"))
+            {
+                String strIdCategoria = request.getParameter("idcategoria");  
+                int iIdCategoria = Integer.parseInt(strIdCategoria);
+                
+                CategoriaLogic CLogic = new CategoriaLogic();
+                ArrayList<CategoriaObj> CArray = CLogic.getAllCategorias();
+                               
+                                                
+                ProductoLogic PLogic = new ProductoLogic();
+                ArrayList<ProductoObj> PArray = PLogic.getAllProductosByCategoria(iIdCategoria);
+                                
+                request.getSession().setAttribute("categorias", CArray);
+                request.getSession().setAttribute("producto", PArray);
+                response.sendRedirect("InicioSinSesion.jsp");
+            }
+            
+            if(strFormId.equals("12"))
+            {
+                String strIdCategoria = request.getParameter("idcategoria");  
+                int iIdCategoria = Integer.parseInt(strIdCategoria);
+                
+                CategoriaLogic CLogic = new CategoriaLogic();
+                ArrayList<CategoriaObj> CArray = CLogic.getAllCategorias();
+                               
+                                                
+                ProductoLogic PLogic = new ProductoLogic();
+                ArrayList<ProductoObj> PArray = PLogic.getAllProductosByCategoria(iIdCategoria);
+                                
+                request.getSession().setAttribute("categorias", CArray);
+                request.getSession().setAttribute("producto", PArray);
+                response.sendRedirect("InicioUsuario.jsp");
+            }  
+            
+            if(strFormId.equals("13"))
+            {
+                String strIdEmpresa = request.getParameter("idempresa");  
+                int iIdEmpresa = Integer.parseInt(strIdEmpresa);
+                
+                CategoriaLogic CLogic = new CategoriaLogic();
+                ArrayList<CategoriaObj> CArray = CLogic.getAllCategorias();
+                               
+                                                
+                ProductoLogic PLogic = new ProductoLogic();
+                ArrayList<ProductoObj> PArray = PLogic.getAllProductosByEmpresa(iIdEmpresa);
+                                
+                request.getSession().setAttribute("categorias", CArray);
+                request.getSession().setAttribute("producto", PArray);
+                response.sendRedirect("InicioSinSesion.jsp");
+            }  
+            if(strFormId.equals("13"))
+            {
+                String strIdEmpresa = request.getParameter("idempresa");  
+                int iIdEmpresa = Integer.parseInt(strIdEmpresa);
+                
+                CategoriaLogic CLogic = new CategoriaLogic();
+                ArrayList<CategoriaObj> CArray = CLogic.getAllCategorias();
+                               
+                                                
+                ProductoLogic PLogic = new ProductoLogic();
+                ArrayList<ProductoObj> PArray = PLogic.getAllProductosByEmpresa(iIdEmpresa);
+                                
+                request.getSession().setAttribute("categorias", CArray);
+                request.getSession().setAttribute("producto", PArray);
+                response.sendRedirect("InicioUsuario.jsp");
+            }  
             
         }
     }

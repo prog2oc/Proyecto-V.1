@@ -27,12 +27,13 @@
     <body>
         <h1>Categorias</h1>
         <br>
-        <a href="ProductoServlet?formid=6">Nuevo Producto</a>
+        <a href="ProductoServlet?formid=6&id=1">Nuevo Producto</a>
         <br><br>
         <table>
         <tr>
             <th>Id</th>
             <th>Nombre</th>
+            <th>Imagen Producto</th>
             <th>Precio</th>
             <th>Unidades</th>
             <th>Categoria</th>
@@ -56,13 +57,19 @@
                 <tr>
                     <td><%= CTemp.getId() %></td>
                     <td><%= CTemp.getNombreProducto() %></td>
+                    <td><img src="img/Productos/<%= CTemp.getImagen() %> " width="200px" height="200px"> </td>
                     <td><%= CTemp.getPrecioUnidad() %></td>
                     <td><%= CTemp.getUnidades() %></td>
                     <td><%= Categoria.getNombre() %></td>
                     <td><%= Empresa.getNombre() %></td>
                     <td>
                         <a href="ProductoServlet?formid=4&id=<%= CTemp.getId() %>">
-                            Update
+                            Modificar Información
+                        </a>
+                    </td>
+                    <td>
+                        <a href="ProductoServlet?formid=9&id=<%= CTemp.getId() %>">
+                            Modificar Imagen
                         </a>
                     </td>
                     <td>

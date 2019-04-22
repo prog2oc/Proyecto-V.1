@@ -17,7 +17,7 @@ public class UsuarioLogic extends Logic{
        
     {
         DatabaseX database = getDatabase();
-        String strSql = "INSERT INTO ocplataformaweb.usuario (id,nombre,apellido,nombreusuario,genero,fechanacimiento,correo,contraseña,departamento,direccion)"+
+        String strSql = "INSERT INTO ocplataformaweb.usuario (id,nombre,apellido,nombreusuario, fotoperfil, genero,fechanacimiento,correo,contraseña,departamento,direccion)"+
         "VALUES (0,'"+p_strNombre+"','"+p_strApellido+"','"+p_strNombreUsuario+"', '"+p_strFotoPerfil+"', '"+p_strGenero+"','"+p_strFechaNacimiento+"','"+p_strCorreo+"','"+p_strContrasena+"','"+p_strDepartamento+"','"+p_strDireccion+"');";
         System.out.println(strSql);
         boolean bsuccess = database.executeNonQueryBool(strSql);
@@ -27,7 +27,7 @@ public class UsuarioLogic extends Logic{
     public int insertUsuarioRows(String p_strNombre, String p_strApellido, String p_strNombreUsuario, String p_strFotoPerfil, String p_strGenero, String p_strFechaNacimiento, String p_strCorreo, String p_strContrasena, String p_strDepartamento, String p_strDireccion)
     {
         DatabaseX database = getDatabase();
-        String strSql = "INSERT INTO ocplataformaweb.usuario (id,nombre,apellido,nombreusuario,genero,fechanacimiento,correo,contraseña,departamento,direccion)"+
+        String strSql = "INSERT INTO ocplataformaweb.usuario (id,nombre,apellido,nombreusuario, fotoperfil, genero,fechanacimiento,correo,contraseña,departamento,direccion)"+
         "VALUES (0,'"+p_strNombre+"','"+p_strApellido+"','"+p_strNombreUsuario+"', '"+p_strFotoPerfil+"', '"+p_strGenero+"','"+p_strFechaNacimiento+"','"+p_strCorreo+"','"+p_strContrasena+"','"+p_strDepartamento+"','"+p_strDireccion+"');";
         System.out.println(strSql);
         int iRows = database.executeNonQueryRows(strSql);
@@ -176,7 +176,7 @@ public class UsuarioLogic extends Logic{
     public UsuarioObj getUsuarioInfo(String p_strNombreUsuario, String p_strContrasena) 
     {
         DatabaseX database = getDatabase();
-        String strSql = "select * from ocplataformaweb.usuario where nombresusuario= '"+p_strNombreUsuario
+        String strSql = "select * from ocplataformaweb.usuario where nombreusuario= '"+p_strNombreUsuario
                 +"' AND contraseña = '"+ p_strContrasena +"' ";
         System.out.println(strSql);
         ResultSet UResult = database.executeQuery(strSql);

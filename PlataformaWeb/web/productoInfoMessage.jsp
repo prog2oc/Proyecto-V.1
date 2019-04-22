@@ -16,10 +16,10 @@
         int iRows = iRowsObj.intValue();        
     %>
     <body>
-        <h1>Cambio de Foto de Perfil</h1>
+        <h1>Cambio de Imagen Producto</h1>
         <br><br>
-        <p><%= iRows %> foto ha sido modificada</p>
+        <p><%= iRows %> imagen ha sido modificada</p>
         <br><br>
-        <a href="PublicidadServlet?formid=2">Home</a>
+        <a href="ProductoServlet?formid=2">Home</a>
     </body>
 </html>

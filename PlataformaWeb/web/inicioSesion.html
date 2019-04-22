@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>eSeVolado</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <span class="close-btn">
+        <a href="index.html">
+        <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
+        </a>
+        </span>
+        <div class="iniciarsesion">
+            <img src="img/esevolado.png">   
+            <br>
+            <form id="myform" action="UsuarioServlet">
+            <div class="ingresarusurio">
+                <label for="usuario" class="label">Usuario:<span class="req">*</span></label><br>
+                <input type="text" id="nombreusuario" name="nombreusuario" required placeholder="Usuario"  autocomplete="off" class="input" />
+            <br>
+            </div>
+                
+            <div class="ingresarusurio">
+                <label for="contrasena" class="label">Contrasena:<span class="req">*</span></label><br>
+                <input type="password" id="contrasena" name="contrasena"   placeholder="Contraseña" class="input"/>
+            <br>
+            <input type="hidden" id="formid" name="formid" value="6" />
+            <div class="ingresarusurio">
+                 <input type="submit" id="mysubmit" name="mysubmit" value="entrar" class="button"/>
+            </div>
+            </div>
+            <div id="remember-container">
+                <input type="checkbox" id="checkbox-2-1" class="checkbox" checked="checked"/>
+                <span id="remember">Recuérdame</span>
+                <a href="recuperarcontrasenaNew.html">
+                <span id="forgotten">Olvidé la contraseña</span>
+                </a>
+            </div>            
+            </form>
+        </div>        
+        
+    </body>
+</html>

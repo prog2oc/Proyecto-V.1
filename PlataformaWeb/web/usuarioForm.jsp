@@ -29,6 +29,7 @@
             <th>Id</th>
             <th>Nombre</th>
             <th>Apellido</th>
+            <th>Foto Perfil</th>
             <th>NombreUsuario</th>
             <th>Genero</th>
             <th>FechaNacimiento</th>
@@ -49,6 +50,7 @@
                     <td><%= UTemp.getId() %></td>
                     <td><%= UTemp.getNombre() %></td>
                     <td><%= UTemp.getApellido() %></td>
+                    <td><img src="img/Usuario/<%= UTemp.getFotoPerfil() %>" ></td>
                     <td><%= UTemp.getNombreUsuario() %></td>
                     <td><%= UTemp.getGenero() %></td>
                     <td><%= UTemp.getFechaNacimiento() %></td>

@@ -15,8 +15,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import oc.plataformaweb.logic.CategoriaLogic;
 import oc.plataformaweb.logic.ProductoLogic;
 import oc.plataformaweb.logic.UsuarioLogic;
+import oc.plataformaweb.objects.CategoriaObj;
 import oc.plataformaweb.objects.ProductoObj;
 import oc.plataformaweb.objects.UsuarioObj;
 
@@ -116,7 +118,7 @@ public class UsuarioServlet extends HttpServlet {
             if(strFormId.equals("6"))
         {
            
-            String strUsuario = request.getParameter("usuario");
+            String strUsuario = request.getParameter("nombreusuario");
             String strContrasena = request.getParameter("contrasena");
             
             UsuarioLogic ULogic = new UsuarioLogic();
@@ -127,13 +129,18 @@ public class UsuarioServlet extends HttpServlet {
                 response.sendRedirect("errorInicioSesion.jsp");    
             }else{  
                 
-                //Productos
-                ProductoLogic CLogic = new ProductoLogic();
-                ArrayList<ProductoObj> PArray = CLogic.getAllProductos();                                
-                request.getSession().setAttribute("producto", PArray);
+                //Productos y Categorias
                 
+                CategoriaLogic CLogic = new CategoriaLogic();
+                ArrayList<CategoriaObj> CArray = CLogic.getAllCategorias();
+                        
+                ProductoLogic PLogic = new ProductoLogic();
+                ArrayList<ProductoObj> PArray = PLogic.getAllProductos();
+                
+                request.getSession().setAttribute("categorias", CArray);
+                request.getSession().setAttribute("producto", PArray);                
                 request.getSession().setAttribute("usuario", UUsuario);
-                response.sendRedirect("inicio.jsp");
+                response.sendRedirect("InicioUsuario.jsp");
             }
             
         }
