@@ -7,5 +7,8 @@
     </head>
     <body>
         <h1>Hello World!</h1>
+        
+        <a href="javascript:window.history.go(-2); " >Regresar a Catálogo</a>
+        
     </body>
 </html>

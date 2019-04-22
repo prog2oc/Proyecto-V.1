@@ -13,27 +13,33 @@ import oc.plataformaweb.objects.DetalleOrdenObj;
 public class DetalleOrdenLogic extends Logic
 {
 
-    public boolean insertDetalleOrdenBool(int p_idproducto, int p_idorden, int p_cantidad,double p_descuento)
+    public boolean insertDetalleOrdenBool(int p_iIdArticulo1 , double p_dTotal, int p_iIdArticulo2, int p_iIdArticulo3, int p_iIdArticulo4, int p_iIdArticulo5, int p_iIdArticulo6, int p_iIdArticulo7, int p_iIdArticulo8, int p_iIdArticulo9, int p_iIdArticulo10)
     {
         DatabaseX database = getDatabase();
-        String strSql = "INSERT INTO ocplataformaweb.detalleorden (idproducto, idorden, cantidad, descuento)"
-                + "VALUES('"+p_idproducto+"','"+p_idorden+"','"+p_cantidad+"','"+p_descuento+"')";
+        String strSql = "INSERT INTO `ocplataformaweb`.`detalleorden`\n" +
+                        "(`id`,`idarticulo1`,`total`,`idarticulo2`,`idarticulo3`,`idarticulo4`,`idarticulo5`,`idarticulo6`,\n" +
+                        "`idarticulo7`,`idarticulo8`,`idarticulo9`,`idarticulo10`,`total`,`idarticulo1`)"
+                + "VALUES(0,"+p_iIdArticulo1+","+p_dTotal+","+p_iIdArticulo2+","+p_iIdArticulo3+","+p_iIdArticulo4+",\n" +
+                ""+p_iIdArticulo5+","+p_iIdArticulo6+","+p_iIdArticulo7+","+p_iIdArticulo8+","+p_iIdArticulo9+","+p_iIdArticulo10+");";
         System.out.println(strSql);
         boolean bsuccess = database.executeNonQueryBool(strSql);
         return bsuccess;
     }
     
-    public int insertDetalleOrdenRows(int p_idproducto, int p_idorden, int p_cantidad,double p_descuento)
+    public int insertDetalleOrdenRows(int p_iIdArticulo1 , double p_dTotal, int p_iIdArticulo2, int p_iIdArticulo3, int p_iIdArticulo4, int p_iIdArticulo5, int p_iIdArticulo6, int p_iIdArticulo7, int p_iIdArticulo8, int p_iIdArticulo9, int p_iIdArticulo10)
     {
         DatabaseX database = getDatabase();
-        String strSql = "INSERT INTO ocplataformaweb.detalleorden (idproducto, idorden, cantidad, descuento)"
-                + "VALUES('"+p_idproducto+"','"+p_idorden+"','"+p_cantidad+"','"+p_descuento+"')";
+        String strSql = "INSERT INTO `ocplataformaweb`.`detalleorden`\n" +
+                        "(`id`,`idarticulo1`,`total`,`idarticulo2`,`idarticulo3`,`idarticulo4`,`idarticulo5`,`idarticulo6`,\n" +
+                        "`idarticulo7`,`idarticulo8`,`idarticulo9`,`idarticulo10`,`total`,`idarticulo1`)"
+                + "VALUES(0,"+p_iIdArticulo1+","+p_dTotal+","+p_iIdArticulo2+","+p_iIdArticulo3+","+p_iIdArticulo4+",\n" +
+                ""+p_iIdArticulo5+","+p_iIdArticulo6+","+p_iIdArticulo7+","+p_iIdArticulo8+","+p_iIdArticulo9+","+p_iIdArticulo10+");";
         System.out.println(strSql);
         int iRows = database.executeNonQueryRows(strSql);
         return iRows;
     }
 
-    public ArrayList<DetalleOrdenObj> getAllDetallesOrden() 
+    /*public ArrayList<DetalleOrdenObj> getAllDetallesOrden() 
     {
         DatabaseX database = getDatabase();
         String strSql = "select * from ocplataformaweb.detalleorden ";
@@ -120,5 +126,6 @@ public class DetalleOrdenLogic extends Logic
         return CTemp;
         
     }
+*/
     
 }
