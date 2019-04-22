@@ -24,7 +24,7 @@
     <body>
         <h1>Nuevo Producto</h1>
         <br><br>
-        
+        <div class="">
         <form id="myform" name="myform" action="ProductoServlet" method="get">
             <label>Nombre:</label><br>
             <input type="text" id="nombre" name="nombre" />
@@ -64,6 +64,6 @@
             <input type="submit" id="mysubmit" name="mysubmit" value="Crear"/>
             <input type="hidden" id="formid" name="formid" value="1" />
         </form>
-        
+        </div>
     </body>
 </html>

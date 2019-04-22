@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Ebuy</title>
+        <title>eSeVolado</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
@@ -26,42 +26,23 @@
                 <i class="fas fa-ellipsis-h"></i>
             </label>
 
-            <ul class="menu">
+            
                 <a onclick="document.getElementById('id01').style.display='block'">Iniciar Sesión</a>
-                <a href="#">Registrarse</a>
+                <a href="usuarioNew.html">Registrarse</a>
                 <label for="chk" class="hide-menu-btn" >
                         <i class="fas fa-times"></i>
                 </label>
                 
-            </ul>
+           
 
             <!-- El Form de Inicio sesión -->
-            <div id="id01" class="modal">
-                    <span onclick="document.getElementById('id01').style.display='none'" 
-                        class="close animate" title="Close Modal">&times;</span>
-        
-                        <!-- Modal Content -->
-                        <form class="modal-content animate" action="/action_page.php">
-                        
-                        <div class="container">
-                            <label class="text" for="uname"><b>Usuario:</b></label>
-                            <input type="text" placeholder="Usuario" name="nombreusuario" required>
-                        
-                            <label class="text" for="psw"><b>Constraseña:</b></label>
-                            <input type="password" placeholder="Contraseña" name="contraseña" required>
-                        
-                            <button type="submit">Iniciar Sesión</button>
-                        </div>
-                        
-                        <div class="container" style="background-color:#f1f1f1">
-                                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-                        </div>
-                        </form>
+             <a href="iniciarsesionNew.html">Iniciar sesión</a>
+                <label for="chk" class="hide-menu-btn" >
+                        <i class="fas fa-times"></i>
+                </label>
             </div>
 
-        </div>
-        
-
+       
         <div class="navbar">
                 <a href="index.html">Inicio</a>
                 <a href="#news">Categorias</a>
@@ -92,8 +73,7 @@
         </div>
               
 
-    <body>
-        <h1>EBuy</h1>
-        <a href="TipoPublicidadServlet?formid=2">Tipo de publicidad</a>
     </body>
+      
+   
 </html>

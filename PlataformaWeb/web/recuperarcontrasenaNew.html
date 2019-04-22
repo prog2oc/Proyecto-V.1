@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Recuperar contraseña</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="Style/recuperarcontrasena.css" rel="stylesheet" type="text/css"/>
+        <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
+    </head>
+    <body>
+        <!-- Forgotten Password Container -->
+        <div id="forgotten-container">
+           <img src="img/esevolado.png"> 
+           <h1>Recuperación de contraseña</h1>
+           <br>
+           <p>Ingrese su correo para recibir una notificación para cambiar su contraseña</p>
+           <br>
+          <span class="close-btn">
+              <a href="index.html">
+                <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
+              </a>
+          </span>
+
+          <form id="myform" name="myform" action="" method="get">
+              <div class="nuevacontrasena">
+            <input type="email" name="email" placeholder="E-mail" required autocomplete="off" class="input">
+            <br><br>
+            </div>
+            <div class="nuevacontrasena">
+            <input type="submit" name="mysubmit" id="mysubmit" value="Adquirir nueva contraseña" class="button">
+            </div>
+            <input type="hidden" id="formid" name="formid" value="" />
+        </form>
+        </div>
+        
+    </body>
+</html>
