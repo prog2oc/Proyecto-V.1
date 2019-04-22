@@ -1,14 +1,16 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: "monserrat", sans-serif;
+    font-family:Yanone Kaffeesatz;
 }
 
 .header{
     height: 100px;
-    background: #009688;
+    background: rgb(0, 188, 175);
     padding: 0 30px;
     color: #fff;
+    font-size:20px;
+    
 }
 
 .logo{
@@ -256,13 +258,15 @@ form {
     padding: 0px 30px;
     overflow: hidden;
     background-color: #333;
-    font-family: Arial;
+    font-family:Yanone Kaffeesatz;
+    
+    
   }
   
   /* Links inside the navbar */
   .navbar a {
     float: left;
-    font-size: 16px;
+    font-size: 25px;
     color: white;
     text-align: center;
     padding: 20px 16px;
@@ -283,3 +287,9 @@ form {
     background-color: #03A9F4;
   }
   
+  p{
+      color:white;
+      font-size:25px;
+      margin:auto;
+      
+  }

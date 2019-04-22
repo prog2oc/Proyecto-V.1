@@ -1,27 +1,47 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>New Empresa</title>
+        <title>Registrarse empresa</title>
         <meta charset="UTF-8">
         <meta name="viewport" 
               content="width=device-width, initial-scale=1.0">
+            <link href="Style/registrarseempresa.css" rel="stylesheet" type="text/css"/>
+            <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
     </head>
     <body>
-        <h1>New Empresa</h1>
-        <br><br>
+         <span class="close-btn">
+        <a href="index.html">
+        <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
+        </a>
+        </span>
         
+        <div class="empresa" >
+        
+        <img src="img/esevolado.png">   
+        <br>
+        <h1>¡Bienvenido futuro Usuario Premium!</h1>
+          
+           <p>Ingrese sus datos para disfrutar de una experiencia única</p>
+           <br>
+       
         <form id="myform" name="myform" action="EmpresaServlet" method="get">
-            <label>Nombre:</label><br>
             
-            <input type="text" id="nombre" name="nombre" />
+            
+            <div class="empresaregistrar">
+            <label class="label">Nombre:<span class="req">*</span></label><br>
+            <input type="text" id="nombre" name="nombre" required autocomplete="off" class="input" placeholder="Nombre"/>
             <br><br>
-            
-            <label>Direccion:</label><br>
-            <input type="text" id="direccion" name="direccion" />
+            </div>
+
+            <div class="empresaregistrar">
+            <label class="label">Direccion:<span class="req">*</span></label><br>
+            <input type="text" id="direccion" required autocomplete="off" name="direccion" class="input" placeholder="Dirección"/>
             <br><br>
+            </div>
             
-            <label>Departamento:</label><br>
-            <select name="departamento">
+            <div class="empresaregistrar" style="width:300px;">
+            <label class="label">Departamento:<span class="req">*</"span></label><br>
+            <select name="departamento" class="input-select">
                 <option value="AH">Ahuachapan</option>
                 <option value="CA">Cabañas</option>
                 <option value="CH">Chalatenango</option>
@@ -37,23 +57,32 @@
                 <option value="UN">La Unión</option>
                 <option value="US">Usulután</option>
             </select>
-            <br><br>
+            <br><br><br>
+            </div>
             
-            <label>Ciudad:</label><br>
-            <input type="text" id="ciudad" name="ciudad" />
+            <div class="empresaregistrar">
+            <label class="label">Ciudad:<span class="req">*</span></label><br>
+            <input type="text" id="ciudad" name="ciudad" required autocomplete="off" placeholder="Cuidad" class="input" />
             <br><br>
+            </div>
             
-            <label>Telefono:</label><br>
-            <input type="text" id="telefono" name="telefono" />
+            <div class="empresaregistrar">
+            <label class="label">Teléfono:</label><br>
+            <input type="text" id="telefono" name="telefono" placeholder="Teléfono" class="input"/>
             <br><br>
+            </div>
             
-            <label>Sitio web:</label><br>
-            <input type="text" id="sitioweb" name="sitioweb" />
+            <div class="empresaregistrar">
+            <label class="label"> Sitio web:<span class="req">*</span></label><br>
+            <input type="text" id="sitioweb" name="sitioweb" required autocomplete="off"  placeholder="Web Site" class="input"/>
             <br><br>
+            </div>
             
-            <input type="submit" id="mysubmit" name="mysubmit" value="Create"/>
-            <input type="hidden" id="formid" name="formid" value="1" />
+            <div class="empresaregistrar">
+            <input type="submit" id="mysubmit" name="mysubmit" value="Registrase" class="button"/>
+            </div>
+            <input type="hidden" id="formid" name="formid" value="" />
         </form>
-        
+    </div>
     </body>
 </html>
