@@ -1,23 +1,18 @@
 
 package oc.plataformaweb.servlets;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 import oc.plataformaweb.logic.EmpresaLogic;
 import oc.plataformaweb.objects.EmpresaObj;
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
+
 
 @MultipartConfig
 @WebServlet(name = "EmpresaServlet", urlPatterns = {"/EmpresaServlet"})

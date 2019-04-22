@@ -9,6 +9,7 @@ package oc.plataformaweb.objects;
     private String m_strNombre;
     private String m_strApellido;
     private String m_strNombreUsuario;
+    private String m_strFotoPerfil;
     private String m_strGenero;
     private String m_strFechaNacimiento;
     private String m_strCorreo;
@@ -16,11 +17,12 @@ package oc.plataformaweb.objects;
     private String m_strDepartamento;
     private String m_strDireccion;
 
-        public UsuarioObj(int p_iId, String p_strNombre, String p_strApellido, String p_strNombreUsuario, String p_strGenero, String p_strFechaNacimiento, String p_strCorreo, String p_strContrasena, String p_strDepartamento, String p_strDireccion) {
+        public UsuarioObj(int p_iId, String p_strNombre, String p_strApellido, String p_strNombreUsuario, String p_strFotoPerfil, String p_strGenero, String p_strFechaNacimiento, String p_strCorreo, String p_strContrasena, String p_strDepartamento, String p_strDireccion) {
             setId(p_iId);
             setNombre(p_strNombre);
             setApellido(p_strApellido);
             setNombreUsuario(p_strNombreUsuario);
+            setFotoPerfil(p_strFotoPerfil);
             setGenero(p_strGenero);
             setFechaNacimiento(p_strFechaNacimiento);
             setCorreo(p_strCorreo);
@@ -61,6 +63,14 @@ package oc.plataformaweb.objects;
         private void setNombreUsuario(String p_strNombreUsuario) {
             m_strNombreUsuario = p_strNombreUsuario;
         }
+
+        public String getFotoPerfil() {
+            return m_strFotoPerfil;
+        }
+
+        public void setFotoPerfil(String p_strFotoPerfil) {
+            m_strFotoPerfil = p_strFotoPerfil;
+        }                
 
         public String getGenero() {
             return m_strGenero;

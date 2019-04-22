@@ -17,13 +17,13 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Cambiar Logo</h1>
+        <h1>Cambiar Foto Perfil</h1>
         
-        <form id="myform" name="myform" action="EmpresaServlet" method="post" enctype="multipart/form-data" >  
+        <form id="myform" name="myform" action="UsuarioServlet" method="post" enctype="multipart/form-data" >  
         <%
         
         
-            String archivourl = "D:\\Documents\\Erick\\ESEN\\Tercer Año\\Ciclo I\\Programación II\\Proyecto\\Proyecto\\Proyecto-V.1\\PlataformaWeb\\web\\img\\Logos";
+            String archivourl = "D:\\Documents\\Erick\\ESEN\\Tercer Año\\Ciclo I\\Programación II\\Proyecto\\Proyecto\\Proyecto-V.1\\PlataformaWeb\\web\\img\\Usuarios";
             
             DiskFileItemFactory factory = new DiskFileItemFactory();
             
@@ -33,7 +33,7 @@
             
             ServletFileUpload upload = new ServletFileUpload(factory); 
             
-            String strLogo;
+            String strFoto;
                         
             try{
                 
@@ -42,9 +42,9 @@
                 for(FileItem items: partes){
                     File file = new File(archivourl,items.getName());
                     items.write(file);
-                    strLogo = items.getName();
+                    strFoto = items.getName();
                     %>
-                    <input type="hidden" id="logo" name="logo" value="<%= strLogo %>" />
+                    <input type="hidden" id="foto" name="foto" value="<%= strFoto %>" />
                     <%                   
                 }
                 

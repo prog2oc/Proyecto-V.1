@@ -14,16 +14,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>eSeVolado</title>
     </head>
     <body>
-        <h1>Cambiar Logo</h1>
+        <h1>Cambiar Imagen Publicidad</h1>
         
-        <form id="myform" name="myform" action="EmpresaServlet" method="post" enctype="multipart/form-data" >  
+        <form id="myform" name="myform" action="PublicidadServlet" method="get" enctype="multipart/form-data" >  
         <%
         
         
-            String archivourl = "D:\\Documents\\Erick\\ESEN\\Tercer Año\\Ciclo I\\Programación II\\Proyecto\\Proyecto\\Proyecto-V.1\\PlataformaWeb\\web\\img\\Logos";
+            String archivourl = "D:\\Documents\\Erick\\ESEN\\Tercer Año\\Ciclo I\\Programación II\\Proyecto\\Proyecto\\Proyecto-V.1\\PlataformaWeb\\web\\img\\Publicidad";
             
             DiskFileItemFactory factory = new DiskFileItemFactory();
             
@@ -33,7 +33,7 @@
             
             ServletFileUpload upload = new ServletFileUpload(factory); 
             
-            String strLogo;
+            String strImagen;
                         
             try{
                 
@@ -42,9 +42,9 @@
                 for(FileItem items: partes){
                     File file = new File(archivourl,items.getName());
                     items.write(file);
-                    strLogo = items.getName();
+                    strImagen = items.getName();
                     %>
-                    <input type="hidden" id="logo" name="logo" value="<%= strLogo %>" />
+                    <input type="hidden" id="imagen" name="imagen" value="<%= strImagen %>" />
                     <%                   
                 }
                 
@@ -56,8 +56,9 @@
                        
         %> 
             <input type="hidden" id="id" name="id" value="<%= iId %>" />
-            <input type="submit" id="mysubmit" name="mysubmit" value="Aceptar"/>
             <input type="hidden" id="formid" name="formid" value="7" />
+            <input type="submit" id="mysubmit" name="mysubmit" value="Aceptar"/>
+            
         </form>
     </body>
 </html>

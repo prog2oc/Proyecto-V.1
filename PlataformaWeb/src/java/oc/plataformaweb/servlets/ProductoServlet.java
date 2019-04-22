@@ -21,7 +21,7 @@ public class ProductoServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+            
             String strFormId = request.getParameter("formid");
             
             if(strFormId.equals("1"))
@@ -49,11 +49,9 @@ public class ProductoServlet extends HttpServlet {
             
             if(strFormId.equals("2"))
             {
-                //access logic
-                ProductoLogic CLogic = new ProductoLogic();
-                ArrayList<ProductoObj> PArray = CLogic.getAllProductos();
-                
-                //send to frontend
+                ProductoLogic PLogic = new ProductoLogic();
+                ArrayList<ProductoObj> PArray = PLogic.getAllProductos();
+                                
                 request.getSession().setAttribute("producto", PArray);
                 response.sendRedirect("productoForm.jsp");
             }
@@ -122,10 +120,41 @@ public class ProductoServlet extends HttpServlet {
             {
                 CategoriaLogic CLogic = new CategoriaLogic();
                 ArrayList<CategoriaObj> CArray = CLogic.getAllCategorias();
-                
-                //send to frontend
+                               
                 request.getSession().setAttribute("categorias", CArray);
                 response.sendRedirect("NewProducto.jsp");
+            }
+            
+            
+            if(strFormId.equals("7"))
+            {
+                
+                CategoriaLogic CLogic = new CategoriaLogic();
+                ArrayList<CategoriaObj> CArray = CLogic.getAllCategorias();
+                               
+                                                
+                ProductoLogic PLogic = new ProductoLogic();
+                ArrayList<ProductoObj> PArray = PLogic.getAllProductos();
+                                
+                request.getSession().setAttribute("categorias", CArray);
+                request.getSession().setAttribute("producto", PArray);
+                response.sendRedirect("InicioSinSesion.jsp");
+            }
+            
+            if(strFormId.equals("8"))
+            {
+                
+                CategoriaLogic CLogic = new CategoriaLogic();
+                ArrayList<CategoriaObj> CArray = CLogic.getAllCategorias();
+                                
+                request.getSession().setAttribute("categorias", CArray);
+                response.sendRedirect("NewProducto.jsp");
+                
+                ProductoLogic PLogic = new ProductoLogic();
+                ArrayList<ProductoObj> PArray = PLogic.getAllProductos();
+                                
+                request.getSession().setAttribute("producto", PArray);
+                response.sendRedirect("inicioSinSesion.jsp");
             }
             
             
