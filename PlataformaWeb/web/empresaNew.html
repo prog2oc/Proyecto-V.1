@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registrarse empresa</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" 
+              content="width=device-width, initial-scale=1.0">
+            <link href="Style/registrarseempresa.css" rel="stylesheet" type="text/css"/>
+            <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
+    </head>
+    <body>
+         <span class="close-btn">
+        <a href="index.html">
+        <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
+        </a>
+        </span>
+        
+        <div class="empresa" >
+        
+        <img src="img/esevolado.png">   
+        <br>
+        <h1>¡Bienvenido futuro Usuario Premium!</h1>
+          
+           <p>Ingrese sus datos para disfrutar de una experiencia única</p>
+           <br>
+       
+        <form id="myform" name="myform" action="EmpresaServlet" method="get">
+            
+            
+            <div class="empresaregistrar">
+            <label class="label">Nombre:<span class="req">*</span></label><br>
+            <input type="text" id="nombre" name="nombre" required autocomplete="off" class="input" placeholder="Nombre"/>
+            <br><br>
+            </div>
+
+            <div class="empresaregistrar">
+            <label class="label">Direccion:<span class="req">*</span></label><br>
+            <input type="text" id="direccion" required autocomplete="off" name="direccion" class="input" placeholder="Dirección"/>
+            <br><br>
+            </div>
+            
+            <div class="empresaregistrar" style="width:300px;">
+            <label class="label">Departamento:<span class="req">*</"span></label><br>
+            <select name="departamento" class="input-select">
+                <option value="AH">Ahuachapan</option>
+                <option value="CA">Cabañas</option>
+                <option value="CH">Chalatenango</option>
+                <option value="CU">Cuscatlán</option>
+                <option value="LI">La Libertad</option>
+                <option value="MO">Morazán</option>
+                <option value="PA">La Paz</option>
+                <option value="SA">Santa Ana</option>
+                <option value="SM">San Miguel</option>
+                <option value="SO">Sonsonate</option>
+                <option value="SS">San Salvador</option>
+                <option value="SV">San Vicente</option>
+                <option value="UN">La Unión</option>
+                <option value="US">Usulután</option>
+            </select>
+            <br><br><br>
+            </div>
+            
+            <div class="empresaregistrar">
+            <label class="label">Ciudad:<span class="req">*</span></label><br>
+            <input type="text" id="ciudad" name="ciudad" required autocomplete="off" placeholder="Cuidad" class="input" />
+            <br><br>
+            </div>
+            
+            <div class="empresaregistrar">
+            <label class="label">Teléfono:</label><br>
+            <input type="text" id="telefono" name="telefono" placeholder="Teléfono" class="input"/>
+            <br><br>
+            </div>
+            
+            <div class="empresaregistrar">
+            <label class="label"> Sitio web:<span class="req">*</span></label><br>
+            <input type="text" id="sitioweb" name="sitioweb" required autocomplete="off"  placeholder="Web Site" class="input"/>
+            <br><br>
+            </div>
+            
+            <div class="empresaregistrar">
+            <input type="submit" id="mysubmit" name="mysubmit" value="Registrase" class="button"/>
+            </div>
+            <input type="hidden" id="formid" name="formid" value="" />
+        </form>
+    </div>
+    </body>
+</html>
