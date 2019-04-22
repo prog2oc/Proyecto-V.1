@@ -23,7 +23,7 @@
         Iterator<CategoriaObj> iteCArray = CArray.iterator();
         
     %> 
-    <body>
+    <body onload="showSlides(0)">
         <div class="header">
             <h1 class="logo">e<span class="blue">S</span>e<span class="blue">V</span>olado</h1>
             <input type="checkbox" id="chk">
@@ -58,8 +58,21 @@
                     }
                 %>     
         </div>
-        
-        <br>
+
+            <div  class="slideshow-container">
+                <div class="mySlides fade">                  
+                  <img src="img/Publicidad/officedepot1.png" style="width:100%">
+                </div>
+              
+                <div class="mySlides fade">                  
+                  <img src="img/Publicidad/officedepot2.png" style="width:100%">
+                </div>
+              
+                <div class="mySlides fade">                  
+                  <img src="img/Publicidad/siman1.jpg" style="width:100%">
+                </div>
+            </div>
+              <br><br>
         <div class="catalogo">
 
             <table>
