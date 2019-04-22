@@ -36,7 +36,7 @@
 
             <div class="menu">
                 <a href="inicioSesion.html"><%= UUsuario.getNombre() %> <%= UUsuario.getApellido() %> </a>
-                <a href="carrito.jsp">Carrito</a>
+                <a href="Carrito.jsp">Carrito</a>
                 <a href="ProductoServlet?formid=7">Cerrar Sesión</a>
                 <label for="chk" class="hide-menu-btn" >
                         <i class="fas fa-times"></i>

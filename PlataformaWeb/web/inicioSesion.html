@@ -21,10 +21,11 @@ and open the template in the editor.
         <div class="iniciarsesion">
             <img src="img/esevolado.png">   
             <br>
-            <form id="myform">
+            <form id="myform" name="myform" action="UsuarioServlet" method="get">
+                <input type="hidden" id="formid" name="formid" value="6" />
             <div class="ingresarusurio">
                 <label for="usuario" class="label">Usuario:<span class="req">*</span></label><br>
-                <input type="text" id="usuario" name="usuario" required placeholder="Usuario"  autocomplete="off" class="input" />
+                <input type="text" id="nombreusuario" name="nombreusuario" required placeholder="Usuario"  autocomplete="off" class="input" />
             <br>
             </div>
                 
@@ -43,7 +44,7 @@ and open the template in the editor.
                 <span id="forgotten">Olvidé la contraseña</span>
                 </a>
             </div>
-            <input type="hidden" id="formid" name="formid" value="" />
+            
             </form>
         </div>
        

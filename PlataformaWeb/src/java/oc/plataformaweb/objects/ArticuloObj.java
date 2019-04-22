@@ -8,8 +8,7 @@ public class ArticuloObj
     private int m_iIdProducto;
     private int m_iCantidad;
 
-    public ArticuloObj(int p_iId, int p_iIdProducto, int p_iCantidad) {
-        setId(p_iId);
+    public ArticuloObj( int p_iIdProducto, int p_iCantidad) {
         setIdProducto(p_iIdProducto);
         setCantidad(p_iCantidad);
     }    
@@ -34,7 +33,7 @@ public class ArticuloObj
         return m_iCantidad;
     }
 
-    private void setCantidad(int p_iCantidad) {
+    public void setCantidad(int p_iCantidad) {
         m_iCantidad = p_iCantidad;
     }
     

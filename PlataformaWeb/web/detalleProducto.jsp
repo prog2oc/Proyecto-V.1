@@ -72,7 +72,7 @@
         <div class="detalle">
             
             <table>
-                <form id="myform" name="myform" action="ProductoServlet" method="get">
+                <form id="myform" name="myform" action="AnadirCarrito" method="get">
                     <tr>
                     <td rowspan="5"><img src="img/Productos/<%= CProducto.getImagen() %> " width="300px" height="300px"> </td>
                     <td>Código</td>
@@ -85,10 +85,10 @@
                     <td><input type="number" name="precio" id="precio" value="<%= CProducto.getPrecioUnidad() %>" readonly></td>    
                     </tr><tr>
                     <td>Cantidad:</td>
-                    <td><input type="number" name="cantidad" id="cantidad"></td>    
+                    <td><input type="number" name="cantidad" id="cantidad" value="1"></td>    
                     </tr><tr>
-                    
-                    <input type="hidden" id="formid" name="formid" value="" />
+                    <input type="hidden" id="id" name="id" value="<%= UUsuario.getId() %>" />
+                    <input type="hidden" id="formid" name="formid" value="1" />
                     <td><input type="submit" id="mysubmit" name="mysubmit" value="Agregar"/></td>
                     </tr>
                 </form>

@@ -121,26 +121,31 @@ public class UsuarioServlet extends HttpServlet {
             String strUsuario = request.getParameter("nombreusuario");
             String strContrasena = request.getParameter("contrasena");
             
-            UsuarioLogic ULogic = new UsuarioLogic();
-            UsuarioObj UUsuario = ULogic.getUsuarioInfo(strUsuario, strContrasena);   
-              
-            if(UUsuario == null){                
-                request.getSession().setAttribute("error", "El usuario o contraseña no son correctos.");
-                response.sendRedirect("errorInicioSesion.jsp");    
-            }else{  
-                
-                //Productos y Categorias
-                
-                CategoriaLogic CLogic = new CategoriaLogic();
-                ArrayList<CategoriaObj> CArray = CLogic.getAllCategorias();
-                        
-                ProductoLogic PLogic = new ProductoLogic();
-                ArrayList<ProductoObj> PArray = PLogic.getAllProductos();
-                
-                request.getSession().setAttribute("categorias", CArray);
-                request.getSession().setAttribute("producto", PArray);                
-                request.getSession().setAttribute("usuario", UUsuario);
-                response.sendRedirect("InicioUsuario.jsp");
+            if( strUsuario.equals("admin") & strContrasena.equals("admin") ){
+                response.sendRedirect("inicioAdministrador.jsp");    
+            } else {
+            
+                UsuarioLogic ULogic = new UsuarioLogic();
+                UsuarioObj UUsuario = ULogic.getUsuarioInfo(strUsuario, strContrasena);   
+
+                if(UUsuario == null){                
+                    request.getSession().setAttribute("error", "El usuario o contraseña no son correctos.");
+                    response.sendRedirect("errorInicioSesion.jsp");    
+                }else {  
+
+                    //Productos y Categorias
+
+                    CategoriaLogic CLogic = new CategoriaLogic();
+                    ArrayList<CategoriaObj> CArray = CLogic.getAllCategorias();
+
+                    ProductoLogic PLogic = new ProductoLogic();
+                    ArrayList<ProductoObj> PArray = PLogic.getAllProductos();
+
+                    request.getSession().setAttribute("categorias", CArray);
+                    request.getSession().setAttribute("producto", PArray);                
+                    request.getSession().setAttribute("usuario", UUsuario);
+                    response.sendRedirect("InicioUsuario.jsp");
+                }
             }
             
         }
