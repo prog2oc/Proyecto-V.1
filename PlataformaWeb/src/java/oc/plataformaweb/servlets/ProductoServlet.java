@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import oc.plataformaweb.logic.CategoriaLogic;
 import oc.plataformaweb.logic.ProductoLogic;
+import oc.plataformaweb.logic.UsuarioLogic;
 import oc.plataformaweb.objects.CategoriaObj;
 import oc.plataformaweb.objects.ProductoObj;
+import oc.plataformaweb.objects.UsuarioObj;
 
 @WebServlet(name = "ProductoServlet", urlPatterns = {"/ProductoServlet"})
 public class ProductoServlet extends HttpServlet {
@@ -247,6 +249,48 @@ public class ProductoServlet extends HttpServlet {
                 request.getSession().setAttribute("producto", PArray);
                 response.sendRedirect("InicioUsuario.jsp");
             }  
+            
+            if(strFormId.equals("14"))
+            {
+                //get parameters
+                String strId = request.getParameter("idproducto");
+                int iId = Integer.parseInt(strId);
+                
+                //access logic
+                ProductoLogic PLogic = new ProductoLogic();
+                ProductoObj CProducto = PLogic.getProductoById(iId);
+                
+                CategoriaLogic CLogic = new CategoriaLogic();
+                ArrayList<CategoriaObj> CArray = CLogic.getAllCategorias();
+                
+                //send to frontend
+                request.getSession().setAttribute("categorias", CArray);
+                //send to frontend
+                request.getSession().setAttribute("producto", CProducto);
+                response.sendRedirect("detalleProductoSinSesion.jsp");
+            }   
+            
+            if(strFormId.equals("15"))
+            {
+                String strId = request.getParameter("id");
+                int iId = Integer.parseInt(strId);
+                String strIdProducto = request.getParameter("idproducto");
+                int iIdProducto = Integer.parseInt(strIdProducto);
+                
+                ProductoLogic PLogic = new ProductoLogic();
+                ProductoObj CProducto = PLogic.getProductoById(iIdProducto);
+                
+                UsuarioLogic ULogic = new UsuarioLogic();
+                UsuarioObj UUsuario = ULogic.getUsuarioById(iId);          
+                                
+                CategoriaLogic CLogic = new CategoriaLogic();
+                ArrayList<CategoriaObj> CArray = CLogic.getAllCategorias();
+                
+                request.getSession().setAttribute("usuario", UUsuario);
+                request.getSession().setAttribute("categorias", CArray);
+                request.getSession().setAttribute("producto", CProducto);
+                response.sendRedirect("detalleProducto.jsp");
+            }   
             
         }
     }

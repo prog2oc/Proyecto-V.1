@@ -19,9 +19,9 @@
         <title>Producto</title>
     </head>
     <%
-        ArrayList<ProductoObj> CArray = 
+        ArrayList<ProductoObj> PArray = 
                 (ArrayList<ProductoObj>)request.getSession().getAttribute("producto");
-        Iterator<ProductoObj> iteArray = CArray.iterator();
+        Iterator<ProductoObj> iteArray = PArray.iterator();
         
     %>    
     <body>
