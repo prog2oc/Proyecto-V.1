@@ -15,7 +15,9 @@
   padding: 8px;
 }
 
-#tablas tr:nth-child(even){rgb(0, 188, 175);}
+#tablas tr:nth-child(even){ 
+  rgb(0, 188, 175);
+}
 
 #tablas tr:hover {background-color: #ddd;}
 
