@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import oc.plataformaweb.logic.TipoPublicidadLogic;
 import oc.plataformaweb.objects.TipoPublicidadObj;
 
-@WebServlet(name = "TipoPublicidad", urlPatterns = {"/TipoPublicidad"})
+@WebServlet(name = "TipoPublicidadServlet", urlPatterns = {"/TipoPublicidadServlet"})
 public class TipoPublicidadServlet extends HttpServlet {
 
 

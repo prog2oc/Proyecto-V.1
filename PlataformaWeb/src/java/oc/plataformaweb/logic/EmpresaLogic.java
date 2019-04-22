@@ -11,22 +11,21 @@ import oc.plataformaweb.objects.EmpresaObj;
 
 public class EmpresaLogic extends Logic
 {
-    public boolean insertEmpresaBool(String p_strNombre, String p_strDireccion, String p_strDepartamento, String p_strCiudad, String p_strTelefono, String p_strSitioWeb)
+    public boolean insertEmpresaBool(String p_strNombre, String p_strLogo, String p_strDireccion, String p_strDepartamento, String p_strCiudad, String p_strTelefono, String p_strSitioWeb)
     {
         DatabaseX database = getDatabase();
-        String strSql = "INSERT INTO ocplataformaweb.empresa (id,nombre,direccion,departamento,ciudad,telefono,sitioweb)"+
-        "VALUES (0,'"+p_strNombre+"','"+p_strDireccion+"','"+p_strDepartamento+"','"+p_strCiudad+"','"+p_strTelefono+"','"+p_strSitioWeb+"');";
+        String strSql = "INSERT INTO ocplataformaweb.empresa (id,nombre, logo, direccion,departamento,ciudad,telefono,sitioweb)"+
+        "VALUES (0,'"+p_strNombre+"','"+p_strLogo+"','"+p_strDireccion+"','"+p_strDepartamento+"','"+p_strCiudad+"','"+p_strTelefono+"','"+p_strSitioWeb+"');";
         System.out.println(strSql);
         boolean bsuccess = database.executeNonQueryBool(strSql);
         return bsuccess;
     }
     
-    public int insertEmpresaRows(String p_strNombre, String p_strDireccion, String p_strDepartamento, String p_strCiudad, String p_strTelefono, String p_strSitioWeb)
+    public int insertEmpresaRows(String p_strNombre, String p_strLogo, String p_strDireccion, String p_strDepartamento, String p_strCiudad, String p_strTelefono, String p_strSitioWeb)
     {
-        //INSERT INTO travelsys.client(id,name,age) VALUES(0,'pepito',24);
         DatabaseX database = getDatabase();
-        String strSql = "INSERT INTO ocplataformaweb.empresa (id,nombre,direccion,departamento,ciudad,telefono,sitioweb)"+
-        "VALUES (0,'"+p_strNombre+"','"+p_strDireccion+"','"+p_strDepartamento+"','"+p_strCiudad+"','"+p_strTelefono+"','"+p_strSitioWeb+"');";
+        String strSql = "INSERT INTO ocplataformaweb.empresa (id,nombre, logo, direccion,departamento,ciudad,telefono,sitioweb)"+
+        "VALUES (0,'"+p_strNombre+"','"+p_strLogo+"','"+p_strDireccion+"','"+p_strDepartamento+"','"+p_strCiudad+"','"+p_strTelefono+"','"+p_strSitioWeb+"');";
         System.out.println(strSql);
         int iRows = database.executeNonQueryRows(strSql);
         return iRows;
@@ -44,6 +43,7 @@ public class EmpresaLogic extends Logic
         {
             int iId;
             String strNombre;
+            String strLogo;
             String strDireccion;
             String strDepartamento;
             String strCiudad;
@@ -59,13 +59,14 @@ public class EmpresaLogic extends Logic
                 {
                     iId = EResult.getInt("id");
                     strNombre = EResult.getString("nombre");
+                    strLogo = EResult.getString("logo");
                     strDireccion = EResult.getString("direccion");
                     strDepartamento = EResult.getString("departamento");
                     strCiudad = EResult.getString("ciudad");
                     strTelefono = EResult.getString("telefono");
                     strSitioWeb = EResult.getString("sitioweb");
                     
-                    ETemp = new EmpresaObj(iId, strNombre, strDireccion, strDepartamento, strCiudad, strTelefono, strSitioWeb);
+                    ETemp = new EmpresaObj(iId, strNombre, strLogo, strDireccion, strDepartamento, strCiudad, strTelefono, strSitioWeb);
                     EArray.add(ETemp);
                 }
             } 
@@ -102,6 +103,7 @@ public class EmpresaLogic extends Logic
         {
             int iId;
             String strNombre;
+            String strLogo;
             String strDireccion;
             String strDepartamento;
             String strCiudad;
@@ -114,13 +116,14 @@ public class EmpresaLogic extends Logic
                 {
                     iId = EResult.getInt("id");
                     strNombre = EResult.getString("nombre");
+                    strLogo = EResult.getString("logo");
                     strDireccion = EResult.getString("direccion");
                     strDepartamento = EResult.getString("departamento");
                     strCiudad = EResult.getString("ciudad");
                     strTelefono = EResult.getString("telefono");
                     strSitioWeb = EResult.getString("sitioweb");
                     
-                    ETemp = new EmpresaObj(iId, strNombre, strDireccion, strDepartamento, strCiudad, strTelefono, strSitioWeb);
+                    ETemp = new EmpresaObj(iId, strNombre, strLogo, strDireccion, strDepartamento, strCiudad, strTelefono, strSitioWeb);
                 }
             } 
             catch (SQLException ex) 
@@ -131,6 +134,17 @@ public class EmpresaLogic extends Logic
         
         return ETemp;
         
+    }
+    
+    public int updateEmpresaImagenRows(int p_iId, String p_strLogo) 
+    {
+        DatabaseX database = getDatabase();
+        String strSql = "UPDATE ocplataformaweb.empresa" +
+                        " SET logo = '"+ p_strLogo +
+                        "' WHERE id = "+p_iId+";";
+        System.out.println(strSql);
+        int iRows = database.executeNonQueryRows(strSql);
+        return iRows;
     }
     
     public int updateEmpresaRows(int p_iId, String p_strNombre, String p_strDireccion, String p_strDepartamento, String p_strCiudad, String p_strTelefono, String p_strSitioWeb) 

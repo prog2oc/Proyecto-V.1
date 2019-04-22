@@ -15,17 +15,18 @@ and open the template in the editor.
     <body>
         
         <span class="close-btn">
-        <a href="index.html">
+        <a href="ProductoServlet?formid=7">
         <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
         </a>
         </span>
         <div class="iniciarsesion">
             <img src="img/esevolado.png">   
             <br>
-            <form id="myform">
+            <form id="myform" name="myform" action="UsuarioServlet" method="get">
+                <input type="hidden" id="formid" name="formid" value="6" />
             <div class="ingresarusurio">
                 <label for="usuario" class="label">Usuario:<span class="req">*</span></label><br>
-                <input type="text" id="usuario" name="usuario" required placeholder="Usuario"  autocomplete="off" class="input" />
+                <input type="text" id="nombreusuario" name="nombreusuario" required placeholder="Usuario"  autocomplete="off" class="input" />
             <br>
             </div>
                 
@@ -44,7 +45,9 @@ and open the template in the editor.
                 <span id="forgotten">Olvidé la contraseña</span>
                 </a>
             </div>
+
             <input type="hidden" id="formid" name="formid" value="1" />
+
             </form>
         </div>
        

@@ -32,7 +32,7 @@ public class TipoPublicidadLogic extends Logic {
                 while(PResult.next())
                 {
                     iId = PResult.getInt("id");
-                    strName = PResult.getString("name");
+                    strName = PResult.getString("nombre");
                     strDescription = PResult.getString("descripcion");
                     
                     PTemp = new TipoPublicidadObj(iId, strName, strDescription);
@@ -89,7 +89,7 @@ public class TipoPublicidadLogic extends Logic {
                 while(PResult.next())
                 {
                     iId = PResult.getInt("id");
-                    strName = PResult.getString("name");
+                    strName = PResult.getString("nombre");
                     strDescription = PResult.getString("descripcion");
                     
                     PTemp = new TipoPublicidadObj(iId, strName, strDescription);
@@ -109,7 +109,7 @@ public class TipoPublicidadLogic extends Logic {
         //update travelsys.client set name = 'fabricio',age = 25 where id = 9;
         DatabaseX database = getDatabase();
         String strSql = "update ocplataformaweb.tipopublicidad "
-                + "set name = '"+p_strName+"',descripcion = '"+p_strDescription+"' "
+                + "set nombre = '"+p_strName+"',descripcion = '"+p_strDescription+"' "
                 + "where id = "+p_iId+" ";
         System.out.println(strSql);
         int iRows = database.executeNonQueryRows(strSql);

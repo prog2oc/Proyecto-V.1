@@ -15,7 +15,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import oc.plataformaweb.logic.CategoriaLogic;
+import oc.plataformaweb.logic.ProductoLogic;
 import oc.plataformaweb.logic.UsuarioLogic;
+import oc.plataformaweb.objects.CategoriaObj;
+import oc.plataformaweb.objects.ProductoObj;
 import oc.plataformaweb.objects.UsuarioObj;
 
 /**
@@ -37,6 +41,7 @@ public class UsuarioServlet extends HttpServlet {
                 String strNombre = request.getParameter("nombre");
                 String strApellido = request.getParameter("apellido");
                 String strNombreUsuario = request.getParameter("usuario");
+                String strFotoPerfil = "";
                 String strGenero = request.getParameter("genero"); 
                 String strFechaNacimiento = request.getParameter("fechanacimiento");
                 String strCorreo = request.getParameter("correo"); 
@@ -47,7 +52,7 @@ public class UsuarioServlet extends HttpServlet {
                                
              
                 UsuarioLogic ULogic = new UsuarioLogic();
-                int iRows = ULogic.insertUsuarioRows(strNombre, strApellido, strNombreUsuario, strGenero, strFechaNacimiento, strCorreo, strContrasena, strDepartamento, strDireccion);
+                int iRows = ULogic.insertUsuarioRows(strNombre, strApellido, strNombreUsuario, strFotoPerfil, strGenero, strFechaNacimiento, strCorreo, strContrasena, strDepartamento, strDireccion);
                 System.out.println("insert usuario rows: " + iRows);
               
                 request.getSession().setAttribute("rows", new Integer(iRows));
@@ -108,6 +113,57 @@ public class UsuarioServlet extends HttpServlet {
                 //send to frontend
                 request.getSession().setAttribute("rows", new Integer(iRows) );
                 response.sendRedirect("UsuariogenericMessage.jsp");
+            }
+            
+            if(strFormId.equals("6"))
+        {
+           
+            String strUsuario = request.getParameter("nombreusuario");
+            String strContrasena = request.getParameter("contrasena");
+            
+            if( strUsuario.equals("admin") & strContrasena.equals("admin") ){
+                response.sendRedirect("inicioAdministrador.jsp");    
+            } else {
+            
+                UsuarioLogic ULogic = new UsuarioLogic();
+                UsuarioObj UUsuario = ULogic.getUsuarioInfo(strUsuario, strContrasena);   
+
+                if(UUsuario == null){                
+                    request.getSession().setAttribute("error", "El usuario o contraseña no son correctos.");
+                    response.sendRedirect("errorInicioSesion.jsp");    
+                }else {  
+
+                    //Productos y Categorias
+
+                    CategoriaLogic CLogic = new CategoriaLogic();
+                    ArrayList<CategoriaObj> CArray = CLogic.getAllCategorias();
+
+                    ProductoLogic PLogic = new ProductoLogic();
+                    ArrayList<ProductoObj> PArray = PLogic.getAllProductos();
+
+                    request.getSession().setAttribute("categorias", CArray);
+                    request.getSession().setAttribute("producto", PArray);                
+                    request.getSession().setAttribute("usuario", UUsuario);
+                    response.sendRedirect("InicioUsuario.jsp");
+                }
+            }
+            
+        }
+            
+            if(strFormId.equals("7")){
+                String strId = request.getParameter("id");
+                String strLogo = request.getParameter("foto");
+                int iId = Integer.parseInt(strId);
+                
+                int iRows;
+                
+                UsuarioLogic ULogic = new UsuarioLogic();
+                
+                iRows = ULogic.updateUsuarioFotoRows(iId, strLogo);
+                
+                request.getSession().setAttribute("id", new Integer(iId));
+                request.getSession().setAttribute("rows", new Integer(iRows) );
+                response.sendRedirect("UsuarioInfoMessage.jsp");
             }
             
         }

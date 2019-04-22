@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import oc.plataformaweb.logic.EmpresaLogic;
 import oc.plataformaweb.objects.EmpresaObj;
 
+
+@MultipartConfig
 @WebServlet(name = "EmpresaServlet", urlPatterns = {"/EmpresaServlet"})
 public class EmpresaServlet extends HttpServlet 
 {
@@ -26,18 +29,20 @@ public class EmpresaServlet extends HttpServlet
             String strFormId = request.getParameter("formid");
             
             if(strFormId.equals("1"))
-            {
+            {            
+               
                 String strNombre = request.getParameter("nombre");
                 String strDireccion = request.getParameter("direccion");
                 String strDepartamento = request.getParameter("departamento");
                 String strCiudad = request.getParameter("ciudad");
                 String strTelefono = request.getParameter("telefono");
-                String strSitioWeb = request.getParameter("sitioweb");                
+                String strSitioWeb = request.getParameter("sitioweb");
+                String strLogo = request.getParameter("logo");
              
                 EmpresaLogic ELogic = new EmpresaLogic();
-                int iRows = ELogic.insertEmpresaRows(strNombre, strDireccion, strDepartamento, strCiudad, strTelefono, strSitioWeb);
-                System.out.println("insert empresa rows: " + iRows);
-              
+                int iRows = ELogic.insertEmpresaRows(strNombre, strLogo, strDireccion, strDepartamento, strCiudad, strTelefono, strSitioWeb);
+                System.out.println("insert empresa rows: " + iRows);                
+        
                 request.getSession().setAttribute("rows", new Integer(iRows));
                 response.sendRedirect("EmpresagenericMessage.jsp");
             }
@@ -78,19 +83,44 @@ public class EmpresaServlet extends HttpServlet
             if(strFormId.equals("5"))
             {
                 String strId = request.getParameter("id");
-                String strNombre = request.getParameter("nombre");
+                String strNombre = request.getParameter("nombre");               
                 String strDireccion = request.getParameter("direccion");
                 String strDepartamento = request.getParameter("departamento");
                 String strCiudad = request.getParameter("ciudad");
                 String strTelefono = request.getParameter("telefono");
                 String strSitioWeb = request.getParameter("sitioweb");    
                 int iId = Integer.parseInt(strId);
+                
+                int iRows;
                
                 EmpresaLogic ELogic = new EmpresaLogic();
-                int iRows = ELogic.updateEmpresaRows(iId,strNombre,strDireccion,strDepartamento,strCiudad,strTelefono,strSitioWeb);
+                
+                iRows = ELogic.updateEmpresaRows(iId,strNombre,strDireccion,strDepartamento,strCiudad,strTelefono,strSitioWeb);                
                 System.out.println("update empresa rows: " + iRows);
                 
-                //send to frontend
+                request.getSession().setAttribute("rows", new Integer(iRows) );
+                response.sendRedirect("EmpresagenericMessage.jsp");
+            }
+            
+            if(strFormId.equals("6")){
+                String strId = request.getParameter("id");
+                int iId = Integer.parseInt(strId);
+                          
+                request.getSession().setAttribute("id", new Integer(iId));
+                response.sendRedirect("empresaUpdateLogo.jsp");
+            }
+            
+            if(strFormId.equals("7")){
+                String strId = request.getParameter("id");
+                String strLogo = request.getParameter("logo");
+                int iId = Integer.parseInt(strId);
+                
+                int iRows;
+                
+                EmpresaLogic ELogic = new EmpresaLogic();
+                
+                iRows = ELogic.updateEmpresaImagenRows(iId, strLogo);
+          
                 request.getSession().setAttribute("rows", new Integer(iRows) );
                 response.sendRedirect("EmpresagenericMessage.jsp");
             }
