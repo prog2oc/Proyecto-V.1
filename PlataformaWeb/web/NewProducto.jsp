@@ -12,6 +12,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="Style/nuevoproducto.css" rel="stylesheet" type="text/css"/>
         <title>JSP Page</title>
     </head>
     
@@ -22,24 +23,40 @@
     %>    
     
     <body>
-        <h1>Nuevo Producto</h1>
-        <br><br>
-        <div class="">
+        <<span class="close-btn">
+        <a href="index.html">
+        <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
+        </a>
+        </span>
+        
+    <div class="producto" >
+        
+        <img src="img/esevolado.png">   
+        <br>
+        <h1>¡Agregue el producto!</h1>
+          
+           
+           <br>
         <form id="myform" name="myform" action="ProductoServlet" method="get">
-            <label>Nombre:</label><br>
-            <input type="text" id="nombre" name="nombre" />
+            <div class="nuevoproducto">
+            <label>Nombre:<span class="req">*</span></label><br>
+            <input type="text" id="nombre" name="nombre" required autocomplete="off" class="input"/>
             <br><br>
-            
-            <label>Precio:</label><br>
+            </div>
+            <div class="nuevoproducto">
+            <label>Precio:<span class="req">*</span></label><br>
             <input type="number" step="0.01" id="preciounidad" name="preciounidad" />
             <br><br>
+            </div>
             
-            <label>Unidades:</label><br>
-            <input type="number" id="unidades" name="unidades" />
+            <div class="nuevoproducto">
+            <label>Unidades:<span class="req">*</span></label><br>
+            <input type="number" id="unidades" name="unidades" required autocomplete="off" class="input"/>
             <br><br>
-            
-            <label>Categoria:</label><br>
-            <select id="idcategoria" name="idcategoria" >                        
+            </div>
+            <div class="nuevoproducto">
+            <label>Categoria:<span class="req">*</span></label><br>
+            <select id="idcategoria" name="idcategoria"required autocomplete="off" class="input-select" >                        
             
             <%
             if(iteArray!=null)
@@ -57,13 +74,17 @@
             %>
             </select>
             <br><br>
-            <label>Empresa:</label><br>
-            <input type="number" id="idempresa" name="idempresa" />
+            </div>
+            <div class="nuevoproducto">
+            <label>Empresa:<span class="req">*</span></label><br>
+            <input type="number" id="idempresa" name="idempresa"required autocomplete="off" class="input" />
             <br><br>
-            
-            <input type="submit" id="mysubmit" name="mysubmit" value="Crear"/>
+            </div>
+            <div class="nuevoproducto">
+            <input type="submit" id="mysubmit" name="mysubmit" value="Crear"  class="button"/>
+            </div>
             <input type="hidden" id="formid" name="formid" value="1" />
         </form>
-        </div>
+    </div>
     </body>
 </html>
