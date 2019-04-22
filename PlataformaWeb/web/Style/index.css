@@ -269,7 +269,7 @@ form {
     font-size: 25px;
     color: white;
     text-align: center;
-    padding: 20px 16px;
+    padding: 30px 40px;
     text-decoration: none;
   }
 
@@ -289,7 +289,8 @@ form {
   
   p{
       color:white;
-      font-size:25px;
-      margin:auto;
-      
+      font-size:20px;
+      margin:auto; 
+      font-family: Abel;
+      text-align: center;
   }
