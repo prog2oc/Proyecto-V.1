@@ -11,25 +11,25 @@ import oc.plataformaweb.objects.ProductoObj;
 public class ProductoLogic extends Logic
 {
     
-    public boolean insertProductoBool(String p_strNombreProducto, String p_strImagen, double p_dPrecioUnidad, int p_iUnidades, int p_iIdCategoria, int p_iIdEmpresa)
+    public boolean insertProductoBool(String p_strNombreProducto, String p_strImagen, String p_strDescripcion, double p_dPrecioUnidad, int p_iUnidades, int p_iIdCategoria, int p_iIdEmpresa)
     {
         DatabaseX database = getDatabase();
         String strSql = "INSERT INTO ocplataformaweb.producto " +
-            "(id,nombreproducto, imagen, preciounidad,unidades,idcategoria,idempresa) " +
+            "(id,nombreproducto, imagen, descripcion, preciounidad,unidades,idcategoria,idempresa) " +
             "VALUES " +
-            "( 0,'"+p_strNombreProducto+"', '"+p_strImagen+"', "+p_dPrecioUnidad+","+ p_iUnidades+","+p_iIdCategoria+","+p_iIdEmpresa+");";
+            "( 0,'"+p_strNombreProducto+"', '"+p_strImagen+"', '"+p_strDescripcion+"', "+p_dPrecioUnidad+","+ p_iUnidades+","+p_iIdCategoria+","+p_iIdEmpresa+");";
         System.out.println(strSql);
         boolean bsuccess = database.executeNonQueryBool(strSql);
         return bsuccess;
     }
     
-    public int insertProductoRows(String p_strNombreProducto, String p_strImagen, double p_dPrecioUnidad, int p_iUnidades, int p_iIdCategoria, int p_iIdEmpresa)
+    public int insertProductoRows(String p_strNombreProducto, String p_strImagen, String p_strDescripcion, double p_dPrecioUnidad, int p_iUnidades, int p_iIdCategoria, int p_iIdEmpresa)
     {
         DatabaseX database = getDatabase();
         String strSql = "INSERT INTO ocplataformaweb.producto " +
-            "(id,nombreproducto, imagen, preciounidad,unidades,idcategoria,idempresa) " +
+            "(id,nombreproducto, imagen, descripcion, preciounidad,unidades,idcategoria,idempresa) " +
             "VALUES " +
-            "( 0,'"+p_strNombreProducto+"', '"+p_strImagen+"', "+p_dPrecioUnidad+","+ p_iUnidades+","+p_iIdCategoria+","+p_iIdEmpresa+");";
+            "( 0,'"+p_strNombreProducto+"', '"+p_strImagen+"', '"+p_strDescripcion+"', "+p_dPrecioUnidad+","+ p_iUnidades+","+p_iIdCategoria+","+p_iIdEmpresa+");";
         System.out.println(strSql);
         int iRows = database.executeNonQueryRows(strSql);
         return iRows;
@@ -48,6 +48,7 @@ public class ProductoLogic extends Logic
             int iId;
             String strNombreProducto;
             String strImagen;
+            String strDescripcion;
             double dPrecioUnidad;
             int iUnidades;
             int iIdCategoria;
@@ -63,6 +64,7 @@ public class ProductoLogic extends Logic
                     iId = CResult.getInt("id");
                     strNombreProducto = CResult.getString("nombreproducto");
                     strImagen = CResult.getString("imagen");
+                    strDescripcion = CResult.getString("descripcion");
                     dPrecioUnidad = CResult.getDouble("preciounidad");
                     iUnidades = CResult.getInt("unidades");
                     iIdCategoria = CResult.getInt("idcategoria");
@@ -72,7 +74,7 @@ public class ProductoLogic extends Logic
                         strImagen = "productodefault.png";
                     }
                     
-                    CTemp = new ProductoObj(iId, strNombreProducto, strImagen, dPrecioUnidad, iUnidades, iIdCategoria, iIdEmpresa);
+                    CTemp = new ProductoObj(iId, strNombreProducto, strImagen, strDescripcion, dPrecioUnidad, iUnidades, iIdCategoria, iIdEmpresa);
                     CArray.add(CTemp);
                 }
             } 
@@ -90,7 +92,7 @@ public class ProductoLogic extends Logic
     {
         //delete from travelsys.client where id=0;
         DatabaseX database = getDatabase();
-        String strSql = "delete from ocplataformaweb.Categoria "
+        String strSql = "delete from ocplataformaweb.producto "
                 + "where id="+p_iId+" ";
         System.out.println(strSql);
         int iRows = database.executeNonQueryRows(strSql);
@@ -110,6 +112,7 @@ public class ProductoLogic extends Logic
             int iId;
             String strNombreProducto;
             String strImagen;
+            String strDescripcion;
             double dPrecioUnidad;
             int iUnidades;
             int iIdCategoria;
@@ -122,6 +125,7 @@ public class ProductoLogic extends Logic
                      iId = CResult.getInt("id");
                     strNombreProducto = CResult.getString("nombreproducto");
                     strImagen = CResult.getString("imagen");
+                    strDescripcion = CResult.getString("descripcion");
                     dPrecioUnidad = CResult.getDouble("preciounidad");
                     iUnidades = CResult.getInt("unidades");
                     iIdCategoria = CResult.getInt("idcategoria");
@@ -131,7 +135,7 @@ public class ProductoLogic extends Logic
                         strImagen = "productodefault.png";
                     }
                     
-                    CTemp = new ProductoObj(iId, strNombreProducto, strImagen, dPrecioUnidad, iUnidades, iIdCategoria, iIdEmpresa);
+                    CTemp = new ProductoObj(iId, strNombreProducto, strImagen, strDescripcion, dPrecioUnidad, iUnidades, iIdCategoria, iIdEmpresa);
                 }
             } 
             catch (SQLException ex) 
@@ -144,7 +148,7 @@ public class ProductoLogic extends Logic
         
     }
 
-    public int updateProductoRows(int p_iId, String p_strNombreProducto, double p_dPrecioUnidad, int p_iUnidades, int p_iIdCategoria, int p_iIdEmpresa) 
+    public int updateProductoRows(int p_iId, String p_strNombreProducto, String p_strDescripcion, double p_dPrecioUnidad, int p_iUnidades, int p_iIdCategoria, int p_iIdEmpresa) 
     {
         
         DatabaseX database = getDatabase();
@@ -179,6 +183,7 @@ public class ProductoLogic extends Logic
             int iId;
             String strNombreProducto;
             String strImagen;
+            String strDescripcion;
             double dPrecioUnidad;
             int iUnidades;
             int iIdEmpresa;
@@ -193,6 +198,7 @@ public class ProductoLogic extends Logic
                     iId = CResult.getInt("id");
                     strNombreProducto = CResult.getString("nombreproducto");
                     strImagen = CResult.getString("imagen");
+                    strDescripcion = CResult.getString("descripcion");
                     dPrecioUnidad = CResult.getDouble("preciounidad");
                     iUnidades = CResult.getInt("unidades");
                     iIdEmpresa = CResult.getInt("idempresa");
@@ -201,7 +207,7 @@ public class ProductoLogic extends Logic
                         strImagen = "productodefault.png";
                     }
                     
-                    CTemp = new ProductoObj(iId, strNombreProducto, strImagen, dPrecioUnidad, iUnidades, iIdCategoria, iIdEmpresa);
+                    CTemp = new ProductoObj(iId, strNombreProducto, strImagen, strDescripcion, dPrecioUnidad, iUnidades, iIdCategoria, iIdEmpresa);
                     CArray.add(CTemp);
                 }
             } 
@@ -228,6 +234,7 @@ public class ProductoLogic extends Logic
             int iId;
             String strNombreProducto;
             String strImagen;
+            String strDescripcion;
             double dPrecioUnidad;
             int iUnidades;
             int iIdCategoria;
@@ -242,6 +249,7 @@ public class ProductoLogic extends Logic
                     iId = CResult.getInt("id");
                     strNombreProducto = CResult.getString("nombreproducto");
                     strImagen = CResult.getString("imagen");
+                    strDescripcion = CResult.getString("descripcion");
                     dPrecioUnidad = CResult.getDouble("preciounidad");
                     iUnidades = CResult.getInt("unidades");
                     iIdCategoria = CResult.getInt("idcategoria");
@@ -250,7 +258,7 @@ public class ProductoLogic extends Logic
                         strImagen = "productodefault.png";
                     }
                     
-                    CTemp = new ProductoObj(iId, strNombreProducto, strImagen, dPrecioUnidad, iUnidades, iIdCategoria, iIdEmpresa);
+                    CTemp = new ProductoObj(iId, strNombreProducto, strImagen, strDescripcion, dPrecioUnidad, iUnidades, iIdCategoria, iIdEmpresa);
                     CArray.add(CTemp);
                 }
             } 

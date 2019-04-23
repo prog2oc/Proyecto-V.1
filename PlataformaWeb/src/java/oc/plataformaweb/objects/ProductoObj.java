@@ -5,16 +5,18 @@ public class ProductoObj
     private int m_iId;
     private String m_strNombreProducto;
     private String m_strImagen;
+    private String m_strDescripcion;
     private double m_dPrecioUnidad;
     private int m_iUnidades;
     private int m_iIdCategoria;
     private int m_iIdEmpresa;
 
-    public ProductoObj(int p_iId, String p_strNombreProducto, String p_strImagen, double p_dPrecioUnidad, int p_iUnidades, int p_iIdCategoria, int p_iIdEmpresa) 
+    public ProductoObj(int p_iId, String p_strNombreProducto, String p_strImagen, String p_strDescripcion, double p_dPrecioUnidad, int p_iUnidades, int p_iIdCategoria, int p_iIdEmpresa) 
     {
         setId(p_iId);
         setNombreProducto(p_strNombreProducto);
         setImagen(p_strImagen);
+        setDescripcion(p_strDescripcion);
         setPrecioUnidad(p_dPrecioUnidad);
         setUnidades(p_iUnidades);
         setIdCategoria(p_iIdCategoria);
@@ -47,6 +49,15 @@ public class ProductoObj
         this.m_strImagen = m_strImagen;
     }
 
+    public String getDescripcion() {
+        return m_strDescripcion;
+    }
+
+    public void setDescripcion(String m_strDescripcion) {
+        this.m_strDescripcion = m_strDescripcion;
+    }
+    
+    
     public double getPrecioUnidad() {
         return m_dPrecioUnidad;
     }

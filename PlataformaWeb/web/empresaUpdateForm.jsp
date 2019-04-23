@@ -71,8 +71,8 @@
             </div>
             
             <div class="modificarempresa">
-            <label for="telefono" class="label">Telefono:<span class="req">*</span></label><br>
-            <input type="text" id="telefono" name="telefono" required placeholder="Telefono" autocomplete="off" class="input"/>
+            <label for="contrasena" class="label">Contrasena:<span class="req">*</span></label><br>
+            <input type="password" id="contrasena" name="contrasena" required placeholder="Contrasena" autocomplete="off" class="input"/>
             <br><br>
             </div>
             

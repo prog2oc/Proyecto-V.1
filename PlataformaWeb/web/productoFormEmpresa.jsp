@@ -66,7 +66,7 @@
         </div>
         <h1>Categorias</h1>
         <br>
-        <a href="ProductoServlet?formid=6&id=1">Nuevo Producto</a>
+        <a href="ProductoServlet?formid=6&id=<%= CEmpresa.getId() %>">Nuevo Producto</a>
         <br><br>
         <table>
         <tr>

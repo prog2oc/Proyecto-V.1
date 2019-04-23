@@ -80,11 +80,14 @@
             <table style="text-align: center">                
                     <tr>
                     <td rowspan="5"><img src="img/Productos/<%= CProducto.getImagen() %> " width="300px" height="300px"> </td>
-                    <td>Código</td>
-                    <td><input type="text" name="idproducto" id="idproducto" value="<%= CProducto.getId() %>" readonly></td>
+                    <td><input type="hidden" name="idproducto" id="idproducto" value="<%= CProducto.getId() %>" readonly></td>
                     </tr><tr>
-                    <td>Nombre</td>
-                    <td><input type="text" name="nombre" id="nombre" value="<%= CProducto.getNombreProducto() %>" readonly></td>    
+                    <td>Nombre:</td>
+                    <td><%= CProducto.getNombreProducto() %>
+                        <input type="hidden" name="nombre" id="nombre" value="<%= CProducto.getNombreProducto() %>" readonly></td>    
+                    </tr><tr>
+                    <td>Descripcion:</td>
+                    <td><input type="text" name="idproducto" id="idproducto" value="<%= CProducto.ge %>" readonly></td>
                     </tr><tr>
                     <td>Precio:</td>
                     <td><input type="number" name="precio" id="precio" value="<%= CProducto.getPrecioUnidad() %>" readonly></td>    

@@ -59,7 +59,7 @@
         
 
         <div class="navbar">
-                <a href="ProductoServlet?formid=7">Inicio</a>
+                <a href="ProductoServlet?formid=8">Inicio</a>
                 <%
                     if(iteCArray!=null)
                     {
@@ -115,6 +115,7 @@
                     <td>
                         <h3><%= Producto.getNombreProducto() %></h3>
                         <h3>ID: <%= Producto.getId() %></h3>
+                        <input type="hidden" id="idProducto<%= CuentaProducto %>" name="idProducto<%= CuentaProducto %>" value="<%= Producto.getId() %>"/>
                     </td>    
 
                     <td>
@@ -138,7 +139,10 @@
                         
                     <tr>
                         <td><h3>Total:$<%= Total %>0</h3></td></tr>
-                    <input type="hidden" id="formid" name="formid" value="2" />
+                    
+                    <input type="hidden" id="id" name="id" value="<%= UUsuario.getId() %>"/>
+                    <input type="hidden" id="total" name="total" value="<%= Total %>"/>
+                    <input type="hidden" id="formid" name="formid" value="2"/>
                     </tr>
                     <tr></tr>
                     <tr>
@@ -150,7 +154,7 @@
             </table>            
         </div>
                     <br><br>
-        <a href="javascript:window.history.go(-2); " >Regresar a Catálogo</a>
+        <a href="ProductoServlet?formid=8" >Regresar a Catálogo</a>
         
     </body>
 </html>
