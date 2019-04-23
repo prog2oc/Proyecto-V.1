@@ -15,7 +15,12 @@
     <head>
         <meta http-equiv="Content-Type" 
               content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+            <title>Información de Empresa</title>
+            <script src="Scripts/generalScript.js" type="text/javascript"></script>jquery-3.3.1.js" type="text/javascript"></script>
+            <script src="Scripts/jquery.validate.js" type="text/javascript"></script>
+            <script src="Scripts/additional-methods.js" type="text/javascript"></script>
+            <script src="Scripts/generalScript.js" type="text/javascript"></script>
+        
     </head>
     <body>
         
