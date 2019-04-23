@@ -41,9 +41,9 @@
       
         <div class="navbar">
                 <a href="ProductoServlet?formid=16&idempresa=<%= CEmpresa.getId() %>">Productos</a>
-                <a href="CategoriaServlet?formid=2">Categorias</a>
+                <a href="CategoriaServlet?formid=6">Categorias</a>
                 <a href="PublicidadServlet?formid=9&idempresa=<%= CEmpresa.getId() %>">Publicidades</a>   
-                <a href="TipoPublicidadServlet?formid=2">Tipo Publicidad</a>
+                <a href="TipoPublicidadServlet?formid=6">Tipo Publicidad</a>
         </div>
 
         <br><br>

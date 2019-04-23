@@ -17,8 +17,6 @@
         <title>eSeVolado</title>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
         <link href="Style/menus.css" rel="stylesheet" type="text/css"/>
-        <link href="Style/publicidad.css" rel="stylesheet" type="text/css"/>
-        <script src="Scripts/publicidad.js" type="text/javascript"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Yanone+Kaffeesatz" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
@@ -27,6 +25,8 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+           <link href="Style/catalogo.css" rel="stylesheet" type="text/css"/>
+           <script src="Scripts/catalogo.js" type="text/javascript"></script>
     </head>
     
     <%
@@ -73,31 +73,29 @@
                 </div>
                 
         </div>
-        
-        <div class="detalle">
-            
-            <table style="text-align: center">                
-                    <tr>
-                    <td rowspan="5"><img src="img/Productos/<%= CProducto.getImagen() %> " width="300px" height="300px"> </td>
-                    <td><input type="hidden" name="idproducto" id="idproducto" value="<%= CProducto.getId() %>" readonly></td>
-                    </tr><tr>
-                    <td>Nombre:</td>
-                    <td><%= CProducto.getNombreProducto() %>
-                        <input type="hidden" name="nombre" id="nombre" value="<%= CProducto.getNombreProducto() %>" readonly></td>    
-                    </tr><tr>
-                    <td>Descripcion:</td>
-                    <td><%= CProducto.getDescripcion() %></td>
-                    </tr><tr>
-                    <td>Precio:</td>
-                    <td><input type="number" name="precio" id="precio" value="<%= CProducto.getPrecioUnidad() %>" readonly></td>    
-                    </tr><tr>
                     
-                    <input type="hidden" id="formid" name="formid" value="" />
-                    <td><a href="inicioSesion.html"><button>Iniciar Sesion</button></a></td>
+                    <div id="#center" class="card">                                    
+
+                    <img src="img/Productos/<%= CProducto.getImagen() %> " width="100px">
+                    <br>
+                    <h2> <%= CProducto.getNombreProducto() %></h2>
+   
+                    <br>
                     
-                    </tr>               
-            </table>
-        </div>        
+                    <h2> <%= CProducto.getDescripcion() %> </h2>
+                    <br>
+                    <div class="detalle">
+                        <h3 class="price">Precio: $<%= CProducto.getPrecioUnidad() %>0</h3>
+                    <br>
+                    </div>
+                    <br>                        
+                    <div class="detalle">
+                        <a href="inicioSesion.html"><button>Iniciar Sesion</button></a>
+                    
+                    </div>
+
+
+        </div> 
                     
         <br><br>
         <div class="navbar">

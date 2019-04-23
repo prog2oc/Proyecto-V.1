@@ -38,18 +38,11 @@
         
     %>    
     <body>
-        <div class="header">
-            <h1 class="logo">e<span class="blue">S</span>e<span class="blue">V</span>olado</h1>
-            <input type="checkbox" id="chk">
-            <label for="chk" class="show-menu-btn">
-                <i class="fas fa-ellipsis-h"></i>
-            </label>
-
+       <div class="header">
+            <img src="img/esevolado.png" width="150" height="100" top="5" >
+           
             <div class="menu">
-                <a href="ProductoServlet?formid=7">Cerrar Sesión</a>
-                <label for="chk" class="hide-menu-btn" >
-                        <i class="fas fa-times"></i>
-                </label>                
+                <a href="ProductoServlet?formid=7">Cerrar Sesión</a>               
             </div>
         </div>
 

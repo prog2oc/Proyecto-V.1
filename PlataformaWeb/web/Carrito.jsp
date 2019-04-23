@@ -35,7 +35,7 @@
         Iterator<CategoriaObj> iteCArray = CArray.iterator();
         
         HttpSession sesion  = request.getSession(true);
-        ArrayList<ArticuloObj> AArray = sesion.getAttribute("carrito") != null ? null : (ArrayList) sesion.getAttribute("carrito");
+        ArrayList<ArticuloObj> AArray = sesion.getAttribute("carrito") == null ? null : (ArrayList) sesion.getAttribute("carrito");
         Iterator<ArticuloObj> iteAArray = AArray.iterator();
     %> 
     <body>

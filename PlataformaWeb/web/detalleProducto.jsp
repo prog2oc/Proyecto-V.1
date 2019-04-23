@@ -88,20 +88,26 @@
                     <h2> <%= CProducto.getNombreProducto() %></h2>
                     <input type="hidden" name="nombre" id="nombre" value="<%= CProducto.getNombreProducto() %>">   
                     <br>
+                    
                     <h2> <%= CProducto.getDescripcion() %> </h2>
                     <br>
-                    <h3 class="price">Precio: $<%= CProducto.getPrecioUnidad() %>0</h3>
-                    <input type="hidden" name="precio" id="precio" value="<%= CProducto.getPrecioUnidad() %>">
+                    <div class="detalle">
+                        <h3 class="price">Precio: $<%= CProducto.getPrecioUnidad() %>0</h3>
+                        <input type="hidden" name="precio" id="precio" value="<%= CProducto.getPrecioUnidad() %>">
                     <br>
-                    <h3>Cantidad:<input type="number" name="cantidad" id="cantidad" value="1"></h3>   
-                    <br>
+                    </div>
+                    <div class="detalle">
+                        <h3>Cantidad:<input type="number" name="cantidad" id="cantidad" value="1"></h3>   
+                        <br>
+                    <div class="detalle">
                     <input type="hidden" id="id" name="id" value="<%= UUsuario.getId() %>" />
                     <input type="hidden" id="formid" name="formid" value="1" />
-                    
-                    <input type="submit" id="mysubmit" name="mysubmit" value="Agregar"/></input>
+                    <div class="detalle">
+                        <input type="submit" id="mysubmit" name="mysubmit" value="Agregar"/></input>
+                    </div>
                 </form>
 
-        </div>    
+        </div> 
 
                 
     </body>

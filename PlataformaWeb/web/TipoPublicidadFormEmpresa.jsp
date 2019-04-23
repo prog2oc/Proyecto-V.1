@@ -34,10 +34,7 @@
 
             <div class="menu">
                 <a href="EmpresaServlet?formid=4&id=<%= CEmpresa.getId() %>"><%= CEmpresa.getNombre() %> </a>
-                <a href="ProductoServlet?formid=7">Cerrar Sesión</a>
-                <label for="chk" class="hide-menu-btn" >
-                        <i class="fas fa-times"></i>
-                </label>                
+                <a href="ProductoServlet?formid=7">Cerrar Sesión</a>               
             </div>
         </div>
 

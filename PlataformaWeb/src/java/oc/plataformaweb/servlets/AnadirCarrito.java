@@ -81,8 +81,7 @@ public class AnadirCarrito extends HttpServlet {
                 
                 if(!chequeo){
                     AArray.add(new ArticuloObj(iIdProducto, iCantidad) );
-                }
-                
+                }                
                
                 
                 sesion.setAttribute("carrito", AArray);
@@ -95,10 +94,8 @@ public class AnadirCarrito extends HttpServlet {
         
         
         if(strFormId.equals("2"))
-            {
-                
-                
-                              
+            {               
+                            
                 HttpSession sesion  = request.getSession(true);
                 ArrayList<ArticuloObj> AArray = sesion.getAttribute("carrito") == null ? new ArrayList<>() : (ArrayList) sesion.getAttribute("carrito");
                 

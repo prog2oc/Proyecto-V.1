@@ -1,8 +1,5 @@
-* {
-  box-sizing: border-box;
+*{box-sizing: border-box;
 }
-
-
 /* Center website */
 .main {
   max-width: 1000px;
@@ -112,3 +109,27 @@ h1 {
   font-size: 18px;
   font-family: Amatic SC;
     }
+    
+    
+.detalle .input, .detalle .button{
+    border:none;
+    padding:15px 20px;
+    border-radius:25px;
+    background:rgba(255,255,255,.1);
+    
+}
+.detalle .button {
+    background:orangered;
+    margin-bottom: auto;
+    font-family: Amatic SCt;
+}
+
+h3{
+  font-family: Amatic SCt;
+  color: black;
+}
+
+h2{
+  font-family: Amatic SCt;
+  color: black;  
+}
