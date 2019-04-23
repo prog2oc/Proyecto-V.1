@@ -19,11 +19,10 @@
         <link href="Style/registrarseempresa.css" rel="stylesheet" type="text/css"/>
         <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
             <title>Información de Empresa</title>
-            <link href="Style/registrarseempresa.css" rel="stylesheet" type="text/css"/>
-            <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
-            <script src="Scripts/additional-methods.js" type="text/javascript"></script>
-            <script src="Scripts/jquery-3.3.1.js" type="text/javascript"></script>
+            <script src="Scripts/generalScript.js" type="text/javascript"></script>
+            <script jquery-3.3.1.js type="text/javascript"></script>
             <script src="Scripts/jquery.validate.js" type="text/javascript"></script>
+            <script src="Scripts/additional-methods.js" type="text/javascript"></script>
             <script src="Scripts/generalScript.js" type="text/javascript"></script>
         
     </head>
@@ -36,7 +35,8 @@
     <%
         
         
-            String archivourl = getServletContext().getRealPath("/") +"img\\Logos";
+            String archivourl = getServletContext().getRealPath("/") +"img\\Logos" ;
+            out.print(archivourl);
             
             DiskFileItemFactory factory = new DiskFileItemFactory();
             
