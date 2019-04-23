@@ -33,7 +33,7 @@
         Iterator<CategoriaObj> iteCArray = CArray.iterator();
         
     %> 
-    <body onload="showSlides(0)">
+    <body onload="filterSelection('all')">
         
  <div class="header">
             <img src="img/esevolado.png" width="150" height="100" top="5" > 
@@ -55,15 +55,16 @@
                 <div class="subnav">
                     <a><button class="contenedorbutton">CATEGORIAS<i class="fa fa-caret-down"></i></button></a>
                     <br><br><br><br>
-                    <div class="subnav-contenedor">
+                        <div class="subnav-contenedor">
                         
-                        
+                        <div id="myBtnContainer">
                         <a >Moda</a>
                         <a href="#link2">Muebles</a>
                         <a href="#link3">Juguetes</a>
                         <a href="#link3">Electrodomésticos</a>
-                        <a class="btn active" onclick="filterSelection('Herramientas')">Belleza</a>
+                        <a class="btn" onclick="filterSelection('Herramientas')">Belleza</a>
                         <a class="btn active" onclick="filterSelection('all')">Todas</a>
+                        </div>
                         
                     </div>
                 </div>
@@ -71,6 +72,7 @@
         </div>
 
                 <br>
+                <div class="row">
                 <%
                     if(itePArray!=null)
                     {
@@ -86,11 +88,11 @@
                 
                 
                     <div class="column <%= Categoria.getNombre() %>">
-                        <div class="content">
+                        <div class="card">
                           <img src="img/Productos/<%= PTemp.getImagen() %>" style="width:100px">
-                          <h1><%= PTemp.getNombreProducto() %> <%= Categoria.getNombre() %></h1>
-                          <h2>$<%= PTemp.getPrecioUnidad() %></h2>
-                          <button  onclick="ProductoServlet?formid=14&idproducto=<%= PTemp.getId() %>" class="contenedorbutton">Ver Detalle</button>
+                          <h2><%= PTemp.getNombreProducto() %></h2>
+                          <h3 class="price">$<%= PTemp.getPrecioUnidad() %>0</h3>
+                          <button onclick=" location.href='ProductoServlet?formid=14&idproducto=<%= PTemp.getId() %>' "> Ver Detalle</button>
                         </div>
                     </div>
                
@@ -101,7 +103,7 @@
                     }
                 %>
                 
-                
+              </div>  
               <br>
               <br>
         

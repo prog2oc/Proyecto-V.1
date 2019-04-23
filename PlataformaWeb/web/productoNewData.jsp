@@ -101,6 +101,11 @@
             <br><br>
             </div>
             <div class="nuevoproducto">
+            <label class="label">Descripcion:<span class="req">*</span></label><br>
+            <input type="text" id="descripcion" name="descripcion" autocomplete="off" class="input"/>
+            <br><br>
+            </div>
+            <div class="nuevoproducto">
             <label class="label">Categoria:<span class="req">*</span</label><br>
             <select id="idcategoria" name="idcategoria" class="input-select" >                        
             

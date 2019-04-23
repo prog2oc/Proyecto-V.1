@@ -188,7 +188,7 @@ public class EmpresaLogic extends Logic
                     strDireccion = EResult.getString("direccion");
                     strDepartamento = EResult.getString("departamento");
                     strCiudad = EResult.getString("ciudad");
-                    strContrasena = EResult.getString("telefono");
+                    strContrasena = EResult.getString("contrasena");
                     strSitioWeb = EResult.getString("sitioweb");
                     
                     ETemp = new EmpresaObj(iId, strNombre, strLogo, strDireccion, strDepartamento, strCiudad, strContrasena, strSitioWeb);

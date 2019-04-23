@@ -224,7 +224,7 @@ public class ProductoLogic extends Logic
     public ArrayList<ProductoObj> getAllProductosByEmpresa(int iIdEmpresa) 
     {
         DatabaseX database = getDatabase();
-        String strSql = "SELECT * FROM ocplataformaweb.producto where idcategoria = "+iIdEmpresa+"; ";
+        String strSql = "SELECT * FROM ocplataformaweb.producto where idempresa = "+iIdEmpresa+"; ";
         System.out.println(strSql);
         ResultSet CResult = database.executeQuery(strSql);
         ArrayList<ProductoObj> CArray = null;

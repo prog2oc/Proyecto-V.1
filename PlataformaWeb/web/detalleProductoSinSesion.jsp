@@ -87,7 +87,7 @@
                         <input type="hidden" name="nombre" id="nombre" value="<%= CProducto.getNombreProducto() %>" readonly></td>    
                     </tr><tr>
                     <td>Descripcion:</td>
-                    <td><input type="text" name="idproducto" id="idproducto" value="<%= CProducto.ge %>" readonly></td>
+                    <td><%= CProducto.getDescripcion() %></td>
                     </tr><tr>
                     <td>Precio:</td>
                     <td><input type="number" name="precio" id="precio" value="<%= CProducto.getPrecioUnidad() %>" readonly></td>    

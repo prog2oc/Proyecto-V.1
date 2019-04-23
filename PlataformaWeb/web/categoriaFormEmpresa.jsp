@@ -55,10 +55,7 @@
         </div>
 
         <br><br>
-        <h1>Categorias</h1>
-        <br>
-        <a href="NewCategoria.html">Nuevo Categoria</a>
-        <br><br>
+
         <table>
         <tr>
             <th>Id</th>
@@ -77,16 +74,6 @@
                     <td><%= CTemp.getId() %></td>
                     <td><%= CTemp.getNombre() %></td>
                     <td><%= CTemp.getDescripcion() %></td>
-                    <td>
-                        <a href="CategoriaServlet?formid=4&id=<%= CTemp.getId() %>">
-                            Update
-                        </a>
-                    </td>
-                    <td>
-                        <a href="CategoriaServlet?formid=3&id=<%= CTemp.getId() %>">
-                            Delete
-                        </a>
-                    </td>
                 </tr>
         <%
                 }
