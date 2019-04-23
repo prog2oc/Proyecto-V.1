@@ -50,7 +50,11 @@
        
         <div class="navbar">
                 <a href="ProductoServlet?formid=7"><i class="fa fa-fw fa-home"></i>INICIO</a>
-                
+                <div class="buscador">
+                    <form>
+                        <input type="text" name="search" placeholder="Buscar..">
+                    </form>
+                </div>
                 
                 <div class="subnav">
                     <a><button class="contenedorbutton">CATEGORIAS<i class="fa fa-caret-down"></i></button></a>
@@ -58,12 +62,12 @@
                         <div class="subnav-contenedor">
                         
                         <div id="myBtnContainer">
-                        <a >Moda</a>
-                        <a href="#link2">Muebles</a>
-                        <a href="#link3">Juguetes</a>
-                        <a href="#link3">Electrodomésticos</a>
-                        <a class="btn" onclick="filterSelection('Herramientas')">Belleza</a>
-                        <a class="btn active" onclick="filterSelection('all')">Todas</a>
+                        <a class="btn" onclick="filterSelection('all')">Todas</a>
+                        <a class="btn" onclick="filterSelection('Moda')">Moda</a>
+                        <a class="btn" onclick="filterSelection('Muebles')">Muebles</a>
+                        <a class="btn" onclick="filterSelection('Juguetes')">Juguetes</a>
+                        <a class="btn" onclick="filterSelection('Tecnologia')">Tecnología</a>
+                        <a class="btn" onclick="filterSelection('Belleza')">Belleza</a>                        
                         </div>
                         
                     </div>
@@ -89,12 +93,17 @@
                 
                     <div class="column <%= Categoria.getNombre() %>">
                         <div class="card">
+                          <br>
                           <img src="img/Productos/<%= PTemp.getImagen() %>" style="width:100px">
+                          <br>
                           <h2><%= PTemp.getNombreProducto() %></h2>
+                          <br>
                           <h3 class="price">$<%= PTemp.getPrecioUnidad() %>0</h3>
+                          <br>
                           <button onclick=" location.href='ProductoServlet?formid=14&idproducto=<%= PTemp.getId() %>' "> Ver Detalle</button>
                         </div>
                     </div>
+                        
                
                 <%
                    
@@ -118,9 +127,4 @@
         
     </body>
 
-      
-        
-       
-        
-    </body>
 </html>

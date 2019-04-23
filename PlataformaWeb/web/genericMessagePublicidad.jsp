@@ -1,3 +1,4 @@
+<%@page import="oc.plataformaweb.objects.EmpresaObj"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,12 +12,13 @@
         Integer iRowsObj = (Integer)request.getSession().getAttribute("rows");   
         int iRows = iRowsObj.intValue();
         
-        
+        EmpresaObj CEmpresa = 
+                (EmpresaObj)request.getSession().getAttribute("empresa");
     %>
     
     <body>
         <span class="close-btn">
-        <a href="PublicidadServlet?formid=9">
+        <a href="PublicidadServlet?formid=9&<%= CEmpresa.getId() %>">
         <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png">
         </a>
         </span>

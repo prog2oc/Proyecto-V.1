@@ -34,40 +34,38 @@
         
     %> 
     <body>
+        
         <div class="header">
-            <h1 class="logo">e<span class="blue">S</span>e<span class="blue">V</span>olado</h1>
-            <input type="checkbox" id="chk">
-            <label for="chk" class="show-menu-btn">
-                <i class="fas fa-ellipsis-h"></i>
-            </label>
-
+            <img src="img/esevolado.png" width="150" height="100"> 
+            
             <div class="menu">
                 <a href="inicioSesion.html"><%= UUsuario.getNombre() %> <%= UUsuario.getApellido() %> </a>
                 <a href="carrito.jsp">Carrito</a>
                 <a href="ProductoServlet?formid=7">Cerrar Sesión</a>
-                <label for="chk" class="hide-menu-btn" >
-                        <i class="fas fa-times"></i>
-                </label>                
+                              
             </div>
-
         </div>
-        
 
+       
         <div class="navbar">
-                <a href="ProductoServlet?formid=7">Inicio</a>
-                <%
-                    if(iteCArray!=null)
-                    {
-                        CategoriaObj CTemp;
-                        while(iteCArray.hasNext())
-                        {
-                            CTemp = iteCArray.next();
-                %>                
-                            <a href="ProductoServlet?formid=12&idcategoria=<%= CTemp.getId() %>" ><%= CTemp.getNombre() %></a>                                     
-                <%
-                        }
-                    }
-                %>     
+                <a href="ProductoServlet?formid=8"><i class="fa fa-fw fa-home"></i>INICIO</a>
+                
+                <div class="subnav">
+                    <a><button class="contenedorbutton">CATEGORIAS<i class="fa fa-caret-down"></i></button></a>
+                    <br><br><br><br>
+                    <div class="subnav-contenedor">
+                        
+                        
+                        <a href="ProductoServlet?formid=8">Moda</a>
+                        <a href="ProductoServlet?formid=8">Muebles</a>
+                        <a href="ProductoServlet?formid=8">Juguetes</a>
+                        <a href="ProductoServlet?formid=8">Tecnología</a>
+                        <a href="ProductoServlet?formid=8">Belleza</a>
+                        <a href="ProductoServlet?formid=8">Todas</a>
+                        
+                    </div>
+                </div>
+                
         </div>
         
         <div class="detalle">

@@ -2,11 +2,6 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: #f1f1f1;
-  padding: 20px;
-  font-family: Arial;
-}
 
 /* Center website */
 .main {
@@ -26,14 +21,14 @@ h1 {
 /* Add padding BETWEEN each column (if you want) */
 .row,
 .row > .column {
-  padding: 8px;
+  padding: 10px 30px;;
 }
 
 /* Create three equal columns that floats next to each other */
 .column {
   float: left;
   height: 250px;
-  width: 33.33%;
+  width: 25%;
   display: none; /* Hide columns by default */
 }
 
@@ -66,12 +61,20 @@ h1 {
   max-width: 300px;
   margin: auto;
   text-align: center;
-  font-family: arial;
+  font-family: Amatic SCt;
+  margin: 10px 10px;
+  
 }
 
 .price {
   color: grey;
   font-size: 22px;
+  
+}
+
+.card img{
+    width: 100px;
+    height: 100px;
 }
 
 .card button {
@@ -79,11 +82,12 @@ h1 {
   outline: 0;
   padding: 12px;
   color: white;
-  background-color: #000;
+  background-color:orangered ;
   text-align: center;
   cursor: pointer;
   width: 100%;
   font-size: 18px;
+  font-family: Amatic SC;
 }
 
 .card button:hover {
