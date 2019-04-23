@@ -36,10 +36,61 @@
         <div class="navbar">
                 <a href="ProductoServlet?formid=7"><i class="fa fa-fw fa-home"></i>INICIO</a>
                 <div class="buscador">
-                    <form>
+                    <form onSubmit="return BuscarPalabras(this.string.value);">
                         <input type="text" name="search" placeholder="Buscar..">
                     </form>
                 </div>
+                
+                <script>
+                    function BuscarPalabras(str)
+    {
+        var txt, i, found;
+        if (str == "")
+        return false;
+ 
+        if (NS4) {
+        if (!win.find(str))
+           while(win.find(str, false, true))
+           n++;
+        else
+           n++;
+ 
+        // No se encuentra en ninguna parte y envia un mensaje.
+        if (n == 0)
+           alert("No se encuentra.");
+        }
+ 
+        if (IE4) {
+           txt = win.document.body.createTextRange();
+           // Encuentra la coinsidencia desde el inicio de pagina.
+            for (i = 0; i <= n && (found = txt.findText(str)) != false; i++) {
+                txt.moveStart("character", 1);
+                txt.moveEnd("textedit");
+            }
+ 
+        // Si lo encuentra, marca el resultado y mueve la barra de desplazamiento
+        // para mostrarlo.
+        if (found) {
+           txt.moveStart("character", -1);
+           txt.findText(str);
+           txt.select();
+           txt.scrollIntoView();
+           n++;
+        }
+        // De otra manera regresa al inicio de la página para buscar otra coinsidencia
+        else {
+           if (n > 0) {
+            n = 0;
+            BuscarPalabras(str);
+             }
+           // No se encuentra en ninguna parte envia un mensaje.
+           else
+            alert("No se encontró.");
+             }
+        }
+        return false;
+}
+                </script>
                 
                 <div class="subnav">
                     <a><button class="contenedorbutton">CATEGORIAS<i class="fa fa-caret-down"></i></button></a>
