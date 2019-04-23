@@ -11,6 +11,10 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="Style/registrar.css" rel="stylesheet" type="text/css"/>
         <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
+        <script src="Scripts/jquery-3.3.1.js" type="text/javascript"></script>
+        <script src="Scripts/jquery.validate.js" type="text/javascript"></script>
+        <script src="Scripts/additional-methods.js" type="text/javascript"></script>
+        <script src="Scripts/generalScript.js" type="text/javascript"></script>
     </head>
     <body>
         <span class="close-btn">
@@ -30,20 +34,20 @@ and open the template in the editor.
             
             <div class="nuevomiembro">
                 <label for="nombre" class="label">Nombre:<span class="req">*</span></label><br>
-            <input type="text" id="nombre" name="nombre" required placeholder="Nombre" autocomplete="off" class="input"/>
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre" autocomplete="off" class="input"/>
             <br>
             </div>
             
              <div class="nuevomiembro">
             <label  for="apellido" class="label">Apellido:<span class="req">*</span></label><br>
             
-            <input type="text" id="apellido" name="apellido"  required autocomplete="off" placeholder="Apellido" class="input"/>
+            <input type="text" id="apellido" name="apellido" autocomplete="off" placeholder="Apellido" class="input"/>
             <br>
             </div>
             
              <div class="nuevomiembro">
             <label for="usuario" class="label">Usuario:<span class="req">*</span></label><br>
-            <input type="text" id="usuario" name="usuario" required placeholder="Usuario"  autocomplete="off" class="input" />
+            <input type="text" id="usuario" name="usuario" placeholder="Usuario"  autocomplete="off" class="input" />
             <br>
             </div>
             <div class="nuevomiembro" style="width:300px;" >
@@ -63,19 +67,19 @@ and open the template in the editor.
             </div>
             <div class="nuevomiembro">
             <label for="correo" class="label">Correo:<span class="req">*</span></label><br>
-            <input type="email" id="correo" name="correo" placeholder="Correo"  required autocomplete="off" class="input"/>
+            <input type="text" id="correo" name="correo" placeholder="Correo" autocomplete="off" class="input"/>
             <br>
             </div>
             
              <div class="nuevomiembro">
             <label for="contrasena" class="label">Contrasena:<span class="req">*</span></label><br>
-            <input type="password" id="contrasena" name="contrasena"   placeholder="Contraseña" class="input"/>
+            <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" class="input"/>
             <br>
             </div>
             
              <div class="nuevomiembro">
             <label for="repetircontrasena" class="label">Repetir contrasena:<span class="req">*</span></label><br>
-            <input type="password" id="repetircontrasena" name="repetircontrasena"  required autocomplete="off" placeholder="Repetir contraseña" class="input" />
+            <input type="password" id="repetircontrasena" name="repetircontrasena" autocomplete="off" placeholder="Repetir contraseña" class="input" />
             <br>
             </div>
             
@@ -102,7 +106,7 @@ and open the template in the editor.
             </div>
              <div class="nuevomiembro">
              <label for="direccion" class="label" >Dirección:<span class="req">*</span></label><br>
-            <input type="text" id="direccion" name="direccion" placeholder="Dirección" required autocomplete="off"  class="input" />
+            <input type="text" id="direccion" name="direccion" placeholder="Dirección" autocomplete="off"  class="input" />
             <br>
             </div>
             
