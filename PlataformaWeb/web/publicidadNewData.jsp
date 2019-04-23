@@ -29,7 +29,7 @@
     <%
         
         
-            String archivourl = "D:\\Documents\\Erick\\ESEN\\Tercer Año\\Ciclo I\\Programación II\\Proyecto\\Proyecto\\Proyecto-V.1\\PlataformaWeb\\web\\img\\Publicidad";
+            String archivourl = getServletContext().getRealPath("/") +"img\\Publicidad";
             
             DiskFileItemFactory factory = new DiskFileItemFactory();
             

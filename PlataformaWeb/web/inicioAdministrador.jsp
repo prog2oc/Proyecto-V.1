@@ -40,6 +40,7 @@
                 <a href="CategoriaServlet?formid=2">Categorias</a>
                 <a href="PublicidadServlet?formid=2">Publicidades</a>   
                 <a href="TipoPublicidadServlet?formid=2">Tipo Publicidad</a>
+                <a href="EmpresaServlet?formid=2">Empresa</a>
         </div>
     </body>
 </html>
