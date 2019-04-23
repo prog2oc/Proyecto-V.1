@@ -56,6 +56,10 @@
             <input type="number" id="unidades" name="unidades" required autocomplete="off" class="input" placeholder="" value="<%= CProducto.getUnidades() %>"/>
             <br><br>
             </div>
+            <div class="nuevoproducto">
+            <label class="label">Descripcion:<span class="req">*</span></label><br>
+            <input type="text" id="descripcion" name="descripcion" autocomplete="off" class="input"/>
+            <br><br>
             <div class="modificarproducto">
             <label class="label">Categoria:<span class="req">*</span></label><br>
             <select id="idcategoria" name="idcategoria" class="input-select">                        
