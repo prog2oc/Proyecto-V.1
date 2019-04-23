@@ -17,6 +17,7 @@
         <link href="Style/menus.css" rel="stylesheet" type="text/css"/>
         <link href="Style/publicidad.css" rel="stylesheet" type="text/css"/>
         <script src="Scripts/publicidad.js" type="text/javascript"></script>
+        <link href="Style/tablas.css" rel="stylesheet" type="text/css"/>
     </head>
      <%
         ArrayList<UsuarioObj> UArray = 

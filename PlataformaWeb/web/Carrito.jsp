@@ -96,6 +96,7 @@
                 <%
                     ProductoLogic PLog = new ProductoLogic();
                     int CuentaProducto=0;
+                    double Total = 0;
                     
                     if(iteAArray!=null)
                     {
@@ -114,7 +115,6 @@
                     <td>
                         <h3><%= Producto.getNombreProducto() %></h3>
                         <h3>ID: <%= Producto.getId() %></h3>
-                    <input type="hidden" name="idproducto<%=CuentaProducto%>" id="idproducto<%=CuentaProducto%>" value="<%= Producto.getId() %>" readonly>
                     </td>    
 
                     <td>
@@ -126,21 +126,23 @@
                     </td> 
                     
                      <td>
-                         <input type="hidden" name="total" id="total" value="<%= Math.round(Producto.getPrecioUnidad()* ATemp.getCantidad() *100.0 )/100.0 %>">
                          <h3>$<%= Math.round(Producto.getPrecioUnidad()* ATemp.getCantidad() *100.0 )/100.0 %>0</h3>
+                         
                     </td>
                     
                 <%
+                    Total = Total + Math.round(Producto.getPrecioUnidad()* ATemp.getCantidad() *100.0 )/100.0;
                         }
                     }
                 %>  
-                    
-                    <input type="hidden" id="id" name="id" value="<%= UUsuario.getId() %>" />
+                        
+                    <tr>
+                        <td><h3>Total:$<%= Total %>0</h3></td></tr>
                     <input type="hidden" id="formid" name="formid" value="2" />
                     </tr>
                     <tr></tr>
                     <tr>
-                    <td><input type="submit" id="mysubmit" name="mysubmit" value="Agregar"/></td>
+                    <td><input type="submit" id="mysubmit" name="mysubmit" value="Comprar"/></td>
                     </tr>   
                 </form>   
                 

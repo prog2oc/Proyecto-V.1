@@ -94,25 +94,7 @@ public class AnadirCarrito extends HttpServlet {
         
         if(strFormId.equals("2"))
             {
-                String strId = request.getParameter("id");
-                int iId = Integer.parseInt(strId);
-                String strIdProducto1 = request.getParameter("idproducto1");
-                int iIdProducto1 = Integer.parseInt(strIdProducto1);
-                String strIdProducto2 = request.getParameter("idproducto2");
-                int iIdProducto2 = Integer.parseInt(strIdProducto2);
-                String strIdProducto3 = request.getParameter("idproducto3");
-                int iIdProducto3 = Integer.parseInt(strIdProducto3);
-                String strIdProducto4 = request.getParameter("idproducto4");
-                int iIdProducto4 = Integer.parseInt(strIdProducto4);
-                String strIdProducto5 = request.getParameter("idproducto5");
-                int iIdProducto5 = Integer.parseInt(strIdProducto5);
-                String strTotal = request.getParameter("total");
-                int iTotal = Integer.parseInt(strTotal);
-                
-                DetalleOrdenLogic DLogic = new DetalleOrdenLogic();
-                int iRows = DLogic.insertDetalleOrdenRows(iIdProducto1, iTotal, iId, iIdProducto2, iIdProducto3, iIdProducto4, iIdProducto5);
-                System.out.println("inser categoria rows: " + iRows);
-                
+                              
                 HttpSession sesion  = request.getSession(true);
                 ArrayList<ArticuloObj> AArray = sesion.getAttribute("carrito") == null ? new ArrayList<>() : (ArrayList) sesion.getAttribute("carrito");
                 

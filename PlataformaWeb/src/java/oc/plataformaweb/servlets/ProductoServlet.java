@@ -49,7 +49,7 @@ public class ProductoServlet extends HttpServlet {
                 
                 //send to frontend
                 request.getSession().setAttribute("rows", new Integer(iRows));
-                response.sendRedirect("genericMessageProducto.jsp");
+                response.sendRedirect("ProductoServlet?formid=16&idempresa="+iIdEmpresa+"");
             }
             
             if(strFormId.equals("2"))

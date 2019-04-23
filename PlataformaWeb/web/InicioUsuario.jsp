@@ -42,7 +42,7 @@
             </label>
 
             <div class="menu">
-                <a href="UsuarioServlet?formid=8"><%= UUsuario.getNombre() %> <%= UUsuario.getApellido() %> </a>
+                <a href="UsuarioServlet?formid=4&id=<%= UUsuario.getId() %>"><%= UUsuario.getNombre() %> <%= UUsuario.getApellido() %> </a>
                 <a href="Carrito.jsp">Carrito</a>
                 <a href="ProductoServlet?formid=7">Cerrar Sesión</a>
                 <label for="chk" class="hide-menu-btn" >

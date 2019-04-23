@@ -44,7 +44,7 @@ public class EmpresaServlet extends HttpServlet
                 System.out.println("insert empresa rows: " + iRows);                
         
                 request.getSession().setAttribute("rows", new Integer(iRows));
-                response.sendRedirect("EmpresagenericMessage.jsp");
+                response.sendRedirect("ProductoServlet?formid=7");
             }
             
             if(strFormId.equals("2"))
