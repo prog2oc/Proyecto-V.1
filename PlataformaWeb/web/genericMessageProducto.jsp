@@ -24,7 +24,7 @@
         <img src="img/esevolado.png">   
         <br>
         <br><br>
-        <h1> ¡<%= iRows %> productos han sido modificados!</h1>
+        <h1> ¡<%= iRows %> producto ha sido modificados!</h1>
         <br><br>
         
         </div>

@@ -39,14 +39,14 @@
         Iterator<ArticuloObj> iteAArray = AArray.iterator();
     %> 
     <body>
-         <div class="header">
-            <img src="img/esevolado.png" width="150" height="100"> 
-            
+        <div class="header">
+           <img src="img/esevolado.png" width="150" height="100"> 
+
             <div class="menu">
-                <a href="inicioSesion.html"><%= UUsuario.getNombre() %> <%= UUsuario.getApellido() %> </a>
-                <a href="carrito.jsp">Carrito</a>
-                <a href="ProductoServlet?formid=7">Cerrar Sesión</a>
-                              
+               <a href="inicioSesion.html"><%= UUsuario.getNombre() %> <%= UUsuario.getApellido() %> </a>
+               <a href="carrito.jsp">Carrito</a>
+               <a href="ProductoServlet?formid=7">Cerrar Sesión</a>
+
             </div>
         </div>
 
