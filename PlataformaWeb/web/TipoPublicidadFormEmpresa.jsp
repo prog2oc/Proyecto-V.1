@@ -30,11 +30,7 @@
     %>    
     <body>
         <div class="header">
-            <h1 class="logo">e<span class="blue">S</span>e<span class="blue">V</span>olado</h1>
-            <input type="checkbox" id="chk">
-            <label for="chk" class="show-menu-btn">
-                <i class="fas fa-ellipsis-h"></i>
-            </label>
+            <img src="img/esevolado.png" width="150" height="100" top="5" >
 
             <div class="menu">
                 <a href="EmpresaServlet?formid=4&id=<%= CEmpresa.getId() %>"><%= CEmpresa.getNombre() %> </a>

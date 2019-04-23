@@ -17,9 +17,11 @@
         
     </head>
     <body onload="showSlides(0)">
+
         
         <div class="header">    
             <img src="img/esevolado.png" width="150" height="100" > 
+
 
             
             <div class="menu">
@@ -35,8 +37,8 @@
         <div class="navbar">
                 <a href="ProductoServlet?formid=7"><i class="fa fa-fw fa-home"></i>INICIO</a>
                 <div class="buscador">
-                    <form onSubmit="return BuscarPalabras(this.string.value);">
-                        <input type="text" name="search" placeholder="Buscar.." onChange="n = 0;">
+                    <form >
+                        <input type="text" name="search" autocomplete="off" placeholder="Buscar.." onChange="n = 0;">
                     </form>
                 </div>
                 

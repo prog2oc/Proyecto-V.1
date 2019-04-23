@@ -12,7 +12,6 @@
         <title>eSeVolado</title>
         <link href="Style/menus.css" rel="stylesheet" type="text/css"/>
         <link href="Style/publicidad.css" rel="stylesheet" type="text/css"/>
-        <script src="Scripts/publicidad.js" type="text/javascript"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Yanone+Kaffeesatz" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
@@ -22,6 +21,7 @@
         <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
         <link href="Style/tablas.css" rel="stylesheet" type="text/css"/>
         <link href="Style/catalogo.css" rel="stylesheet" type="text/css"/>
+        <script src="Scripts/publicidad.js" type="text/javascript"></script>
         <script src="Scripts/catalogo.js" type="text/javascript"></script>
     </head>
     <%
