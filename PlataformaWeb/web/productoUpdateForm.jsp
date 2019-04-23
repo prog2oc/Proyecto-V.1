@@ -8,6 +8,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="Style/productoupdate.css" rel="stylesheet" type="text/css"/>
+        <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
         <title>Producto</title>
     </head>
     <%
