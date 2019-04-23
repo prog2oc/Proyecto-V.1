@@ -17,6 +17,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" 
+        <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
+        <link href="Style/nuevoproducto.css" rel="stylesheet" type="text/css"/>
+        
               content="text/html; charset=UTF-8">
         <title>eSeVolado</title>
     </head>
@@ -64,22 +67,38 @@
                 
             Integer iIdEmpresa = (Integer)request.getSession().getAttribute("id");
                                   
-        %>                
-                    
-            <<label>Nombre:</label><br>
-            <input type="text" id="nombre" name="nombre" />
+        %>    
+        <span class="close-btn">
+        <a href="ProductoServlet?formid=7">
+        <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
+        </a>
+        </span>
+        
+        
+        <div class="producto" >
+         
+                <img src="img/esevolado.png">   
+                <br>
+                <h1>¡Agregue el producto!</h1> 
+                
+            <div class="nuevoproducto">    
+            <<label>Nombre:<span class="req">*</span></label><br>
+            <input type="text" id="nombre" name="nombre" required autocomplete="off" class="input"/>
             <br><br>
-            
-            <label>Precio:</label><br>
-            <input type="number" step="0.01" id="preciounidad" name="preciounidad" />
+            </div>
+            <div class="nuevoproducto">
+            <label>Precio:<span class="req">*</span></label><br>
+            <input type="number" step="0.01" id="preciounidad" name="preciounidad" required autocomplete="off" class="input"/>
             <br><br>
-            
-            <label>Unidades:</label><br>
-            <input type="number" id="unidades" name="unidades" />
+            </div>
+            <div class="nuevoproducto">
+            <label>Unidades:<span class="req">*</span</label><br>
+            <input type="number" id="unidades" name="unidades" required autocomplete="off" class="input" />
             <br><br>
-            
-            <label>Categoria:</label><br>
-            <select id="idcategoria" name="idcategoria" >                        
+            </div>
+            <div class="nuevoproducto">
+            <label>Categoria:<span class="req">*</span</label><br>
+            <select id="idcategoria" name="idcategoria" class="input-select" >                        
             
             <%
             if(iteArray!=null)
@@ -97,12 +116,14 @@
             %>
             </select>
             <br><br>
-            
+            </div>
             <input type="hidden" id="idempresa" name="idempresa" value="<%= iIdEmpresa %>" />
             <br><br>
             <input type="hidden" id="formid" name="formid" value="1" />
-            <input type="submit" id="mysubmit" name="mysubmit" value="Create"/>            
-        </form>
-        
+            <div class="nuevoproducto">
+            <input type="submit" id="mysubmit" name="mysubmit" value="Crear" class="button"/>  
+            </div>
+            </form>
+        </div>
     </body>
 </html>

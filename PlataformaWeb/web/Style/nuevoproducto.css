@@ -44,7 +44,7 @@ a{color:inherit;text-decoration:none}
     .close-btn:hover{
       opacity: .5;
     }
-.registrar{
+.producto{
         width:100%;
 	margin:auto;
         top: 20px;
@@ -61,7 +61,7 @@ a{color:inherit;text-decoration:none}
   
 }
 
-.nuevomiembro .input[type=password]{
+.nuevoproducto .input[type=password]{
     text-security:circle;
     -webkit-text-security:circle;
 }
@@ -80,25 +80,25 @@ myform{
    
 }
 
-.nuevomiembro{
+.nuevoproducto{
     margin-bottom:15px;
 }
 
-.nuevomiembro .input, .nuevomiembro .label{
+.nuevoproducto .input, .nuevoproducto .label{
     width:100%;
     color:black;
     display:block;
     font-family:Amatic SC;
     font-size: 20px;
 }
-.nuevomiembro .button{
+.nuevoproducto .button{
     width:100%;
     color:white;
     display:block;
     font-family:Amatic SC;
     font-size: 25px;
 }
-.nuevomiembro .input, .nuevomiembro .button{
+.nuevoproducto .input, .nuevoproducto .button{
     border:none;
     padding:15px 20px;
     border-radius:25px;
@@ -106,18 +106,18 @@ myform{
     
 }
     
-.nuevomiembro .label{
+.nuevoproducto .label{
     color:white;
     font-size:30px;
 }
 
-.nuevomiembro .button {
+.nuevoproducto .button {
     background:orangered;
     margin-bottom: auto;
     
 }
 
-.nuevomiembro .input-select{
+.nuevoproducto .input-select{
   position: absolute;
   content: "";
   height:3%;
@@ -150,10 +150,4 @@ h1{
     font-family:Amatic SC;
     text-align: center;
     font-size: 40px; 
-}
-p{
-   font-family:Amatic SC;
-    text-align: center;
-    color:black;
-    font-size: 20px;    
 }
