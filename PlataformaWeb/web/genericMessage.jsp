@@ -3,9 +3,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="Style/registrar.css" rel="stylesheet" type="text/css"/>
-        <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
-        <title>JSP Page</title>
+        <link href="Style/GenericMessage.css" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+        <title>Modificación</title>
     </head>
      <%
         Integer iRowsObj = (Integer)request.getSession().getAttribute("rows");
@@ -18,9 +18,8 @@
         </a>
         </span>
         <div class="registrar">
-        <h1>Generic Message</h1>
-        <br><br>
-        <p><%= iRows %> ha sido modificado</p>
+        
+        <h1><%= iRows %> se ha modificado</h1>
         <br><br>
         </div>
     </body>

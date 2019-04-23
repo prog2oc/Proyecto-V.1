@@ -3,8 +3,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="Style/registrar.css" rel="stylesheet" type="text/css"/>
-        <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
+        <link href="Style/GenericMessage.css" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
         <title>JSP Page</title>
     </head>
     <%  
@@ -22,9 +22,9 @@
             
         <img src="img/esevolado.png">   
         <br>
-        <h1>Generic Message</h1>
+       
         <br><br>
-        <p><%= iRows %> categoria/as han sido modificadas</p>
+        <h1>¡<%= iRows %> categoria/as han sido modificadas!</h1>
         <br><br>
         
         </div>
