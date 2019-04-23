@@ -64,11 +64,15 @@
                 <a href="PublicidadServlet?formid=9&idempresa=<%= CEmpresa.getId() %>">Publicidades</a>   
                 <a href="TipoPublicidadServlet?formid=6">Tipo Publicidad</a>
         </div>
-        <h1>Categorias</h1>
-        <br>
-        <a href="ProductoServlet?formid=6&id=<%= CEmpresa.getId() %>">Nuevo Producto</a>
-        <br><br>
+
+       <br><br>
+                <div style="text-align: center">
+                    <button style="font-size: 30px" onclick=" location.href='ProductoServlet?formid=6&id=<%= CEmpresa.getId() %>' " >Nuevo Producto</button>
+                </div> 
+
+   
         <table>
+            <thead>
         <tr>
             <th>Id</th>
             <th>Nombre</th>
@@ -77,8 +81,9 @@
             <th>Unidades</th>
             <th>Categoria</th>
             <th>Empresa</th>
-            
+            <th colspan="3">Edicion</th>
         </tr>
+            </thead>
         <%
             if(iteArray!=null)
             {
@@ -96,8 +101,8 @@
                 <tr>
                     <td><%= CTemp.getId() %></td>
                     <td><%= CTemp.getNombreProducto() %></td>
-                    <td><img src="img/Productos/<%= CTemp.getImagen() %> " width="200px" height="200px"> </td>
-                    <td><%= CTemp.getPrecioUnidad() %></td>
+                    <td><img src="img/Productos/<%= CTemp.getImagen() %> " width="150px" height="150px"> </td>
+                    <td>$<%= CTemp.getPrecioUnidad() %>0</td>
                     <td><%= CTemp.getUnidades() %></td>
                     <td><%= Categoria.getNombre() %></td>
                     <td><%= Empresa.getNombre() %></td>
@@ -113,7 +118,7 @@
                     </td>
                     <td>
                         <a href="ProductoServlet?formid=3&id=<%= CTemp.getId() %>">
-                            Delete
+                            <i class="material-icons button delete">Delete</i>
                         </a>
                     </td>
                 </tr>

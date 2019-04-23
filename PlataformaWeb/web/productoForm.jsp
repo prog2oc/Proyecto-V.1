@@ -62,10 +62,10 @@
                 <a href="TipoPublicidadServlet?formid=2">Tipo Publicidad</a>
         </div>
 
-        <br><br>
-        <h1>Productos</h1>
+
         <br><br>
         <table>
+            <thead>
         <tr>
             <th>Id</th>
             <th>Nombre</th>
@@ -76,6 +76,7 @@
             <th>Empresa</th>
             
         </tr>
+        </thead>
         <%
             if(iteArray!=null)
             {

@@ -51,16 +51,20 @@
         </div>
 
         <br><br>
-        <h1>Tipos de Publicidad</h1>
+        <div style="text-align: center">
+            <button style="font-size: 30px" onclick=" location.href='TipoPublicidadNuevo.html' " >Nuevo Tipo de Publicidad</button>
+        </div> 
+        
         <br>
-        <a href="TipoPublicidadNuevo.html">Nuevo tipo de publicidad</a>
-        <br><br>
         <table>
+            <thead>
         <tr>
             <th>Id</th>
             <th>Name</th>
             <th>Description</th>
+            <th colspan="2">Edición</th>
         </tr>
+        </thead>
         <%
             if(iteArray!=null)
             {
@@ -75,12 +79,12 @@
                     <td><%= PTemp.getDescripcion()%></td>
                     <td>
                         <a href="TipoPublicidadServlet?formid=4&id=<%= PTemp.getid()%>">
-                            Modificar
+                            <i class="fas fa-edit"></i>
                         </a>
                     </td>
                     <td>
                         <a href="TipoPublicidadServlet?formid=3&id=<%= PTemp.getid() %>">
-                            Borrar
+                            <i class="fas fa-trash"></i>
                         </a>
                     </td>
                 </tr>
