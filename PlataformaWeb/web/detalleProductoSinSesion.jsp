@@ -26,7 +26,7 @@
         <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
-        <link href="Style/tablas.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     
     <%
@@ -41,38 +41,37 @@
     %> 
     <body>
         <div class="header">
-            <h1 class="logo">e<span class="blue">S</span>e<span class="blue">V</span>olado</h1>
-            <input type="checkbox" id="chk">
-            <label for="chk" class="show-menu-btn">
-                <i class="fas fa-ellipsis-h"></i>
-            </label>
-
+            <img src="img/esevolado.png" width="150" height="100"> 
+            
             <div class="menu">
-                <a href="inicioSesion.html">Iniciar Sesión</a>
+                <a href="inicioSesion.html">Iniciar sesión</a>
                 <a href="usuarioNew.html">Registrarse</a>
-                <label for="chk" class="hide-menu-btn" >
-                        <i class="fas fa-times"></i>
-                </label>                
+                <a href="empresaNew.html">Registrarse empresa</a>
+                <a href="inicioSesionEmpresa.html">Inicar sesión empresa</a>
+                              
             </div>
-
         </div>
-        
 
+       
         <div class="navbar">
-                <a href="ProductoServlet?formid=7">Inicio</a>
-                <%
-                    if(iteCArray!=null)
-                    {
-                        CategoriaObj CTemp;
-                        while(iteCArray.hasNext())
-                        {
-                            CTemp = iteCArray.next();
-                %>                
-                            <a href="ProductoServlet?formid=11&idcategoria=<%= CTemp.getId() %>" ><%= CTemp.getNombre() %></a>                                     
-                <%
-                        }
-                    }
-                %>     
+                <a href="ProductoServlet?formid=7"><i class="fa fa-fw fa-home"></i>INICIO</a>
+                
+                <div class="subnav">
+                    <a><button class="contenedorbutton">CATEGORIAS<i class="fa fa-caret-down"></i></button></a>
+                    <br><br><br><br>
+                    <div class="subnav-contenedor">
+                        
+                        
+                        <a href="ProductoServlet?formid=7">Moda</a>
+                        <a href="ProductoServlet?formid=7">Muebles</a>
+                        <a href="ProductoServlet?formid=7">Juguetes</a>
+                        <a href="ProductoServlet?formid=7">Tecnología</a>
+                        <a href="ProductoServlet?formid=7">Belleza</a>
+                        <a href="ProductoServlet?formid=7">Todas</a>
+                        
+                    </div>
+                </div>
+                
         </div>
         
         <div class="detalle">
@@ -98,7 +97,14 @@
                     
                     </tr>               
             </table>
-        </div>                
+        </div>        
+                    
+        <br><br>
+        <div class="navbar">
+            
+            <br><br><br>
+            <p> Todos los derechos reservados eSeVolado©</p>
+        </div>
                 
     </body>
 </html>
