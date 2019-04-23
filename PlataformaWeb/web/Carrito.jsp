@@ -15,6 +15,7 @@
         <link href="Style/menus.css" rel="stylesheet" type="text/css"/>
         <link href="Style/publicidad.css" rel="stylesheet" type="text/css"/>
         <script src="Scripts/publicidad.js" type="text/javascript"></script>
+        <link href="Style/tablas.css" rel="stylesheet" type="text/css"/>
     </head>
     <%
         UsuarioObj UUsuario = (UsuarioObj)request.getSession().getAttribute("usuario");   
@@ -88,12 +89,15 @@
                 
                 <%
                     ProductoLogic PLog = new ProductoLogic();
+                    int CuentaProducto=0;
+                    
                     if(iteAArray!=null)
                     {
                         ArticuloObj ATemp;                      
                         
                         while(iteAArray.hasNext())
                         {
+                            CuentaProducto++;
                             
                             ATemp = iteAArray.next();
                             ProductoObj Producto = PLog.getProductoById(ATemp.getIdProducto());
@@ -104,7 +108,7 @@
                     <td>
                         <h3><%= Producto.getNombreProducto() %></h3>
                         <h3>ID: <%= Producto.getId() %></h3>
-                    <input type="hidden" name="idproducto" id="idproducto" value="<%= Producto.getId() %>" readonly>
+                    <input type="hidden" name="idproducto<%=CuentaProducto%>" id="idproducto<%=CuentaProducto%>" value="<%= Producto.getId() %>" readonly>
                     </td>    
 
                     <td>
@@ -116,6 +120,7 @@
                     </td> 
                     
                      <td>
+                         <input type="hidden" name="total" id="total" value="<%= Math.round(Producto.getPrecioUnidad()* ATemp.getCantidad() *100.0 )/100.0 %>">
                          <h3>$<%= Math.round(Producto.getPrecioUnidad()* ATemp.getCantidad() *100.0 )/100.0 %>0</h3>
                     </td>
                     
@@ -125,7 +130,7 @@
                 %>  
                     
                     <input type="hidden" id="id" name="id" value="<%= UUsuario.getId() %>" />
-                    <input type="hidden" id="formid" name="formid" value="1" />
+                    <input type="hidden" id="formid" name="formid" value="2" />
                     </tr>
                     <tr></tr>
                     <tr>

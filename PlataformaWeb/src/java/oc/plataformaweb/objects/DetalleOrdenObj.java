@@ -8,26 +8,18 @@ public class DetalleOrdenObj {
     private int m_iIdArticulo3;
     private int m_iIdArticulo4;
     private int m_iIdArticulo5;
-    private int m_iIdArticulo6;
-    private int m_iIdArticulo7;
-    private int m_iIdArticulo8;
-    private int m_iIdArticulo9;
-    private int m_iIdArticulo10;
+    private int m_iIdUsuario;
     private double m_dTotal;
 
-    public DetalleOrdenObj(int p_iId, int p_iIdArticulo1 , double p_dTotal, int p_iIdArticulo2, int p_iIdArticulo3, int p_iIdArticulo4, int p_iIdArticulo5, int p_iIdArticulo6, int p_iIdArticulo7, int p_iIdArticulo8, int p_iIdArticulo9, int p_iIdArticulo10) {
+    public DetalleOrdenObj(int p_iId, int p_iIdArticulo1 , double p_dTotal, int p_iIdUsuario , int p_iIdArticulo2, int p_iIdArticulo3, int p_iIdArticulo4, int p_iIdArticulo5) {
         setId(p_iId);
         setIdArticulo1(p_iIdArticulo1);
         setIdArticulo2(p_iIdArticulo2);
         setIdArticulo3(p_iIdArticulo3);
         setIdArticulo4(p_iIdArticulo4);
         setIdArticulo5(p_iIdArticulo5);
-        setIdArticulo6(p_iIdArticulo6);
-        setIdArticulo7(p_iIdArticulo7);
-        setIdArticulo8(p_iIdArticulo8);
-        setIdArticulo9(p_iIdArticulo9);
-        setIdArticulo10(p_iIdArticulo10);
         setTotal(p_dTotal);
+        setIdUsuario(p_iIdUsuario);
     }
     
     
@@ -80,44 +72,12 @@ public class DetalleOrdenObj {
         m_iIdArticulo5 = p_iIdArticulo5;
     }
 
-    public int getIdArticulo6() {
-        return m_iIdArticulo6;
+    public int getIdUsuario() {
+        return m_iIdUsuario;
     }
 
-    private void setIdArticulo6(int p_iIdArticulo6) {
-        m_iIdArticulo6 = p_iIdArticulo6;
-    }
-
-    public int getIdArticulo7() {
-        return m_iIdArticulo7;
-    }
-
-    private void setIdArticulo7(int p_iIdArticulo7) {
-        m_iIdArticulo7 = p_iIdArticulo7;
-    }
-
-    public int getIdArticulo8() {
-        return m_iIdArticulo8;
-    }
-
-    private void setIdArticulo8(int p_iIdArticulo8) {
-        m_iIdArticulo8 = p_iIdArticulo8;
-    }
-
-    public int getIdArticulo9() {
-        return m_iIdArticulo9;
-    }
-
-    private void setIdArticulo9(int p_iIdArticulo9) {
-        m_iIdArticulo9 = p_iIdArticulo9;
-    }
-
-    public int getIdArticulo10() {
-        return m_iIdArticulo10;
-    }
-
-    private void setIdArticulo10(int p_iIdArticulo10) {
-        this.m_iIdArticulo10 = p_iIdArticulo10;
+    public void setIdUsuario(int p_iIdUsuario) {
+        m_iIdUsuario = p_iIdUsuario;
     }
 
     public double getTotal() {

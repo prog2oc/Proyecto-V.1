@@ -148,6 +148,22 @@ public class PublicidadServlet extends HttpServlet {
                 response.sendRedirect("publicidadUpdateImagen.jsp");
             }
             
+            if(strFormId.equals("9"))
+            {
+                String strIdEmpresa = request.getParameter("idempresa");
+                int iIdEmpresa = Integer.parseInt(strIdEmpresa);
+                PublicidadLogic PLogic = new PublicidadLogic();
+                ArrayList<PublicidadObj> PArray = PLogic.getAllPublicidadByEmpresa(iIdEmpresa);
+                
+                TipoPublicidadLogic TPLogic = new TipoPublicidadLogic();
+                ArrayList<TipoPublicidadObj> TPArray = TPLogic.getAllTipoPublicidad();
+                               
+                request.getSession().setAttribute("tipopublicidad", TPArray);
+                                
+                request.getSession().setAttribute("publicidad", PArray);
+                response.sendRedirect("publicidadFormEmpresa.jsp");
+            }
+            
         }
     }
 

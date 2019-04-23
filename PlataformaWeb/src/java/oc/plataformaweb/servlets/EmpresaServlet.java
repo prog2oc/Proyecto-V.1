@@ -124,6 +124,31 @@ public class EmpresaServlet extends HttpServlet
                 request.getSession().setAttribute("rows", new Integer(iRows) );
                 response.sendRedirect("EmpresagenericMessage.jsp");
             }
+            
+             if(strFormId.equals("8"))
+        {
+           
+            String strUsuario = request.getParameter("nombreusuario");
+            String strContrasena = request.getParameter("contrasena");
+            
+            if( strUsuario.equals("admin") & strContrasena.equals("admin") ){
+                response.sendRedirect("inicioAdministrador.jsp");    
+            } else {
+            
+                EmpresaLogic ELogic = new EmpresaLogic();
+                EmpresaObj EEmpresa = ELogic.getEmpresaInfo(strUsuario, strContrasena);
+
+                if(EEmpresa == null){                
+                    request.getSession().setAttribute("error", "El usuario o contraseña no son correctos.");
+                    response.sendRedirect("errorInicioSesion.jsp");    
+                }else {  
+                
+                    request.getSession().setAttribute("empresa", EEmpresa);
+                    response.sendRedirect("inicioEmpresa.jsp");
+                }
+            }
+            
+        }
         }
     }
 

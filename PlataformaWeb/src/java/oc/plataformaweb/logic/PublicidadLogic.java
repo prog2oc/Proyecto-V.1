@@ -140,4 +140,80 @@ public class PublicidadLogic extends Logic
         return iRows;
     }
     
+      public PublicidadObj getPublicidadByIdEmpresa(int p_iIdEmpresa) 
+    {
+        //select * from travelsys.client;
+        DatabaseX database = getDatabase();
+        String strSql = "select * from ocplataformaweb.publicidad "
+                + "where idempresa="+p_iIdEmpresa+" ";
+        System.out.println(strSql);
+        ResultSet PResult = database.executeQuery(strSql);
+        PublicidadObj PTemp = null;
+        
+        if(PResult!=null)
+        {
+            int iId;
+            String strImagen;
+            int iIdTipoPublicidad;
+            int iIdEmpresa;           
+            
+            try 
+            {
+                while(PResult.next())
+                {
+                    iId = PResult.getInt("id");
+                    strImagen = PResult.getString("imagen");
+                    iIdTipoPublicidad = PResult.getInt("idtipopublicidad");
+                    iIdEmpresa = PResult.getInt("idempresa");
+                    
+                    PTemp = new PublicidadObj(iId, strImagen, iIdTipoPublicidad, iIdEmpresa);                    
+                }
+            } 
+            catch (SQLException ex) 
+            {
+                Logger.getLogger(PublicidadLogic.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        return PTemp;
+    }
+      
+      public ArrayList<PublicidadObj> getAllPublicidadByEmpresa(int iIdEmpresa){
+        
+        DatabaseX database = getDatabase();
+        String strSql = "select * from ocplataformaweb.publicidad where idempresa= "+iIdEmpresa+" ";
+        System.out.println(strSql);
+        ResultSet PResult = database.executeQuery(strSql);
+        ArrayList<PublicidadObj> PArray = null;
+        
+     if(PResult!=null)
+        {
+            int iId;
+            String strImagen;
+            int iIdTipoPublicidad;
+            
+            PublicidadObj PTemp;
+            PArray = new ArrayList<>();
+            
+            try 
+            {
+                while(PResult.next())
+                {
+                    iId = PResult.getInt("id");
+                    strImagen = PResult.getString("imagen");
+                    iIdTipoPublicidad = PResult.getInt("idtipopublicidad");
+                    
+                    PTemp = new PublicidadObj(iId, strImagen, iIdTipoPublicidad, iIdEmpresa);
+                    PArray.add(PTemp);
+                }
+            } 
+            catch (SQLException ex) 
+            {
+                Logger.getLogger(PublicidadLogic.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        return PArray;        
+    }
+
 }

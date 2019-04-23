@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Iniciar sesión</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="Style/ingresar.css" rel="stylesheet" type="text/css"/>
+        <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
+    </head>
+    <body>
+        
+        <span class="close-btn">
+        <a href="ProductoServlet?formid=7">
+        <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
+        </a>
+        </span>
+        <div class="iniciarsesion">
+            <img src="img/esevolado.png">   
+            <br>
+            <form id="myform" name="myform" action="EmpresaServlet" method="get">
+                <input type="hidden" id="formid" name="formid" value="8" />
+            <div class="ingresarusurio">
+                <label for="usuario" class="label">Usuario:<span class="req">*</span></label><br>
+                <input type="text" id="nombreusuario" name="nombreusuario" required placeholder="Usuario"  autocomplete="off" class="input" />
+            <br>
+            </div>
+                
+            <div class="ingresarusurio">
+                <label for="contrasena" class="label">Contrasena:<span class="req">*</span></label><br>
+                <input type="password" id="contrasena" name="contrasena"   placeholder="Contraseña" class="input"/>
+            <br>
+            <div class="ingresarusurio">
+                 <input type="submit" id="mysubmit" name="mysubmit" value="entrar" class="button"/>
+            </div>
+            </div>
+            <div id="remember-container">
+                <input type="checkbox" id="checkbox-2-1" class="checkbox" checked="checked"/>
+                <span id="remember">Recuérdame</span>
+                <a href="recuperarcontrasenaNew.html">
+                <span id="forgotten">Olvidé la contraseña</span>
+                </a>
+            </div>
+            
+            </form>
+        </div>
+       
+
+    
+    </body>
+</html>

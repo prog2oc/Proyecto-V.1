@@ -94,8 +94,8 @@
                 %>
                             <td>
                                 <img src="img/Productos/<%= CTemp.getImagen() %> " width="200px" height="200px"> 
-                                <p><%= CTemp.getNombreProducto() %></p>                 
-                                <p>$<%= CTemp.getPrecioUnidad() %>0</p>
+                                <h3><%= CTemp.getNombreProducto() %></h3>                 
+                                <h3>$<%= CTemp.getPrecioUnidad() %>0</h3>
                                 <a href="ProductoServlet?formid=15&idproducto=<%= CTemp.getId() %>&id=<%= UUsuario.getId() %>">Ver Detalle</a>
                             </td>                   
                 <%

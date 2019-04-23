@@ -1,30 +1,44 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="Style/categoria.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+        <span class="close-btn">
+            <a href="CategoriaServlet?formid=2">
+        <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
+        </a>
+        </span>
+        <div class="categoria">
+          
+        <img src="img/esevolado.png">   
+        <br>
         <h1>Nueva Categoria</h1>
         <br><br>
         
         <form id="myform" name="myform" action="CategoriaServlet" method="get">
-            <label>Nombre:</label><br>
-            <input type="text" id="nombre" name="nombre" />
-            <br><br>
             
-            <label>Descripcion:</label><br>
-            <input type="text" id="descripcion" name="descripcion" />
+            <div class="nuevacategoria">
+            <label for="nombre" class="label">Nombre:<span class="req">*</span></label><br>
+            <input type="text" id="nombre" name="nombre" required placeholder="Nombre" autocomplete="off" class="input"/>
             <br><br>
+            </div>
             
-            <input type="submit" id="mysubmit" name="mysubmit" value="Crear"/>
+            <div class="nuevacategoria">
+            <label for="descripcion" class="label">Descripcion:<span class="req">*</span></label><br>
+            <input type="text" id="descripcion" name="descripcion" required placeholder="Descripcion" autocomplete="off" class="input"/>
+            <br><br>
+            </div>
+            
+            <div class="nuevacategoria">
+            <input type="submit" id="mysubmit" name="mysubmit" value="Agregar categoría" class="button"/>
+            </div>
             <input type="hidden" id="formid" name="formid" value="1" />
+            
         </form>
+        </div>
     </body>
 </html>

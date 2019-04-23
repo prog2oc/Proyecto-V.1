@@ -1,3 +1,4 @@
+
 package oc.plataformaweb.servlets;
 
 import java.io.IOException;
@@ -8,9 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import oc.plataformaweb.logic.CategoriaLogic;
 import oc.plataformaweb.logic.ProductoLogic;
 import oc.plataformaweb.logic.UsuarioLogic;
+import oc.plataformaweb.objects.ArticuloObj;
 import oc.plataformaweb.objects.CategoriaObj;
 import oc.plataformaweb.objects.ProductoObj;
 import oc.plataformaweb.objects.UsuarioObj;
@@ -141,6 +144,12 @@ public class ProductoServlet extends HttpServlet {
                                                 
                 ProductoLogic PLogic = new ProductoLogic();
                 ArrayList<ProductoObj> PArray = PLogic.getAllProductos();
+                
+                HttpSession sesion  = request.getSession(true);
+                ArrayList<ArticuloObj> AArray = sesion.getAttribute("carrito") == null ? new ArrayList<>() : (ArrayList) sesion.getAttribute("carrito");
+                AArray.clear();
+                sesion.setAttribute("carrito", AArray);
+                
                                 
                 request.getSession().setAttribute("categorias", CArray);
                 request.getSession().setAttribute("producto", PArray);
@@ -291,6 +300,18 @@ public class ProductoServlet extends HttpServlet {
                 request.getSession().setAttribute("producto", CProducto);
                 response.sendRedirect("detalleProducto.jsp");
             }   
+            
+            if(strFormId.equals("16"))
+            {
+                String strIdEmpresa = request.getParameter("idempresa");
+                int iIdEmpresa = Integer.parseInt(strIdEmpresa);
+                ProductoLogic PLogic = new ProductoLogic();
+                ArrayList<ProductoObj> PArray = PLogic.getAllProductosByEmpresa(iIdEmpresa);
+                                
+                request.getSession().setAttribute("producto", PArray);
+                response.sendRedirect("productoFormEmpresa.jsp");
+            }
+            
             
         }
     }
