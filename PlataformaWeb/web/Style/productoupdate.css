@@ -51,7 +51,7 @@ a{color:inherit;text-decoration:none}
   
 }
 
-.modificarusuario .input[type=password]{
+.modificarproducto .input[type=password]{
     text-security:circle;
     -webkit-text-security:circle;
 }
@@ -70,25 +70,25 @@ myform{
    
 }
 
-.modificarusuario{
+.modificarproducto{
     margin-bottom:15px;
 }
 
-.modificarusuario .input, .modificarusuario .label{
+.modificarproducto .input, .modificarproducto .label{
     width:100%;
     color:black;
     display:block;
     font-family:Amatic SC;
     font-size: 20px;
 }
-.modificarusuario .button{
+.modificarproducto .button{
     width:100%;
     color:white;
     display:block;
     font-family:Amatic SC;
     font-size: 25px;
 }
-.modificarusuario .input, .nuevomiembro .button{
+.modificarproducto .input, .modificarproducto.button{
     border:none;
     padding:15px 20px;
     border-radius:25px;
@@ -96,18 +96,18 @@ myform{
     
 }
     
-.modificarusuario .label{
+.modificarproducto .label{
     color:white;
     font-size:30px;
 }
 
-.modificarusuario .button {
+.modificarproducto .button {
     background:orangered;
     margin-bottom: auto;
     
 }
 
-.modificarusuario .input-select{
+.modificarproducto .input-select{
   position: absolute;
   content: "";
   height:3%;
@@ -140,5 +140,11 @@ h1{
     font-family:Amatic SC;
     text-align: center;
     font-size: 40px; 
+}
+p{
+   font-family:Amatic SC;
+    text-align: center;
+    color:black;
+    font-size: 20px;    
 }
 

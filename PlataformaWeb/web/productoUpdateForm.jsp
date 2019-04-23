@@ -22,28 +22,41 @@
         CategoriaObj Categoria = CatLog.getCategoriaById(CProducto.getIdCategoria());
     %>
     <body>
-        <h1>Actualizar Categoria</h1>
-        <br><br>
+        <span class="close-btn">
+        <a href="ProductoServlet?formid=7">
+        <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
+        </a>
+        </span>
         
+     <div class="modificar" >
+         
+                <img src="img/esevolado.png">   
+                <br>
+                <h1>¡Modificar producto!</h1> 
+        
+        <br><br>
         <form id="myform" name="myform" action="ProductoServlet" method="get">
-            <label>Id:</label><br>
+            <label class="label">Id:</label><br>
             <input type="number" id="nonId" name="nonId" value="<%= CProducto.getId() %>" disabled/>
             <br><br>
-            
-            <label>Nombre:</label><br>
-            <input type="text" id="nombre" name="nombre" value="<%= CProducto.getNombreProducto() %>"/>
+            <div class="modificarproducto">
+            <label class="label">Nombre: <span class="req">*</span></label><br>
+            <input type="text" id="nombre" name="nombre" required autocomplete="off" class="input" placeholder="Nombre" value="<%= CProducto.getNombreProducto() %>"/>
             <br><br>
-            
-            <label>Precio:</label><br>
-            <input type="number" step="0.01" id="preciounidad" name="preciounidad" value="<%= CProducto.getPrecioUnidad() %>" />
+            </div>
+            <div class="modificarproducto">
+            <label class="label">Precio:<span class="req">*</span></label><br>
+            <input type="number" step="0.01" id="preciounidad" name="preciounidad"  required autocomplete="off" class="input" placeholder="Precio" value="<%= CProducto.getPrecioUnidad() %>" />
             <br><br>
-            
-            <label>Unidades:</label><br>
-            <input type="number" id="unidades" name="unidades" value="<%= CProducto.getUnidades() %>"/>
+            </div>
+            <div class="modificarproducto">
+            <label class="label">Unidades:<span class="req">*</span></label><br>
+            <input type="number" id="unidades" name="unidades" required autocomplete="off" class="input" placeholder="" value="<%= CProducto.getUnidades() %>"/>
             <br><br>
-            
-            <label>Categoria:</label><br>
-            <select id="idcategoria" name="idcategoria">                        
+            </div>
+            <div class="modificarproducto">
+            <label class="label">Categoria:<span class="req">*</span></label><br>
+            <select id="idcategoria" name="idcategoria" class="input-select">                        
             <option value="<%= Categoria.getId() %>" selected disabled hidden><%=Categoria.getNombre() %></option>
             <%
             if(iteArray!=null)
@@ -61,13 +74,18 @@
             %>
             </select>
             <br><br>
-            <label>Empresa:</label><br>
-            <input type="number" id="idempresa" name="idempresa" value="<%= CProducto.getIdEmpresa() %>" />
+            </div>
+            <div class="modificarproducto">
+            <label class="label">Empresa:<span class="req">*</span></label><br>
+            <input type="number" id="idempresa" name="idempresa" required autocomplete="off" class="input" placeholder="Empresa" value="<%= CProducto.getIdEmpresa() %>" />
             <br><br>
-            
-            <input type="submit" id="mysubmit" name="mysubmit" value="Update"/>
+            </div>
+            <div class="modificarproducto">
+            <input type="submit" id="mysubmit" name="mysubmit" value="Update" class="button"/>
+            </div>
             <input type="hidden" id="formid" name="formid" value="5" />
             <input type="hidden" id="id" name="id" value="<%= CProducto.getId() %>" />
         </form>
+     </div>
     </body>
 </html>

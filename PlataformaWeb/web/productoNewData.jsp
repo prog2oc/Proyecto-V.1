@@ -82,22 +82,22 @@
                 <h1>¡Agregue el producto!</h1> 
                 
             <div class="nuevoproducto">    
-            <<label>Nombre:<span class="req">*</span></label><br>
+            <<label class="label">Nombre:<span class="req">*</span></label><br>
             <input type="text" id="nombre" name="nombre" required autocomplete="off" class="input"/>
             <br><br>
             </div>
             <div class="nuevoproducto">
-            <label>Precio:<span class="req">*</span></label><br>
+            <label class="label">Precio:<span class="req">*</span></label><br>
             <input type="number" step="0.01" id="preciounidad" name="preciounidad" required autocomplete="off" class="input"/>
             <br><br>
             </div>
             <div class="nuevoproducto">
-            <label>Unidades:<span class="req">*</span</label><br>
+            <label class="label" >Unidades:<span class="req">*</span</label><br>
             <input type="number" id="unidades" name="unidades" required autocomplete="off" class="input" />
             <br><br>
             </div>
             <div class="nuevoproducto">
-            <label>Categoria:<span class="req">*</span</label><br>
+            <label class="label">Categoria:<span class="req">*</span</label><br>
             <select id="idcategoria" name="idcategoria" class="input-select" >                        
             
             <%
