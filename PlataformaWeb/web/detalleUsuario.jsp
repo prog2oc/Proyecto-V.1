@@ -1,15 +1,19 @@
-<%@page import="oc.plataformaweb.objects.UsuarioObj"%>
-<%@page import="oc.plataformaweb.objects.CategoriaObj"%>
+<%-- 
+    Document   : detalleUsuario
+    Created on : 22/04/2019, 07:30:55 PM
+    Author     : erick
+--%>
+
 <%@page import="java.util.Iterator"%>
-<%@page import="oc.plataformaweb.objects.ProductoObj"%>
+<%@page import="oc.plataformaweb.objects.CategoriaObj"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="oc.plataformaweb.objects.UsuarioObj"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>eSeVolado</title>
-        <link href="Style/menus.css" rel="stylesheet" type="text/css"/>
+        <title>JSP Page</title><link href="Style/menus.css" rel="stylesheet" type="text/css"/>
         <link href="Style/publicidad.css" rel="stylesheet" type="text/css"/>
         <script src="Scripts/publicidad.js" type="text/javascript"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
@@ -23,10 +27,6 @@
     </head>
     <%
         UsuarioObj UUsuario = (UsuarioObj)request.getSession().getAttribute("usuario");
-        
-        ArrayList<ProductoObj> PArray = 
-                (ArrayList<ProductoObj>)request.getSession().getAttribute("producto");
-        Iterator<ProductoObj> itePArray = PArray.iterator();
         
         ArrayList<CategoriaObj> CArray = 
                 (ArrayList<CategoriaObj>)request.getSession().getAttribute("categorias");
@@ -42,7 +42,7 @@
             </label>
 
             <div class="menu">
-                <a href="UsuarioServlet?formid=8"><%= UUsuario.getNombre() %> <%= UUsuario.getApellido() %> </a>
+                <a href="inicioSesion.html"><%= UUsuario.getNombre() %> <%= UUsuario.getApellido() %> </a>
                 <a href="Carrito.jsp">Carrito</a>
                 <a href="ProductoServlet?formid=7">Cerrar Sesión</a>
                 <label for="chk" class="hide-menu-btn" >
@@ -71,56 +71,6 @@
         </div>
         
         
-              <br><br>
-
-        <div class="catalogo">
-
-            <table>
-                <%
-                    if(itePArray!=null)
-                    {
-                        int SaltoLinea = 0;
-                        ProductoObj CTemp;
-                        while(itePArray.hasNext())
-                        {
-                            CTemp = itePArray.next(); 
-                            SaltoLinea++;
-
-                %>
-                            <td>
-                                <img src="img/Productos/<%= CTemp.getImagen() %> " width="200px" height="200px"> 
-                                <h3><%= CTemp.getNombreProducto() %></h3>                 
-                                <h3>$<%= CTemp.getPrecioUnidad() %>0</h3>
-                                <a href="ProductoServlet?formid=15&idproducto=<%= CTemp.getId() %>&id=<%= UUsuario.getId() %>">Ver Detalle</a>
-                            </td>                   
-                <%
-                            if(SaltoLinea==4){
-                              %>
-                              <tr>
-                              <%
-                                  SaltoLinea=0;
-                            }
-                        }
-                    }
-                %>
-
-            </table>                          
-
-        </div>
-                
-                <div  class="slideshow-container">
-                <div class="mySlides fade">                  
-                  <img src="img/Publicidad/officedepot1.png" style="width:100%">
-                </div>
-              
-                <div class="mySlides fade">                  
-                  <img src="img/Publicidad/officedepot2.png" style="width:100%">
-                </div>
-              
-                <div class="mySlides fade">                  
-                  <img src="img/Publicidad/siman1.jpg" style="width:100%">
-                </div>
-            </div>
         
     </body>
 </html>

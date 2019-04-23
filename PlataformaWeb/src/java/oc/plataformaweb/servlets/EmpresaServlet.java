@@ -99,7 +99,7 @@ public class EmpresaServlet extends HttpServlet
                 System.out.println("update empresa rows: " + iRows);
                 
                 request.getSession().setAttribute("rows", new Integer(iRows) );
-                response.sendRedirect("EmpresagenericMessage.jsp");
+                response.sendRedirect("inicioEmpresa.jsp");
             }
             
             if(strFormId.equals("6")){
@@ -149,6 +149,15 @@ public class EmpresaServlet extends HttpServlet
             }
             
         }
+             
+             if(strFormId.equals("9"))
+            {
+                EmpresaLogic ELogic = new EmpresaLogic();
+                ArrayList<EmpresaObj> EArray = ELogic.getAllEmpresas();
+              
+                request.getSession().setAttribute("empresa", EArray);
+                response.sendRedirect("detalleEmpresa.jsp");
+            }
         }
     }
 

@@ -105,12 +105,12 @@
             <input type="text" id="direccion" name="direccion" value="<%= UUsuario.getDireccion() %>"  required autocomplete="off" class="input" placeholder="Dirección" />
             <br><br>
             </div>
+            
+            <input type="hidden" id="formid" name="formid" value="5" />
+            <input type="hidden" id="id" name="id" value="<%=UUsuario.getId() %>" />
             <div class="modificarusuario">
             <input type="submit" id="mysubmit" name="mysubmit" value="Update" class="button"/>
             </div>
-            <input type="hidden" id="formid" name="formid" value="5" />
-            <input type="hidden" id="id" name="id" value="<%=UUsuario.getId() %>" />
-            
         </form>
      </div>
     </body>
