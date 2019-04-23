@@ -1,0 +1,150 @@
+body{
+	margin:auto;
+	color:#6a6f8c;
+	background:#c8c8c8;
+	font:600 16px/18px 'Open Sans',sans-serif;
+        font-family:Banger;
+        
+        
+}
+*,:after,:before{box-sizing:border-box}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+a{color:inherit;text-decoration:none}
+
+ .close-btn{
+  position: absolute;
+  cursor: pointer;
+  font-family: 'Open Sans Condensed', sans-serif;
+  line-height: 18px;
+  top: 40px;
+  right: 350px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 10px;
+  opacity: .2;
+  -webkit-transition: all 2s ease-in-out;
+  -moz-transition: all 2s ease-in-out;
+  -o-transition: all 2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  z-index: 5;
+}
+
+    .close-btn:hover{
+      opacity: .5;
+    }
+.categoria{
+        width:100%;
+	margin:auto;
+        top: 20px;
+        bottom : 20px;
+	max-width :50%; 
+	min-height:70%;
+	position:relative;
+	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+	padding:90px 70px 50px 70px;
+	background-color:rgb(0, 188, 175);
+        opacity: 80%;
+        border-radius:25px;
+        
+  
+}
+
+.nuevacategoria .input[type=password]{
+    text-security:circle;
+    -webkit-text-security:circle;
+}
+
+.label{
+    color:#aaa;
+    font-size:12px;
+}
+
+myform{
+    min-height:345px;
+    position:relative;
+    perspective:1000px;
+    transform-style:preserve-3d;
+   
+   
+}
+
+.nuevacategoria{
+    margin-bottom:15px;
+}
+
+.nuevacategoria .input, .nuevomiembro .label{
+    width:100%;
+    color:black;
+    display:block;
+    font-family:Amatic SC;
+    font-size: 20px;
+}
+.nuevacategoria .button{
+    width:100%;
+    color:white;
+    display:block;
+    font-family:Amatic SC;
+    font-size: 25px;
+}
+.nuevacategoria .input, .nuevomiembro .button{
+    border:none;
+    padding:15px 20px;
+    border-radius:25px;
+    background:rgba(255,255,255,.1);
+    
+}
+    
+.nuevacategoria .label{
+    color:white;
+    font-size:30px;
+}
+
+.nuevacategoria .button {
+    background:orangered;
+    margin-bottom: auto;
+    
+}
+
+.nuevacategoria .input-select{
+  position: absolute;
+  content: "";
+  height:3%;
+  width:76%;
+  border:none;
+  padding:15px 20px;
+  border-radius:25px;
+  background:rgba(255,255,255,.1);
+  font-family:Amatic SC;
+  font-size:20px;
+  color:gray;
+  
+}
+
+.req {
+  	margin:2px;
+  	color:orangered;
+  }
+ 
+ 
+img{
+  top: 0;
+  display: block;
+  margin: auto;
+  width : 80%;
+  height: 80%;
+}
+
+h1{
+    font-family:Amatic SC;
+    text-align: center;
+    font-size: 40px; 
+}
+p{
+   font-family:Amatic SC;
+    text-align: center;
+    color:black;
+    font-size: 20px;    
+}
+

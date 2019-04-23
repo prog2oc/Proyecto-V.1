@@ -157,4 +157,51 @@ public class EmpresaLogic extends Logic
         int iRows = database.executeNonQueryRows(strSql);
         return iRows;
     }
+    
+    public EmpresaObj getEmpresaInfo(String p_strNombreUsuario, String p_strContrasena) 
+    {
+        DatabaseX database = getDatabase();
+        String strSql = "select * from ocplataformaweb.empresa where nombre= '"+p_strNombreUsuario
+                +"' AND telefono = '"+ p_strContrasena +"' ";
+        System.out.println(strSql);
+        ResultSet EResult = database.executeQuery(strSql);
+        EmpresaObj ETemp = null;
+        
+        if(EResult!=null)
+        {
+            int iId;
+            String strNombre;
+            String strLogo;
+            String strDireccion;
+            String strDepartamento;
+            String strCiudad;
+            String strTelefono;
+            String strSitioWeb;
+            
+            try 
+            {
+                while(EResult.next())
+                {
+                    iId = EResult.getInt("id");
+                    strNombre = EResult.getString("nombre");
+                    strLogo = EResult.getString("logo");
+                    strDireccion = EResult.getString("direccion");
+                    strDepartamento = EResult.getString("departamento");
+                    strCiudad = EResult.getString("ciudad");
+                    strTelefono = EResult.getString("telefono");
+                    strSitioWeb = EResult.getString("sitioweb");
+                    
+                    ETemp = new EmpresaObj(iId, strNombre, strLogo, strDireccion, strDepartamento, strCiudad, strTelefono, strSitioWeb);
+                }
+            } 
+            catch (SQLException ex) 
+            {
+                Logger.getLogger(EmpresaLogic.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        return ETemp;
+        
+        
+    }
 }

@@ -16,6 +16,6 @@
         <br><br>
         <h2>${error}</h2>
         <br><br>
-        <a href="ProductoServlet?formid=7">Inicio</a>
+        <a href="javascript:window.history.go(-2); ">Inicio</a>
     </body>
 </html>

@@ -4,7 +4,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Update Empresa</title>
+        <link href="Style/empresaupdate.css" rel="stylesheet" type="text/css"/>
+        <title>Modificar Empresa</title>
     </head>
     <%
         EmpresaObj CEmpresa = 
@@ -12,7 +13,17 @@
         
     %>
     <body>
-        <h1>Update Client</h1>
+        
+        <span class="close-btn">
+            <a href="EmpresaServlet?formid=2">
+        <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
+        </a>
+        </span>
+        <div class="modificar">
+          
+        <img src="img/esevolado.png">   
+        <br>
+        <h1>Modificar Empresa</h1>
         <br><br>
         
         <form id="myform" name="myform" action="EmpresaServlet" method="post" enctype="multipart/form-data">
@@ -21,17 +32,21 @@
             <input type="number" id="nonId" name="nonId" value="<%= CEmpresa.getId() %>" disabled/>
             <br><br>            
             
-            <label>Nombre:</label><br>
-            <input type="text" id="nombre" name="nombre" value="<%= CEmpresa.getNombre() %>" />
+            <div class="modificarempresa">
+            <label for="nombre" class="label">Nombre:<span class="req">*</span></label><br>
+            <input type="text" id="nombre" name="nombre" required placeholder="Nombre" autocomplete="off" class="input"/>
             <br><br>
+            </div>
 
-            
-            <label>Direccion:</label><br>
-            <input type="text" id="direccion" name="direccion" value="<%= CEmpresa.getDireccion() %>" />
+            <div class="modificarempresa">
+            <label for="direccion" class="label">Direccion:<span class="req">*</span></label><br>
+            <input type="text" id="direccion" name="direccion" required placeholder="Direccion" autocomplete="off" class="input"/>
             <br><br>
+            </div>
             
+            <div class="modificarempresa">
             <label>Departamento:</label><br>
-            <select name="departamento">
+            <select name="departamento" class="input-select">
                 <option value="<%= CEmpresa.getDepartamento() %>" selected hidden><%= CEmpresa.getDepartamento() %></option>
                 <option value="Ahuachapan">Ahuachapan</option>
                 <option value="Cabanas">Cabanas</option>
@@ -49,23 +64,33 @@
                 <option value="Usulután">Usulután</option>
             </select>
             <br><br>
+            </div>
             
-            <label>Ciudad:</label><br>
-            <input type="text" id="ciudad" name="ciudad" value="<%= CEmpresa.getCiudad() %>" />
+            <div class="modificarempresa">
+            <label for="ciudad" class="label">Ciudad:<span class="req">*</span></label><br>
+            <input type="text" id="ciudad" name="ciudad" required placeholder="Ciudad" autocomplete="off" class="input"/>
             <br><br>
+            </div>
             
-            <label>Telefono:</label><br>
-            <input type="text" id="telefono" name="telefono" value="<%= CEmpresa.getTelefono() %>" />
+            <div class="modificarempresa">
+            <label for="telefono" class="label">Telefono:<span class="req">*</span></label><br>
+            <input type="text" id="telefono" name="telefono" required placeholder="Telefono" autocomplete="off" class="input"/>
             <br><br>
+            </div>
             
-            <label>Sitio Web:</label><br>
-            <input type="text" id="sitioweb" name="sitioweb" value="<%= CEmpresa.getSitioWeb() %>" />
+            <div class="modificarempresa">
+            <label for="sitioweb" class="label">Sitio Web:<span class="req">*</span></label><br>
+            <input type="text" id="sitioweb" name="sitioweb" required placeholder="Sitio Web" autocomplete="off" class="input"/>
             <br><br>
+            </div>
             
-            <input type="submit" id="mysubmit" name="mysubmit" value="Update"/>
+            <div class="modificarempresa">
+            <input type="submit" id="mysubmit" name="mysubmit" value="Modificar" class="button"/>
             <input type="hidden" id="formid" name="formid" value="5" />
             <input type="hidden" id="id" name="id" value="<%= CEmpresa.getId() %>" />
+            
         </form>
+        </div>
     </body>
 </html>
 

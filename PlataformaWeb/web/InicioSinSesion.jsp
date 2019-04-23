@@ -56,24 +56,10 @@
                 <%
                         }
                     }
-                %>     
+                %>
+                 <a href="inicioSesionEmpresa.html">Inicio Sesión Empresa</a>
         </div>
-
-            <div  class="slideshow-container">
-                <div class="mySlides fade">                  
-                  <img src="img/Publicidad/officedepot1.png" style="width:100%">
-                </div>
-              
-                <div class="mySlides fade">                  
-                  <img src="img/Publicidad/officedepot2.png" style="width:100%">
-                </div>
-              
-                <div class="mySlides fade">                  
-                  <img src="img/Publicidad/siman1.jpg" style="width:100%">
-                </div>
-            </div>
-              <br><br>
-        <div class="catalogo">
+            
 
             <table>
         <%
@@ -89,8 +75,8 @@
         %>
                     <td>
                         <img src="img/Productos/<%= CTemp.getImagen() %> " width="200px" height="200px"> 
-                        <p><%= CTemp.getNombreProducto() %></p>                 
-                        <p>$ <%= CTemp.getPrecioUnidad() %>0</p>
+                        <h2><%= CTemp.getNombreProducto() %></h2>                 
+                        <h3>$ <%= CTemp.getPrecioUnidad() %>0</h3>
                         <a href="ProductoServlet?formid=14&idproducto=<%= CTemp.getId() %>">Ver Detalle</a>
                     </td>                   
         <%
@@ -109,6 +95,22 @@
                    
 
         </div>
+        
+        <div  class="slideshow-container">
+                <div class="mySlides fade">                  
+                  <img src="img/Publicidad/officedepot1.png" style="width:100%">
+                </div>
+              
+                <div class="mySlides fade">                  
+                  <img src="img/Publicidad/officedepot2.png" style="width:100%">
+                </div>
+              
+                <div class="mySlides fade">                  
+                  <img src="img/Publicidad/siman1.jpg" style="width:100%">
+                </div>
+            </div>
+              <br><br>
+        <div class="catalogo">
         
     </body>
 </html>
