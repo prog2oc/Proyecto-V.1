@@ -3,9 +3,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="Style/registrar.css" rel="stylesheet" type="text/css"/>
-        <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
-        <title>JSP Page</title>
+        <link href="Style/GenericMessage.css" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+        <title>Modificar producto</title>
     </head>
     <%  
         Integer iRowsObj = (Integer)request.getSession().getAttribute("rows");   
@@ -23,9 +23,8 @@
             
         <img src="img/esevolado.png">   
         <br>
-        <h1>Producto</h1>
         <br><br>
-        <p> ¡<%= iRows %> productos fueron modificados!</p>
+        <h1> ¡<%= iRows %> productos han sido modificados!</h1>
         <br><br>
         
         </div>
