@@ -9,6 +9,10 @@
               content="text/html; charset=UTF-8">
         <title>Empresa</title>
         <link href="styles/tableStyles.css" rel="stylesheet" type="text/css"/>
+        <script src="Scripts/additional-methods.js" type="text/javascript"></script>
+        <script src="Scripts/empresaScript.js" type="text/javascript"></script>
+        <script src="Scripts/jquery-3.3.1.js" type="text/javascript"></script>
+        <script src="Scripts/jquery.validate.js" type="text/javascript"></script>
     </head>
     <%
         ArrayList<EmpresaObj> CArray = 
