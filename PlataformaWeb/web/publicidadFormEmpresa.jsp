@@ -63,9 +63,9 @@
                 <a href="PublicidadServlet?formid=9&idempresa=<%= CEmpresa.getId() %>">Publicidades</a>   
                 <a href="TipoPublicidadServlet?formid=6">Tipo Publicidad</a>
         </div>
-        <h1>Publicidad</h1>
+ 
         <br>
-        <a href="PublicidadServlet?formid=6&id=1">Nuevo Producto</a>
+        <a href="PublicidadServlet?formid=6&id=<%= CEmpresa.getId() %>">Nueva Publicidad</a>
         <br><br>
         <table>
         <tr>

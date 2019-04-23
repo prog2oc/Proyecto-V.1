@@ -54,10 +54,7 @@
         </div>
 
         <br><br>
-        <h1>Tipos de Publicidad</h1>
-        <br>
-        <a href="TipoPublicidadNuevo.html">Nuevo tipo de publicidad</a>
-        <br><br>
+        
         <table>
         <tr>
             <th>Id</th>
@@ -76,16 +73,6 @@
                     <td><%= PTemp.getid()%></td>
                     <td><%= PTemp.getName() %></td>
                     <td><%= PTemp.getDescripcion()%></td>
-                    <td>
-                        <a href="TipoPublicidadServlet?formid=4&id=<%= PTemp.getid()%>">
-                            Modificar
-                        </a>
-                    </td>
-                    <td>
-                        <a href="TipoPublicidadServlet?formid=3&id=<%= PTemp.getid() %>">
-                            Borrar
-                        </a>
-                    </td>
                 </tr>
         <%
                 }
