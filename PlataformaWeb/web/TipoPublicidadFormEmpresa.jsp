@@ -1,3 +1,4 @@
+<%@page import="oc.plataformaweb.objects.EmpresaObj"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="oc.plataformaweb.objects.TipoPublicidadObj"%>
 <%@page import="java.util.ArrayList"%>
@@ -24,38 +25,35 @@
         ArrayList<TipoPublicidadObj> PArray = 
                 (ArrayList<TipoPublicidadObj>)request.getSession().getAttribute("tipopublicidad");
         Iterator<TipoPublicidadObj> iteArray = PArray.iterator();
+        EmpresaObj CEmpresa = 
+                (EmpresaObj)request.getSession().getAttribute("empresa");
     %>    
     <body>
         <div class="header">
             <img src="img/esevolado.png" width="150" height="100" top="5" >
-           
+
             <div class="menu">
+                <a href="EmpresaServlet?formid=4&id=<%= CEmpresa.getId() %>"><%= CEmpresa.getNombre() %> </a>
                 <a href="ProductoServlet?formid=7">Cerrar Sesión</a>               
             </div>
         </div>
 
        
         <div class="navbar">
-                <a href="UsuarioServlet?formid=2">Usuarios</a>
-                <a href="ProductoServlet?formid=2">Productos</a>
-                <a href="CategoriaServlet?formid=2">Categorias</a>
-                <a href="PublicidadServlet?formid=2">Publicidades</a>   
-                <a href="TipoPublicidadServlet?formid=2">Tipo Publicidad</a>
+                <a href="ProductoServlet?formid=16&idempresa=<%= CEmpresa.getId() %>">Productos</a>
+                <a href="CategoriaServlet?formid=6">Categorias</a>
+                <a href="PublicidadServlet?formid=9&idempresa=<%= CEmpresa.getId() %>">Publicidades</a>   
+                <a href="TipoPublicidadServlet?formid=6">Tipo Publicidad</a>
         </div>
 
         <br><br>
-        <div style="text-align: center">
-            <button style="font-size: 30px" onclick=" location.href='TipoPublicidadNuevo.html' " >Nuevo Tipo de Publicidad</button>
-        </div> 
         
-        <br>
         <table>
             <thead>
         <tr>
             <th>Id</th>
             <th>Name</th>
             <th>Description</th>
-            <th colspan="2">Edición</th>
         </tr>
         </thead>
         <%
@@ -70,16 +68,6 @@
                     <td><%= PTemp.getid()%></td>
                     <td><%= PTemp.getName() %></td>
                     <td><%= PTemp.getDescripcion()%></td>
-                    <td>
-                        <a href="TipoPublicidadServlet?formid=4&id=<%= PTemp.getid()%>">
-                            Modificar
-                        </a>
-                    </td>
-                    <td>
-                        <a href="TipoPublicidadServlet?formid=3&id=<%= PTemp.getid() %>">
-                            Delete
-                        </a>
-                    </td>
                 </tr>
         <%
                 }

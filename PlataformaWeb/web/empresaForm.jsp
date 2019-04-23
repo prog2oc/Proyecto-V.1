@@ -19,6 +19,7 @@
         <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+        <link href="Style/tablas.css" rel="stylesheet" type="text/css"/>
     </head>
     <%
         ArrayList<EmpresaObj> CArray = 
@@ -55,8 +56,10 @@
                     <td><%= ETemp.getNombre() %></td>
                     <%
                         if(ETemp.getLogo()!= ""){
+                            
                     %>
                     <td> <img src="img/Logos/<%=ETemp.getLogo()%>" width="200px" height="200px"> </td>
+                    
                     <%
                         } else {
                     %>
@@ -67,7 +70,7 @@
                     <td><%= ETemp.getDireccion() %></td>
                     <td><%= ETemp.getDepartamento() %></td>
                     <td><%= ETemp.getCiudad() %></td>
-                    <td><%= ETemp.getTelefono() %></td>
+                    <td><%= ETemp.getContrasena() %></td>
                     <td><%= ETemp.getSitioWeb() %></td>
                     
                     <td>
@@ -88,6 +91,8 @@
                 </tr>
         <%
                 }
+                String archivourl = getServletContext().getRealPath("/") +"img\\Logos" ;
+            out.print(archivourl);
             }
         %>
         

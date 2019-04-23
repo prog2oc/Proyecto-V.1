@@ -21,16 +21,14 @@
         </span>
         <div class="modificar">
           
-        <img src="img/esevolado.png">   
+            <a href="javascript:window.history.go(-1);"> <img src="img/esevolado.png">  </a> 
         <br>
         <h1>Modificar Empresa</h1>
         <br><br>
         
         <form id="myform" name="myform" action="EmpresaServlet" method="post" enctype="multipart/form-data">
             
-            <label>Id:</label><br>
-            <input type="number" id="nonId" name="nonId" value="<%= CEmpresa.getId() %>" disabled/>
-            <br><br>            
+          
             
             <div class="modificarempresa">
             <label for="nombre" class="label">Nombre:<span class="req">*</span></label><br>
@@ -73,8 +71,8 @@
             </div>
             
             <div class="modificarempresa">
-            <label for="telefono" class="label">Telefono:<span class="req">*</span></label><br>
-            <input type="text" id="telefono" name="telefono" required placeholder="Telefono" autocomplete="off" class="input"/>
+            <label for="contrasena" class="label">Contrasena:<span class="req">*</span></label><br>
+            <input type="password" id="contrasena" name="contrasena" required placeholder="Contrasena" autocomplete="off" class="input"/>
             <br><br>
             </div>
             

@@ -18,6 +18,7 @@
         <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+        <link href="Style/tablas.css" rel="stylesheet" type="text/css"/>
     </head>
     <%
         ArrayList<CategoriaObj> CArray = 
@@ -25,18 +26,11 @@
         Iterator<CategoriaObj> iteArray = CArray.iterator();
     %>    
     <body>
-        <div class="header">
-            <h1 class="logo">e<span class="blue">S</span>e<span class="blue">V</span>olado</h1>
-            <input type="checkbox" id="chk">
-            <label for="chk" class="show-menu-btn">
-                <i class="fas fa-ellipsis-h"></i>
-            </label>
-
+       <div class="header">
+            <img src="img/esevolado.png" width="150" height="100" top="5" >
+           
             <div class="menu">
-                <a href="ProductoServlet?formid=7">Cerrar Sesión</a>
-                <label for="chk" class="hide-menu-btn" >
-                        <i class="fas fa-times"></i>
-                </label>                
+                <a href="ProductoServlet?formid=7">Cerrar Sesión</a>               
             </div>
         </div>
 
@@ -50,16 +44,20 @@
         </div>
 
         <br><br>
-        <h1>Categorias</h1>
-        <br>
-        <a href="NewCategoria.html">Nuevo Categoria</a>
+        <div style="text-align: center">
+            <button style="font-size: 30px" onclick=" location.href='NewCategoria.html' " >Nueva Categoria</button>
+        </div> 
+
         <br><br>
         <table>
+            <thead>
         <tr>
             <th>Id</th>
             <th>Nombre</th>
             <th>Descripcion</th>
+            <th colspan="2">Edición</th>
         </tr>
+        </thead>
         <%
             if(iteArray!=null)
             {
@@ -74,7 +72,7 @@
                     <td><%= CTemp.getDescripcion() %></td>
                     <td>
                         <a href="CategoriaServlet?formid=4&id=<%= CTemp.getId() %>">
-                            Update
+                            Modificar
                         </a>
                     </td>
                     <td>

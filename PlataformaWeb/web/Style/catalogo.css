@@ -1,0 +1,135 @@
+*{box-sizing: border-box;
+}
+/* Center website */
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
+
+.row {
+  margin: 8px -16px;
+}
+
+/* Add padding BETWEEN each column (if you want) */
+.row,
+.row > .column {
+  padding: 10px 30px;;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  height: 250px;
+  width: 25%;
+  display: none; /* Hide columns by default */
+}
+
+/* Clear floats after rows */ 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+
+/* Add a grey background color on mouse-over */
+.btn:hover {
+  background-color: #ddd;
+}
+
+/* Add a dark background color to the active button */
+.btn.active {
+  background-color: #666;
+   color: white;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: Amatic SCt;
+  margin: 10px 10px;
+  
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+  
+}
+
+.card img{
+    width: 100px;
+    height: 100px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color:orangered ;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  font-family: Amatic SC;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+#center{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    
+  #mysubmit {
+         border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color:orangered ;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  font-family: Amatic SC;
+    }
+    
+    
+.detalle .input, .detalle .button{
+    border:none;
+    padding:15px 20px;
+    border-radius:25px;
+    background:rgba(255,255,255,.1);
+    
+}
+.detalle .button {
+    background:orangered;
+    margin-bottom: auto;
+    font-family: Amatic SCt;
+}
+
+h3{
+  font-family: Amatic SCt;
+  color: black;
+}
+
+h2{
+  font-family: Amatic SCt;
+  color: black;  
+}

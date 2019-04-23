@@ -35,16 +35,16 @@ public class EmpresaServlet extends HttpServlet
                 String strDireccion = request.getParameter("direccion");
                 String strDepartamento = request.getParameter("departamento");
                 String strCiudad = request.getParameter("ciudad");
-                String strTelefono = request.getParameter("telefono");
+                String strContrasena = request.getParameter("contrasena");
                 String strSitioWeb = request.getParameter("sitioweb");
                 String strLogo = request.getParameter("logo");
              
                 EmpresaLogic ELogic = new EmpresaLogic();
-                int iRows = ELogic.insertEmpresaRows(strNombre, strLogo, strDireccion, strDepartamento, strCiudad, strTelefono, strSitioWeb);
+                int iRows = ELogic.insertEmpresaRows(strNombre, strLogo, strDireccion, strDepartamento, strCiudad, strContrasena, strSitioWeb);
                 System.out.println("insert empresa rows: " + iRows);                
         
                 request.getSession().setAttribute("rows", new Integer(iRows));
-                response.sendRedirect("EmpresagenericMessage.jsp");
+                response.sendRedirect("ProductoServlet?formid=7");
             }
             
             if(strFormId.equals("2"))
@@ -87,7 +87,7 @@ public class EmpresaServlet extends HttpServlet
                 String strDireccion = request.getParameter("direccion");
                 String strDepartamento = request.getParameter("departamento");
                 String strCiudad = request.getParameter("ciudad");
-                String strTelefono = request.getParameter("telefono");
+                String strContrasena = request.getParameter("contrasena");
                 String strSitioWeb = request.getParameter("sitioweb");    
                 int iId = Integer.parseInt(strId);
                 
@@ -95,7 +95,7 @@ public class EmpresaServlet extends HttpServlet
                
                 EmpresaLogic ELogic = new EmpresaLogic();
                 
-                iRows = ELogic.updateEmpresaRows(iId,strNombre,strDireccion,strDepartamento,strCiudad,strTelefono,strSitioWeb);                
+                iRows = ELogic.updateEmpresaRows(iId,strNombre,strDireccion,strDepartamento,strCiudad,strContrasena,strSitioWeb);                
                 System.out.println("update empresa rows: " + iRows);
                 
                 request.getSession().setAttribute("rows", new Integer(iRows) );

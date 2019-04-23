@@ -1,3 +1,4 @@
+<%@page import="oc.plataformaweb.logic.CategoriaLogic"%>
 <%@page import="oc.plataformaweb.objects.UsuarioObj"%>
 <%@page import="oc.plataformaweb.objects.CategoriaObj"%>
 <%@page import="java.util.Iterator"%>
@@ -11,7 +12,6 @@
         <title>eSeVolado</title>
         <link href="Style/menus.css" rel="stylesheet" type="text/css"/>
         <link href="Style/publicidad.css" rel="stylesheet" type="text/css"/>
-        <script src="Scripts/publicidad.js" type="text/javascript"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Yanone+Kaffeesatz" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
@@ -20,6 +20,9 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
         <link href="Style/tablas.css" rel="stylesheet" type="text/css"/>
+        <link href="Style/catalogo.css" rel="stylesheet" type="text/css"/>
+        <script src="Scripts/publicidad.js" type="text/javascript"></script>
+        <script src="Scripts/catalogo.js" type="text/javascript"></script>
     </head>
     <%
         UsuarioObj UUsuario = (UsuarioObj)request.getSession().getAttribute("usuario");
@@ -28,99 +31,93 @@
                 (ArrayList<ProductoObj>)request.getSession().getAttribute("producto");
         Iterator<ProductoObj> itePArray = PArray.iterator();
         
-        ArrayList<CategoriaObj> CArray = 
-                (ArrayList<CategoriaObj>)request.getSession().getAttribute("categorias");
-        Iterator<CategoriaObj> iteCArray = CArray.iterator();
-        
     %> 
-    <body onload="showSlides(0)">
-        <div class="header">
-            <h1 class="logo">e<span class="blue">S</span>e<span class="blue">V</span>olado</h1>
-            <input type="checkbox" id="chk">
-            <label for="chk" class="show-menu-btn">
-                <i class="fas fa-ellipsis-h"></i>
-            </label>
-
+    <body onload="filterSelection('all')">
+        
+                <div class="header">
+            <img src="img/esevolado.png" width="150" height="100" top="5" > 
+            
             <div class="menu">
-                <a href="UsuarioServlet?formid=8"><%= UUsuario.getNombre() %> <%= UUsuario.getApellido() %> </a>
-                <a href="Carrito.jsp">Carrito</a>
+                 <a href="UsuarioServlet?formid=4&id=<%= UUsuario.getId() %>"><%= UUsuario.getNombre() %> <%= UUsuario.getApellido() %> </a>
+                <a href="AnadirCarrito?formid=3">Carrito</a>
                 <a href="ProductoServlet?formid=7">Cerrar Sesión</a>
-                <label for="chk" class="hide-menu-btn" >
-                        <i class="fas fa-times"></i>
-                </label>                
+                              
             </div>
-
         </div>
-        
 
+       
         <div class="navbar">
-                <a href="ProductoServlet?formid=8">Inicio</a>
-                <%
-                    if(iteCArray!=null)
-                    {
-                        CategoriaObj CTemp;
-                        while(iteCArray.hasNext())
-                        {
-                            CTemp = iteCArray.next();
-                %>                
-                            <a href="ProductoServlet?formid=12&idcategoria=<%= CTemp.getId() %>" ><%= CTemp.getNombre() %></a>                                     
-                <%
-                        }
-                    }
-                %>     
+                <a href="ProductoServlet?formid=8"><i class="fa fa-fw fa-home"></i>INICIO</a>
+                <div class="buscador">
+                    <form>
+                        <input type="text" name="search" placeholder="Buscar..">
+                    </form>
+                </div>
+                
+                <div class="subnav">
+                    <a><button class="contenedorbutton">CATEGORIAS<i class="fa fa-caret-down"></i></button></a>
+                    <br><br><br><br>
+                        <div class="subnav-contenedor">
+                        
+                        <div id="myBtnContainer">
+                        <a class="btn" onclick="filterSelection('all')">Todas</a>
+                        <a class="btn" onclick="filterSelection('Moda')">Moda</a>
+                        <a class="btn" onclick="filterSelection('Muebles')">Muebles</a>
+                        <a class="btn" onclick="filterSelection('Juguetes')">Juguetes</a>
+                        <a class="btn" onclick="filterSelection('Tecnologia')">Tecnología</a>
+                        <a class="btn" onclick="filterSelection('Belleza')">Belleza</a>                        
+                        </div>
+                        
+                    </div>
+                </div>
+                
         </div>
-        
-        
-              <br><br>
 
-        <div class="catalogo">
-
-            <table>
+                <br>
+                <div class="row">
                 <%
                     if(itePArray!=null)
                     {
-                        int SaltoLinea = 0;
-                        ProductoObj CTemp;
+                     
+                        ProductoObj PTemp;
                         while(itePArray.hasNext())
                         {
-                            CTemp = itePArray.next(); 
-                            SaltoLinea++;
+                            PTemp = itePArray.next(); 
+                            CategoriaLogic CLog = new CategoriaLogic();
+                            CategoriaObj Categoria = CLog.getCategoriaById(PTemp.getIdCategoria());
 
                 %>
-                            <td>
-                                <img src="img/Productos/<%= CTemp.getImagen() %> " width="200px" height="200px"> 
-                                <h3><%= CTemp.getNombreProducto() %></h3>                 
-                                <h3>$<%= CTemp.getPrecioUnidad() %>0</h3>
-                                <a href="ProductoServlet?formid=15&idproducto=<%= CTemp.getId() %>&id=<%= UUsuario.getId() %>">Ver Detalle</a>
-                            </td>                   
+                
+                
+                    <div class="column <%= Categoria.getNombre() %>">
+                        <div class="card">
+                          <img src="img/Productos/<%= PTemp.getImagen() %>" style="width:100px">
+                          <br>
+                          <h2><%= PTemp.getNombreProducto() %></h2>
+                          <br>
+                          <h3 class="price">$<%= PTemp.getPrecioUnidad() %>0</h3>
+                          <br>
+                          <button onclick=" location.href='ProductoServlet?formid=15&idproducto=<%= PTemp.getId() %>&id=<%= UUsuario.getId() %>' "> Ver Detalle</button>
+                        </div>
+                    </div>
+               
                 <%
-                            if(SaltoLinea==4){
-                              %>
-                              <tr>
-                              <%
-                                  SaltoLinea=0;
-                            }
+                   
+                            
                         }
                     }
                 %>
-
-            </table>                          
-
-        </div>
                 
-                <div  class="slideshow-container">
-                <div class="mySlides fade">                  
-                  <img src="img/Publicidad/officedepot1.png" style="width:100%">
-                </div>
-              
-                <div class="mySlides fade">                  
-                  <img src="img/Publicidad/officedepot2.png" style="width:100%">
-                </div>
-              
-                <div class="mySlides fade">                  
-                  <img src="img/Publicidad/siman1.jpg" style="width:100%">
-                </div>
-            </div>
+              </div>  
+              <br>
+              <br>
+        
+        <div class="navbar">
+            
+            <br><br><br>
+            <p> Todos los derechos reservados eSeVolado©</p>
+        </div>
+
         
     </body>
 </html>

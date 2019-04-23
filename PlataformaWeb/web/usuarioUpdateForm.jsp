@@ -20,7 +20,7 @@
     %>
     <body>
         <span class="close-btn">
-        <a href="ProductoServlet?formid=7">
+        <a href="ProductoServlet?formid=8">
         <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
         </a>
         </span>

@@ -31,22 +31,16 @@
     
     <body>
         
+        <body>
         <div class="header">
-            <h1 class="logo">e<span class="blue">S</span>e<span class="blue">V</span>olado</h1>
-            <input type="checkbox" id="chk">
-            <label for="chk" class="show-menu-btn">
-                <i class="fas fa-ellipsis-h"></i>
-            </label>
-
+            <img src="img/esevolado.png" width="150" height="100" top="5" >
+           
             <div class="menu">
-                <a href="ProductoServlet?formid=7">Cerrar Sesión</a>
-                <label for="chk" class="hide-menu-btn" >
-                        <i class="fas fa-times"></i>
-                </label>                
+                <a href="EmpresaServlet?formid=4&id=<%= CEmpresa.getId() %>"><%= CEmpresa.getNombre() %> </a>
+                <a href="ProductoServlet?formid=7">Cerrar Sesión</a>              
             </div>
         </div>
-
-       
+      
         <div class="navbar">
                 <a href="ProductoServlet?formid=16&idempresa=<%= CEmpresa.getId() %>">Productos</a>
                 <a href="CategoriaServlet?formid=2">Categorias</a>

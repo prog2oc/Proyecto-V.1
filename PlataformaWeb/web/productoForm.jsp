@@ -28,6 +28,8 @@
         <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+        <link href="Style/tablas.css" rel="stylesheet" type="text/css"/>
+        
     </head>
     <%
         ArrayList<ProductoObj> PArray = 
@@ -36,18 +38,11 @@
         
     %>    
     <body>
-        <div class="header">
-            <h1 class="logo">e<span class="blue">S</span>e<span class="blue">V</span>olado</h1>
-            <input type="checkbox" id="chk">
-            <label for="chk" class="show-menu-btn">
-                <i class="fas fa-ellipsis-h"></i>
-            </label>
-
+       <div class="header">
+            <img src="img/esevolado.png" width="150" height="100" top="5" >
+           
             <div class="menu">
-                <a href="ProductoServlet?formid=7">Cerrar Sesión</a>
-                <label for="chk" class="hide-menu-btn" >
-                        <i class="fas fa-times"></i>
-                </label>                
+                <a href="ProductoServlet?formid=7">Cerrar Sesión</a>               
             </div>
         </div>
 
@@ -60,10 +55,10 @@
                 <a href="TipoPublicidadServlet?formid=2">Tipo Publicidad</a>
         </div>
 
-        <br><br>
-        <h1>Productos</h1>
+
         <br><br>
         <table>
+            <thead>
         <tr>
             <th>Id</th>
             <th>Nombre</th>
@@ -74,6 +69,7 @@
             <th>Empresa</th>
             
         </tr>
+        </thead>
         <%
             if(iteArray!=null)
             {

@@ -114,6 +114,17 @@ public class CategoriaServlet extends HttpServlet {
                 response.sendRedirect("genericMessageCategoria.jsp");
             }
             
+            if(strFormId.equals("6"))
+            {
+                //access logic
+                CategoriaLogic CLogic = new CategoriaLogic();
+                ArrayList<CategoriaObj> CArray = CLogic.getAllCategorias();
+                
+                //send to frontend
+                request.getSession().setAttribute("categoria", CArray);
+                response.sendRedirect("categoriaFormEmpresa.jsp");
+            }
+            
             
         }
     }

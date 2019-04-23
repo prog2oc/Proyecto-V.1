@@ -36,7 +36,7 @@
     <%
         
         
-            String archivourl = "D:\\Documents\\Erick\\ESEN\\Tercer Año\\Ciclo I\\Programación II\\Proyecto\\Proyecto\\Proyecto-V.1\\PlataformaWeb\\web\\img\\Productos";
+            String archivourl = getServletContext().getRealPath("/") +"img\\Productos";
             
             DiskFileItemFactory factory = new DiskFileItemFactory();
             
@@ -98,6 +98,11 @@
             <div class="nuevoproducto">
             <label class="label" >Unidades:<span class="req">*</span</label><br>
             <input type="number" id="unidades" name="unidades" autocomplete="off" class="input" />
+            <br><br>
+            </div>
+            <div class="nuevoproducto">
+            <label class="label">Descripcion:<span class="req">*</span></label><br>
+            <input type="text" id="descripcion" name="descripcion" autocomplete="off" class="input"/>
             <br><br>
             </div>
             <div class="nuevoproducto">

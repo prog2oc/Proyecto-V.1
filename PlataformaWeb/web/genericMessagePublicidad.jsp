@@ -1,3 +1,4 @@
+<%@page import="oc.plataformaweb.objects.EmpresaObj"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -10,17 +11,19 @@
     <%  
         Integer iRowsObj = (Integer)request.getSession().getAttribute("rows");   
         int iRows = iRowsObj.intValue();
+        
     %>
     
     <body>
-        span class="close-btn">
-        <a href="PublicidadServlet?formid=2">
-        <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
+        <span class="close-btn">
+        <a href="javascript:window.history.back(-1);">
+        <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png">
         </a>
         </span>
         <div class="registrar">
          <br><br>
-        <h1><%= iRows %> publicidad han sido modificadas<h1>
+         <img src="img/esevolado.png">  
+        <h1><%= iRows %> publicidad ha sido modificada</h1>
         <br><br>
         </div>
     </body>

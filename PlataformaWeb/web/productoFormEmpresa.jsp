@@ -28,19 +28,43 @@
         <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+        <link href="Style/tablas.css" rel="stylesheet" type="text/css"/>
     </head>
     <%
         ArrayList<ProductoObj> PArray = 
                 (ArrayList<ProductoObj>)request.getSession().getAttribute("producto");
         Iterator<ProductoObj> iteArray = PArray.iterator();
         
+
+        EmpresaObj CEmpresa = 
+                (EmpresaObj)request.getSession().getAttribute("empresa");
+        
     %>    
     <body>
-        <h1>Categorias</h1>
-        <br>
-        <a href="ProductoServlet?formid=6&id=1">Nuevo Producto</a>
-        <br><br>
+        <div class="header">
+            <img src="img/esevolado.png" width="150" height="100" top="5" >
+           
+            <div class="menu">
+                <a href="EmpresaServlet?formid=4&id=<%= CEmpresa.getId() %>"><%= CEmpresa.getNombre() %> </a>
+                <a href="ProductoServlet?formid=7">Cerrar Sesión</a>              
+            </div>
+        </div>
+      
+        <div class="navbar">
+                <a href="ProductoServlet?formid=16&idempresa=<%= CEmpresa.getId() %>">Productos</a>
+                <a href="CategoriaServlet?formid=6">Categorias</a>
+                <a href="PublicidadServlet?formid=9&idempresa=<%= CEmpresa.getId() %>">Publicidades</a>   
+                <a href="TipoPublicidadServlet?formid=6">Tipo Publicidad</a>
+        </div>
+
+       <br><br>
+                <div style="text-align: center">
+                    <button style="font-size: 30px" onclick=" location.href='ProductoServlet?formid=6&id=<%= CEmpresa.getId() %>' " >Nuevo Producto</button>
+                </div> 
+
+   
         <table>
+            <thead>
         <tr>
             <th>Id</th>
             <th>Nombre</th>
@@ -49,8 +73,9 @@
             <th>Unidades</th>
             <th>Categoria</th>
             <th>Empresa</th>
-            
+            <th colspan="3">Edicion</th>
         </tr>
+            </thead>
         <%
             if(iteArray!=null)
             {
@@ -68,8 +93,8 @@
                 <tr>
                     <td><%= CTemp.getId() %></td>
                     <td><%= CTemp.getNombreProducto() %></td>
-                    <td><img src="img/Productos/<%= CTemp.getImagen() %> " width="200px" height="200px"> </td>
-                    <td><%= CTemp.getPrecioUnidad() %></td>
+                    <td><img src="img/Productos/<%= CTemp.getImagen() %> " width="150px" height="150px"> </td>
+                    <td>$<%= CTemp.getPrecioUnidad() %>0</td>
                     <td><%= CTemp.getUnidades() %></td>
                     <td><%= Categoria.getNombre() %></td>
                     <td><%= Empresa.getNombre() %></td>
@@ -85,7 +110,7 @@
                     </td>
                     <td>
                         <a href="ProductoServlet?formid=3&id=<%= CTemp.getId() %>">
-                            Delete
+                            <i class="material-icons button delete">Delete</i>
                         </a>
                     </td>
                 </tr>

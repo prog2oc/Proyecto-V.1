@@ -20,6 +20,8 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
         <link href="Style/tablas.css" rel="stylesheet" type="text/css"/>
+        <link href="Style/catalogo.css" rel="stylesheet" type="text/css"/>
+        <script src="Scripts/catalogo.js" type="text/javascript"></script>
     </head>
     <%
         ArrayList<ProductoObj> PArray = 
@@ -31,7 +33,7 @@
         Iterator<CategoriaObj> iteCArray = CArray.iterator();
         
     %> 
-    <body onload="showSlides(0)">
+    <body onload="filterSelection('all')">
         
  <div class="header">
             <img src="img/esevolado.png" width="150" height="100" top="5" > 
@@ -48,20 +50,25 @@
        
         <div class="navbar">
                 <a href="ProductoServlet?formid=7"><i class="fa fa-fw fa-home"></i>INICIO</a>
-                
+                <div class="buscador">
+                    <form>
+                        <input type="text" name="search" placeholder="Buscar..">
+                    </form>
+                </div>
                 
                 <div class="subnav">
                     <a><button class="contenedorbutton">CATEGORIAS<i class="fa fa-caret-down"></i></button></a>
                     <br><br><br><br>
-                    <div class="subnav-contenedor">
+                        <div class="subnav-contenedor">
                         
-                        
-                        <a href="#link1">Moda</a>
-                        <a href="#link2">Muebles</a>
-                        <a href="#link3">Juguetes</a>
-                        <a href="#link3">Electrodomésticos</a>
-                        <a href="#link3">Belleza</a>
-                        <a href="#link1">Todas</a>
+                        <div id="myBtnContainer">
+                        <a class="btn" onclick="filterSelection('all')">Todas</a>
+                        <a class="btn" onclick="filterSelection('Moda')">Moda</a>
+                        <a class="btn" onclick="filterSelection('Muebles')">Muebles</a>
+                        <a class="btn" onclick="filterSelection('Juguetes')">Juguetes</a>
+                        <a class="btn" onclick="filterSelection('Tecnologia')">Tecnología</a>
+                        <a class="btn" onclick="filterSelection('Belleza')">Belleza</a>                        
+                        </div>
                         
                     </div>
                 </div>
@@ -69,6 +76,7 @@
         </div>
 
                 <br>
+                <div class="row">
                 <%
                     if(itePArray!=null)
                     {
@@ -84,12 +92,18 @@
                 
                 
                     <div class="column <%= Categoria.getNombre() %>">
-                        <div class="content">
-                          <img src="/w3images/mountains.jpg" alt="Mountains" style="width:100%">
-                          <h4>Mountains</h4>
-                          <p>Lorem ipsum dolor..</p>
+                        <div class="card">
+                          <br>
+                          <img src="img/Productos/<%= PTemp.getImagen() %>" style="width:100px">
+                          <br>
+                          <h2><%= PTemp.getNombreProducto() %></h2>
+                          <br>
+                          <h3 class="price">$<%= PTemp.getPrecioUnidad() %>0</h3>
+                          <br>
+                          <button onclick=" location.href='ProductoServlet?formid=14&idproducto=<%= PTemp.getId() %>' "> Ver Detalle</button>
                         </div>
                     </div>
+                        
                
                 <%
                    
@@ -98,7 +112,7 @@
                     }
                 %>
                 
-                
+              </div>  
               <br>
               <br>
         
@@ -113,9 +127,4 @@
         
     </body>
 
-      
-        
-       
-        
-    </body>
 </html>

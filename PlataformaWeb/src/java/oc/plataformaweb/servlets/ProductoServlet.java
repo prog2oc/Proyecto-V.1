@@ -33,6 +33,7 @@ public class ProductoServlet extends HttpServlet {
             {
                 String strNombreProducto = request.getParameter("nombre");
                 String strImagen = request.getParameter("imagen");
+                String strDescripcion = request.getParameter("descripcion");
                 String strPrecioUnidad = request.getParameter("preciounidad");
                 String strUnidades = request.getParameter("unidades");
                 String strIdCategoria = request.getParameter("idcategoria");
@@ -44,12 +45,12 @@ public class ProductoServlet extends HttpServlet {
                
                 //access logic
                 ProductoLogic CLogic = new ProductoLogic();
-                int iRows = CLogic.insertProductoRows(strNombreProducto, strImagen, dPrecioUnidad, iUnidades, iIdCategoria, iIdEmpresa);
+                int iRows = CLogic.insertProductoRows(strNombreProducto, strImagen, strDescripcion, dPrecioUnidad, iUnidades, iIdCategoria, iIdEmpresa);
                 System.out.println("insert producto rows: " + iRows);
                 
                 //send to frontend
                 request.getSession().setAttribute("rows", new Integer(iRows));
-                response.sendRedirect("genericMessageProducto.jsp");
+                response.sendRedirect("ProductoServlet?formid=16&idempresa="+iIdEmpresa);
             }
             
             if(strFormId.equals("2"))
@@ -101,6 +102,7 @@ public class ProductoServlet extends HttpServlet {
                 //get parameters
                 String strId = request.getParameter("id");
                 String strNombreProducto = request.getParameter("nombre");
+                String strDescripcion = request.getParameter("descripcion");
                 String strPrecioUnidad = request.getParameter("preciounidad");
                 String strUnidades = request.getParameter("unidades");
                 String strIdCategoria = request.getParameter("idcategoria");
@@ -113,12 +115,12 @@ public class ProductoServlet extends HttpServlet {
                 
                 //access logic
                 ProductoLogic CLogic = new ProductoLogic();
-                int iRows = CLogic.updateProductoRows(iId, strNombreProducto, dPrecioUnidad, iUnidades, iIdCategoria, iIdEmpresa);
+                int iRows = CLogic.updateProductoRows(iId, strNombreProducto, strDescripcion, dPrecioUnidad, iUnidades, iIdCategoria, iIdEmpresa);
                 System.out.println("update client rows: " + iRows);
                 
                 //send to frontend
                 request.getSession().setAttribute("rows", new Integer(iRows));
-                response.sendRedirect("genericMessageProducto.jsp");
+                response.sendRedirect("ProductoServlet?formid=16&idempresa="+iIdEmpresa);
             }
             
             if(strFormId.equals("6"))
@@ -189,7 +191,7 @@ public class ProductoServlet extends HttpServlet {
                 
                 iRows = PLogic.updateImagenProductoRows(iId, strImagen);                
                 request.getSession().setAttribute("rows", new Integer(iRows) );
-                response.sendRedirect("productoInfoMessage.jsp");
+                response.sendRedirect("productoGenericMessage.jsp");
             }
             
             if(strFormId.equals("11"))

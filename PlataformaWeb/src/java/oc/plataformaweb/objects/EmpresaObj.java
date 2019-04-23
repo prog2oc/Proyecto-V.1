@@ -9,17 +9,17 @@ public final class EmpresaObj {
     private String m_strDireccion;
     private String m_strDepartamento;
     private String m_strCiudad;
-    private String m_strTelefono;
+    private String m_strContrasena;
     private String m_strSitioWeb;
 
-    public EmpresaObj(int p_iId, String p_strNombre, String p_strLogo, String p_strDireccion, String p_strDepartamento, String p_strCiudad, String p_strTelefono, String p_strSitioWeb) {
+    public EmpresaObj(int p_iId, String p_strNombre, String p_strLogo, String p_strDireccion, String p_strDepartamento, String p_strCiudad, String p_strContrasena, String p_strSitioWeb) {
         setId(p_iId);
         setNombre(p_strNombre);
         setLogo(p_strLogo);
         setDireccion(p_strDireccion);
         setDepartamento(p_strDepartamento);
         setCiudad(p_strCiudad);
-        setTelefono(p_strTelefono);
+        setContrasena(p_strContrasena);
         setSitioWeb(p_strSitioWeb);
     }
     
@@ -73,12 +73,12 @@ public final class EmpresaObj {
         m_strCiudad = p_strCiudad;
     }
 
-    public String getTelefono() {
-        return m_strTelefono;
+    public String getContrasena() {
+        return m_strContrasena;
     }
 
-    public void setTelefono(String p_strTelefono) {
-        m_strTelefono = p_strTelefono;
+    public void setContrasena(String p_strContrasena) {
+        m_strContrasena = p_strContrasena;
     }
 
     public String getSitioWeb() {

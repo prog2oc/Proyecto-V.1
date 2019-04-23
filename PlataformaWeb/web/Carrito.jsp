@@ -40,40 +40,40 @@
     %> 
     <body>
         <div class="header">
-            <h1 class="logo">e<span class="blue">S</span>e<span class="blue">V</span>olado</h1>
-            <input type="checkbox" id="chk">
-            <label for="chk" class="show-menu-btn">
-                <i class="fas fa-ellipsis-h"></i>
-            </label>
+           <img src="img/esevolado.png" width="150" height="100"> 
 
             <div class="menu">
-                <a href="inicioSesion.html"><%= UUsuario.getNombre() %> <%= UUsuario.getApellido() %> </a>
-                <a href="carrito.jsp">Carrito</a>
-                <a href="ProductoServlet?formid=7">Cerrar Sesión</a>
-                <label for="chk" class="hide-menu-btn" >
-                        <i class="fas fa-times"></i>
-                </label>                
-            </div>
+               <a href="inicioSesion.html"><%= UUsuario.getNombre() %> <%= UUsuario.getApellido() %> </a>
+               <a href="carrito.jsp">Carrito</a>
+               <a href="ProductoServlet?formid=7">Cerrar Sesión</a>
 
+            </div>
         </div>
+
+       
+        <div class="navbar">
+                <a href="ProductoServlet?formid=8"><i class="fa fa-fw fa-home"></i>INICIO</a>
+                
+                <div class="subnav">
+                    <a><button class="contenedorbutton">CATEGORIAS<i class="fa fa-caret-down"></i></button></a>
+                    <br><br><br><br>
+                    <div class="subnav-contenedor">                        
+                        
+                        <a href="ProductoServlet?formid=8">Moda</a>
+                        <a href="ProductoServlet?formid=8">Muebles</a>
+                        <a href="ProductoServlet?formid=8">Juguetes</a>
+                        <a href="ProductoServlet?formid=8">Tecnología</a>
+                        <a href="ProductoServlet?formid=8">Belleza</a>
+                        <a href="ProductoServlet?formid=8">Todas</a>
+                        
+                    </div>
+                </div>
+                
+                
+        </div>
+
         
 
-        <div class="navbar">
-                <a href="ProductoServlet?formid=7">Inicio</a>
-                <%
-                    if(iteCArray!=null)
-                    {
-                        CategoriaObj CTemp;
-                        while(iteCArray.hasNext())
-                        {
-                            CTemp = iteCArray.next();
-                %>                
-                            <a href="ProductoServlet?formid=12&idcategoria=<%= CTemp.getId() %>" ><%= CTemp.getNombre() %></a>                                     
-                <%
-                        }
-                    }
-                %>     
-        </div>
         
         <div class="carrito">
             <table>
@@ -96,6 +96,7 @@
                 <%
                     ProductoLogic PLog = new ProductoLogic();
                     int CuentaProducto=0;
+                    double Total = 0;
                     
                     if(iteAArray!=null)
                     {
@@ -114,7 +115,7 @@
                     <td>
                         <h3><%= Producto.getNombreProducto() %></h3>
                         <h3>ID: <%= Producto.getId() %></h3>
-                    <input type="hidden" name="idproducto<%=CuentaProducto%>" id="idproducto<%=CuentaProducto%>" value="<%= Producto.getId() %>" readonly>
+                        <input type="hidden" id="idProducto<%= CuentaProducto %>" name="idProducto<%= CuentaProducto %>" value="<%= Producto.getId() %>"/>
                     </td>    
 
                     <td>
@@ -126,21 +127,26 @@
                     </td> 
                     
                      <td>
-                         <input type="hidden" name="total" id="total" value="<%= Math.round(Producto.getPrecioUnidad()* ATemp.getCantidad() *100.0 )/100.0 %>">
                          <h3>$<%= Math.round(Producto.getPrecioUnidad()* ATemp.getCantidad() *100.0 )/100.0 %>0</h3>
+                         
                     </td>
                     
                 <%
+                    Total = Total + Math.round(Producto.getPrecioUnidad()* ATemp.getCantidad() *100.0 )/100.0;
                         }
                     }
                 %>  
+                        
+                    <tr>
+                        <td><h3>Total:$<%= Total %>0</h3></td></tr>
                     
-                    <input type="hidden" id="id" name="id" value="<%= UUsuario.getId() %>" />
-                    <input type="hidden" id="formid" name="formid" value="2" />
+                    <input type="hidden" id="id" name="id" value="<%= UUsuario.getId() %>"/>
+                    <input type="hidden" id="total" name="total" value="<%= Total %>"/>
+                    <input type="hidden" id="formid" name="formid" value="2"/>
                     </tr>
                     <tr></tr>
                     <tr>
-                    <td><input type="submit" id="mysubmit" name="mysubmit" value="Agregar"/></td>
+                    <td><input type="submit" id="mysubmit" name="mysubmit" value="Comprar"/></td>
                     </tr>   
                 </form>   
                 
@@ -148,7 +154,7 @@
             </table>            
         </div>
                     <br><br>
-        <a href="javascript:window.history.go(-2); " >Regresar a Catálogo</a>
+        <a href="ProductoServlet?formid=8" >Regresar a Catálogo</a>
         
     </body>
 </html>

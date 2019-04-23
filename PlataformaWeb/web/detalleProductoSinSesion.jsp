@@ -17,8 +17,6 @@
         <title>eSeVolado</title>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
         <link href="Style/menus.css" rel="stylesheet" type="text/css"/>
-        <link href="Style/publicidad.css" rel="stylesheet" type="text/css"/>
-        <script src="Scripts/publicidad.js" type="text/javascript"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Yanone+Kaffeesatz" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
@@ -26,7 +24,9 @@
         <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
-        <link href="Style/tablas.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+           <link href="Style/catalogo.css" rel="stylesheet" type="text/css"/>
+           <script src="Scripts/catalogo.js" type="text/javascript"></script>
     </head>
     
     <%
@@ -41,61 +41,68 @@
     %> 
     <body>
         <div class="header">
-            <h1 class="logo">e<span class="blue">S</span>e<span class="blue">V</span>olado</h1>
-            <input type="checkbox" id="chk">
-            <label for="chk" class="show-menu-btn">
-                <i class="fas fa-ellipsis-h"></i>
-            </label>
-
-            <div class="menu">
-                <a href="inicioSesion.html">Iniciar Sesión</a>
-                <a href="usuarioNew.html">Registrarse</a>
-                <label for="chk" class="hide-menu-btn" >
-                        <i class="fas fa-times"></i>
-                </label>                
-            </div>
-
-        </div>
-        
-
-        <div class="navbar">
-                <a href="ProductoServlet?formid=7">Inicio</a>
-                <%
-                    if(iteCArray!=null)
-                    {
-                        CategoriaObj CTemp;
-                        while(iteCArray.hasNext())
-                        {
-                            CTemp = iteCArray.next();
-                %>                
-                            <a href="ProductoServlet?formid=11&idcategoria=<%= CTemp.getId() %>" ><%= CTemp.getNombre() %></a>                                     
-                <%
-                        }
-                    }
-                %>     
-        </div>
-        
-        <div class="detalle">
+            <img src="img/esevolado.png" width="150" height="100"> 
             
-            <table style="text-align: center">                
-                    <tr>
-                    <td rowspan="5"><img src="img/Productos/<%= CProducto.getImagen() %> " width="300px" height="300px"> </td>
-                    <td>Código</td>
-                    <td><input type="text" name="idproducto" id="idproducto" value="<%= CProducto.getId() %>" readonly></td>
-                    </tr><tr>
-                    <td>Nombre</td>
-                    <td><input type="text" name="nombre" id="nombre" value="<%= CProducto.getNombreProducto() %>" readonly></td>    
-                    </tr><tr>
-                    <td>Precio:</td>
-                    <td><input type="number" name="precio" id="precio" value="<%= CProducto.getPrecioUnidad() %>" readonly></td>    
-                    </tr><tr>
+            <div class="menu">
+                <a href="inicioSesion.html">Iniciar sesión</a>
+                <a href="usuarioNew.html">Registrarse</a>
+                <a href="empresaNew.html">Registrarse empresa</a>
+                <a href="inicioSesionEmpresa.html">Inicar sesión empresa</a>
+                              
+            </div>
+        </div>
+
+       
+        <div class="navbar">
+                <a href="ProductoServlet?formid=7"><i class="fa fa-fw fa-home"></i>INICIO</a>
+                
+                <div class="subnav">
+                    <a><button class="contenedorbutton">CATEGORIAS<i class="fa fa-caret-down"></i></button></a>
+                    <br><br><br><br>
+                    <div class="subnav-contenedor">
+                        
+                        
+                        <a href="ProductoServlet?formid=7">Moda</a>
+                        <a href="ProductoServlet?formid=7">Muebles</a>
+                        <a href="ProductoServlet?formid=7">Juguetes</a>
+                        <a href="ProductoServlet?formid=7">Tecnología</a>
+                        <a href="ProductoServlet?formid=7">Belleza</a>
+                        <a href="ProductoServlet?formid=7">Todas</a>
+                        
+                    </div>
+                </div>
+                
+        </div>
                     
-                    <input type="hidden" id="formid" name="formid" value="" />
-                    <td><a href="inicioSesion.html"><button>Iniciar Sesion</button></a></td>
+                    <div id="#center" class="card">                                    
+
+                    <img src="img/Productos/<%= CProducto.getImagen() %> " width="100px">
+                    <br>
+                    <h2> <%= CProducto.getNombreProducto() %></h2>
+   
+                    <br>
                     
-                    </tr>               
-            </table>
-        </div>                
+                    <h2> <%= CProducto.getDescripcion() %> </h2>
+                    <br>
+                    <div class="detalle">
+                        <h3 class="price">Precio: $<%= CProducto.getPrecioUnidad() %>0</h3>
+                    <br>
+                    </div>
+                    <br>                        
+                    <div class="detalle">
+                        <a href="inicioSesion.html"><button>Iniciar Sesion</button></a>
+                    
+                    </div>
+
+
+        </div> 
+                    
+        <br><br>
+        <div class="navbar">
+            
+            <br><br><br>
+            <p> Todos los derechos reservados eSeVolado©</p>
+        </div>
                 
     </body>
 </html>

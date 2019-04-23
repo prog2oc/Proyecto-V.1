@@ -56,7 +56,7 @@ public class UsuarioServlet extends HttpServlet {
                 System.out.println("insert usuario rows: " + iRows);
               
                 request.getSession().setAttribute("rows", new Integer(iRows));
-                response.sendRedirect("UsuariogenericMessage.jsp");
+                response.sendRedirect("ProductoServlet?formid=7");
             }
             
             if(strFormId.equals("2"))
