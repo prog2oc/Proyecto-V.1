@@ -19,6 +19,14 @@
         <link href="Style/menus.css" rel="stylesheet" type="text/css"/>
         <link href="Style/publicidad.css" rel="stylesheet" type="text/css"/>
         <script src="Scripts/publicidad.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Yanone+Kaffeesatz" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+        <link href="Style/tablas.css" rel="stylesheet" type="text/css"/>
     </head>
     
     <%
@@ -69,7 +77,7 @@
         
         <div class="detalle">
             
-            <table>                
+            <table style="text-align: center">                
                     <tr>
                     <td rowspan="5"><img src="img/Productos/<%= CProducto.getImagen() %> " width="300px" height="300px"> </td>
                     <td>Código</td>
@@ -80,9 +88,6 @@
                     </tr><tr>
                     <td>Precio:</td>
                     <td><input type="number" name="precio" id="precio" value="<%= CProducto.getPrecioUnidad() %>" readonly></td>    
-                    </tr><tr>
-                    <td>Cantidad:</td>
-                    <td><input type="number" name="cantidad" id="cantidad"></td>    
                     </tr><tr>
                     
                     <input type="hidden" id="formid" name="formid" value="" />

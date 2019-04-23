@@ -11,10 +11,16 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>eSeVolado</title>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
         <link href="Style/menus.css" rel="stylesheet" type="text/css"/>
         <link href="Style/publicidad.css" rel="stylesheet" type="text/css"/>
         <script src="Scripts/publicidad.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Yanone+Kaffeesatz" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
         <link href="Style/tablas.css" rel="stylesheet" type="text/css"/>
     </head>
     <%
@@ -116,7 +122,7 @@
                     </td>    
 
                     <td>
-                    <input type="number" name="cantidad" id="cantidad" value="<%= ATemp.getCantidad() %>">
+                        <h3><%= ATemp.getCantidad() %></h3>
                     </td> 
                     
                      <td>

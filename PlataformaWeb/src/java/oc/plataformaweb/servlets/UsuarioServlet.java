@@ -112,7 +112,7 @@ public class UsuarioServlet extends HttpServlet {
                 
                 //send to frontend
                 request.getSession().setAttribute("rows", new Integer(iRows) );
-                response.sendRedirect("UsuariogenericMessage.jsp");
+                response.sendRedirect("InicioUsuario.jsp");
             }
             
             if(strFormId.equals("6"))
@@ -165,6 +165,21 @@ public class UsuarioServlet extends HttpServlet {
                 request.getSession().setAttribute("rows", new Integer(iRows) );
                 response.sendRedirect("UsuarioInfoMessage.jsp");
             }
+            
+            if(strFormId.equals("8"))
+            {
+                String strId = request.getParameter("id");
+                int iId = Integer.parseInt(strId);
+                
+                CategoriaLogic CLogic = new CategoriaLogic();
+                    ArrayList<CategoriaObj> CArray = CLogic.getAllCategorias();
+                    
+                UsuarioLogic ULogic = new UsuarioLogic();
+                UsuarioObj UUsuario = ULogic.getUsuarioById(iId);
+          request.getSession().setAttribute("categorias", CArray);
+                request.getSession().setAttribute("usuario", UUsuario);
+                response.sendRedirect("detalleUsuario.jsp");
+            }  
             
         }
     }

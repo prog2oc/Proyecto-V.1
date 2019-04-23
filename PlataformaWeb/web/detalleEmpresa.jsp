@@ -1,13 +1,16 @@
-<%@page import="java.util.Iterator"%>
-<%@page import="oc.plataformaweb.objects.TipoPublicidadObj"%>
-<%@page import="java.util.ArrayList"%>
+<%-- 
+    Document   : detalleEmpresa
+    Created on : 22/04/2019, 07:34:07 PM
+    Author     : erick
+--%>
+
+<%@page import="oc.plataformaweb.objects.EmpresaObj"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>eSeVolado</title>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+        <title>JSP Page</title><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
         <link href="Style/menus.css" rel="stylesheet" type="text/css"/>
         <link href="Style/publicidad.css" rel="stylesheet" type="text/css"/>
         <script src="Scripts/publicidad.js" type="text/javascript"></script>
@@ -19,12 +22,15 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
     </head>
-     <%
-        ArrayList<TipoPublicidadObj> PArray = 
-                (ArrayList<TipoPublicidadObj>)request.getSession().getAttribute("tipopublicidad");
-        Iterator<TipoPublicidadObj> iteArray = PArray.iterator();
-    %>    
+    
+    <%
+        EmpresaObj CEmpresa = 
+                (EmpresaObj)request.getSession().getAttribute("empresa");
+        
+    %>
+    
     <body>
+        
         <div class="header">
             <h1 class="logo">e<span class="blue">S</span>e<span class="blue">V</span>olado</h1>
             <input type="checkbox" id="chk">
@@ -42,52 +48,10 @@
 
        
         <div class="navbar">
-                <a href="UsuarioServlet?formid=2">Usuarios</a>
-                <a href="ProductoServlet?formid=2">Productos</a>
+                <a href="ProductoServlet?formid=16&idempresa=<%= CEmpresa.getId() %>">Productos</a>
                 <a href="CategoriaServlet?formid=2">Categorias</a>
-                <a href="PublicidadServlet?formid=2">Publicidades</a>   
+                <a href="PublicidadServlet?formid=9&idempresa=<%= CEmpresa.getId() %>">Publicidades</a>   
                 <a href="TipoPublicidadServlet?formid=2">Tipo Publicidad</a>
         </div>
-
-        <br><br>
-        <h1>Tipos de Publicidad</h1>
-        <br>
-        <a href="TipoPublicidadNuevo.html">Nuevo tipo de publicidad</a>
-        <br><br>
-        <table>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Description</th>
-        </tr>
-        <%
-            if(iteArray!=null)
-            {
-                TipoPublicidadObj PTemp;
-                while(iteArray.hasNext())
-                {
-                    PTemp = iteArray.next();
-        %>
-        <tr>
-                    <td><%= PTemp.getid()%></td>
-                    <td><%= PTemp.getName() %></td>
-                    <td><%= PTemp.getDescripcion()%></td>
-                    <td>
-                        <a href="TipoPublicidadServlet?formid=4&id=<%= PTemp.getid()%>">
-                            Modificar
-                        </a>
-                    </td>
-                    <td>
-                        <a href="TipoPublicidadServlet?formid=3&id=<%= PTemp.getid() %>">
-                            Borrar
-                        </a>
-                    </td>
-                </tr>
-        <%
-                }
-            }
-        %>
-        
-        </table>        
     </body>
 </html>

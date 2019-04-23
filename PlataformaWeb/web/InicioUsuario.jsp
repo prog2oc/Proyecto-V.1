@@ -9,10 +9,17 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>eSeVolado</title>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
         <link href="Style/menus.css" rel="stylesheet" type="text/css"/>
         <link href="Style/publicidad.css" rel="stylesheet" type="text/css"/>
         <script src="Scripts/publicidad.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Yanone+Kaffeesatz" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+        <link href="Style/tablas.css" rel="stylesheet" type="text/css"/>
     </head>
     <%
         UsuarioObj UUsuario = (UsuarioObj)request.getSession().getAttribute("usuario");
@@ -35,7 +42,7 @@
             </label>
 
             <div class="menu">
-                <a href="inicioSesion.html"><%= UUsuario.getNombre() %> <%= UUsuario.getApellido() %> </a>
+                <a href="UsuarioServlet?formid=8"><%= UUsuario.getNombre() %> <%= UUsuario.getApellido() %> </a>
                 <a href="Carrito.jsp">Carrito</a>
                 <a href="ProductoServlet?formid=7">Cerrar Sesión</a>
                 <label for="chk" class="hide-menu-btn" >
@@ -63,19 +70,7 @@
                 %>     
         </div>
         
-        <div  class="slideshow-container">
-                <div class="mySlides fade">                  
-                  <img src="img/Publicidad/officedepot1.png" style="width:100%">
-                </div>
-              
-                <div class="mySlides fade">                  
-                  <img src="img/Publicidad/officedepot2.png" style="width:100%">
-                </div>
-              
-                <div class="mySlides fade">                  
-                  <img src="img/Publicidad/siman1.jpg" style="width:100%">
-                </div>
-            </div>
+        
               <br><br>
 
         <div class="catalogo">
@@ -112,6 +107,20 @@
             </table>                          
 
         </div>
+                
+                <div  class="slideshow-container">
+                <div class="mySlides fade">                  
+                  <img src="img/Publicidad/officedepot1.png" style="width:100%">
+                </div>
+              
+                <div class="mySlides fade">                  
+                  <img src="img/Publicidad/officedepot2.png" style="width:100%">
+                </div>
+              
+                <div class="mySlides fade">                  
+                  <img src="img/Publicidad/siman1.jpg" style="width:100%">
+                </div>
+            </div>
         
     </body>
 </html>

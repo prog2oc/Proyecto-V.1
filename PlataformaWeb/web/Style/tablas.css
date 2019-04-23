@@ -2,26 +2,27 @@
 
 */
 
-#tablas {
+table {
   font-family: PT Sans Caption;
   border-collapse: collapse;
   width: 100%;
   border-radius: 30px;
+  text-align: center;
  
 }
 
-#tablas td, #tablas th {
+table td, table th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-#tablas tr:nth-child(even){ 
+table tr:nth-child(even){ 
   rgb(0, 188, 175);
 }
 
-#tablas tr:hover {background-color: #ddd;}
+table tr:hover {background-color: #ddd;}
 
-#tablas th {
+table th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
