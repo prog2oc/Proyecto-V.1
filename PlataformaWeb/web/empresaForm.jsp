@@ -56,8 +56,10 @@
                     <td><%= ETemp.getNombre() %></td>
                     <%
                         if(ETemp.getLogo()!= ""){
+                            
                     %>
                     <td> <img src="img/Logos/<%=ETemp.getLogo()%>" width="200px" height="200px"> </td>
+                    
                     <%
                         } else {
                     %>
@@ -68,7 +70,7 @@
                     <td><%= ETemp.getDireccion() %></td>
                     <td><%= ETemp.getDepartamento() %></td>
                     <td><%= ETemp.getCiudad() %></td>
-                    <td><%= ETemp.getTelefono() %></td>
+                    <td><%= ETemp.getContrasena() %></td>
                     <td><%= ETemp.getSitioWeb() %></td>
                     
                     <td>
@@ -89,6 +91,8 @@
                 </tr>
         <%
                 }
+                String archivourl = getServletContext().getRealPath("/") +"img\\Logos" ;
+            out.print(archivourl);
             }
         %>
         
