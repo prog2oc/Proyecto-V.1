@@ -24,7 +24,7 @@
         <br>
        
         <br><br>
-        <h1>¡<%= iRows %> categoria/as han sido modificadas!</h1>
+        <h1>¡<%= iRows %> categoria ha sido modificada!</h1>
         <br><br>
         
         </div>
