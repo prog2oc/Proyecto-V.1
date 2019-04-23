@@ -19,7 +19,8 @@
         <link href="Style/registrarseempresa.css" rel="stylesheet" type="text/css"/>
         <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
             <title>Información de Empresa</title>
-            <script src="Scripts/generalScript.js" type="text/javascript"></script>jquery-3.3.1.js" type="text/javascript"></script>
+            <script src="Scripts/generalScript.js" type="text/javascript"></script>
+            <script jquery-3.3.1.js type="text/javascript"></script>
             <script src="Scripts/jquery.validate.js" type="text/javascript"></script>
             <script src="Scripts/additional-methods.js" type="text/javascript"></script>
             <script src="Scripts/generalScript.js" type="text/javascript"></script>
@@ -34,7 +35,8 @@
     <%
         
         
-            String archivourl = "D:\\Documents\\Erick\\ESEN\\Tercer Año\\Ciclo I\\Programación II\\Proyecto\\Proyecto\\Proyecto-V.1\\PlataformaWeb\\web\\img\\Logos";
+            String archivourl = getServletContext().getRealPath("/") +"img\\Logos" ;
+            out.print(archivourl);
             
             DiskFileItemFactory factory = new DiskFileItemFactory();
             
@@ -65,46 +67,60 @@
                        
         %>                
                     
-            <label>Nombre:</label><br>            
-            <input type="text" id="nombre" name="nombre" />
+            <div class="empresaregistrar">
+            <label class="label">Nombre:<span class="req">*</span></label><br>
+            <input type="text" id="nombre" name="nombre" autocomplete="off" class="input" placeholder="Nombre"/>
             <br><br>
-            
-            <label>Direccion:</label><br>
-            <input type="text" id="direccion" name="direccion" />
+            </div>
+
+            <div class="empresaregistrar">
+            <label class="label">Direccion:<span class="req">*</span></label><br>
+            <input type="text" id="direccion" autocomplete="off" name="direccion" class="input" placeholder="Dirección"/>
             <br><br>
+            </div>
             
-            <label>Departamento:</label><br>
-            <select name="departamento">
-                <option value="Ahuachapan">Ahuachapan</option>
-                <option value="Cabanas">Cabanas</option>
-                <option value="Chalatenango">Chalatenango</option>
-                <option value="Cuscatlan">Cuscatlan</option>
-                <option value="La Libertad">La Libertad</option>
-                <option value="Morazan">Morazan</option>
-                <option value="La Paz">La Paz</option>
-                <option value="Santa Ana">Santa Ana</option>
-                <option value="San Miguel">San Miguel</option>
-                <option value="Sonsonate">Sonsonate</option>
-                <option value="San Salvador">San Salvador</option>
-                <option value="San Vicente">San Vicente</option>
-                <option value="La Union">La Union</option>
-                <option value="Usulután">Usulután</option>
+            <div class="empresaregistrar" style="width:300px;">
+            <label class="label">Departamento:<span class="req">*</"span></label><br>
+            <select id="departamento" name="departamento" class="input-select">
+                <option value="AH">Ahuachapan</option>
+                <option value="CA">Cabañas</option>
+                <option value="CH">Chalatenango</option>
+                <option value="CU">Cuscatlán</option>
+                <option value="LI">La Libertad</option>
+                <option value="MO">Morazán</option>
+                <option value="PA">La Paz</option>
+                <option value="SA">Santa Ana</option>
+                <option value="SM">San Miguel</option>
+                <option value="SO">Sonsonate</option>
+                <option value="SS">San Salvador</option>
+                <option value="SV">San Vicente</option>
+                <option value="UN">La Unión</option>
+                <option value="US">Usulután</option>
             </select>
-            <br><br>
+            <br><br><br>
+            </div>
             
-            <label>Ciudad:</label><br>
-            <input type="text" id="ciudad" name="ciudad" />
+            <div class="empresaregistrar">
+            <label class="label">Ciudad:<span class="req">*</span></label><br>
+            <input type="text" id="ciudad" name="ciudad" autocomplete="off" placeholder="Cuidad" class="input" />
             <br><br>
+            </div>
             
-            <label>Telefono:</label><br>
-            <input type="text" id="telefono" name="telefono" />
+            <div class="empresaregistrar">
+            <label class="label">Contraseña:</label><br>
+            <input type="text" id="contrasena" name="contrasena" placeholder="Contraseña" class="input"/>
             <br><br>
+            </div>
             
-            <label>Sitio web:</label><br>
-            <input type="text" id="sitioweb" name="sitioweb" />
+            <div class="empresaregistrar">
+            <label class="label"> Sitio web:<span class="req">*</span></label><br>
+            <input type="text" id="sitioweb" name="sitioweb" autocomplete="off"  placeholder="Web Site" class="input"/>
             <br><br>
+            </div>
             
-            <input type="submit" id="mysubmit" name="mysubmit" value="Create"/>
+            <div class="empresaregistrar">
+            <input type="submit" id="mysubmit" name="mysubmit" value="Registrarse" class="button"/>
+            </div>
             <input type="hidden" id="formid" name="formid" value="1" />
         </form>
         
