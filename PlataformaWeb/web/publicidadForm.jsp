@@ -58,6 +58,7 @@
         <h1>Publicidad</h1>
         <br><br>
         <table>
+            <thead>
         <tr>
             <th>Id</th>
             <th>Imagen</th>
@@ -65,6 +66,7 @@
             <th>Empresa</th>
             
         </tr>
+        </thead>
         <%
             if(iteArray!=null)
             {

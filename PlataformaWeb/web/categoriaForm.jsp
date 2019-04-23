@@ -51,16 +51,20 @@
         </div>
 
         <br><br>
-        <h1>Categorias</h1>
-        <br>
-        <a href="NewCategoria.html">Nuevo Categoria</a>
+        <div style="text-align: center">
+            <button style="font-size: 30px" onclick=" location.href='NewCategoria.html' " >Nueva Categoria</button>
+        </div> 
+
         <br><br>
         <table>
+            <thead>
         <tr>
             <th>Id</th>
             <th>Nombre</th>
             <th>Descripcion</th>
+            <th>Edición</th>
         </tr>
+        </thead>
         <%
             if(iteArray!=null)
             {
@@ -75,7 +79,7 @@
                     <td><%= CTemp.getDescripcion() %></td>
                     <td>
                         <a href="CategoriaServlet?formid=4&id=<%= CTemp.getId() %>">
-                            Update
+                            <i class="fas fa-edit"></i>
                         </a>
                     </td>
                     <td>

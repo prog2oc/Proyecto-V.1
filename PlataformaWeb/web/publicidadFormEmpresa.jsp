@@ -63,18 +63,22 @@
                 <a href="PublicidadServlet?formid=9&idempresa=<%= CEmpresa.getId() %>">Publicidades</a>   
                 <a href="TipoPublicidadServlet?formid=6">Tipo Publicidad</a>
         </div>
- 
-        <br>
-        <a href="PublicidadServlet?formid=6&id=<%= CEmpresa.getId() %>">Nueva Publicidad</a>
-        <br><br>
+                <br><bR>
+                <div style="text-align: center">
+                    <button style="font-size: 30px" onclick=" location.href='PublicidadServlet?formid=6&id=<%= CEmpresa.getId() %>' " >Nueva Publicidad</button>
+                </div>            
+        
         <table>
-        <tr>
+            <thead>
+                <tr>
             <th>Id</th>
             <th>Imagen</th>
             <th>Tipo Publicidad</th>
             <th>Empresa</th>
+            <th colspan="3">Edición</th>
             
-        </tr>
+        </tr></thead>
+        
         <%
             if(iteArray!=null)
             {

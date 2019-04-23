@@ -48,7 +48,7 @@
             
             <div class="menu">
                 <a href="inicioSesion.html"><%= UUsuario.getNombre() %> <%= UUsuario.getApellido() %> </a>
-                <a href="carrito.jsp">Carrito</a>
+                <a href="AnadirCarrito?formid=3">Carrito</a>
                 <a href="ProductoServlet?formid=7">Cerrar Sesión</a>
                               
             </div>

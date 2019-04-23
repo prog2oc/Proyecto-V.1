@@ -83,6 +83,8 @@ public class AnadirCarrito extends HttpServlet {
                     AArray.add(new ArticuloObj(iIdProducto, iCantidad) );
                 }
                 
+               
+                
                 sesion.setAttribute("carrito", AArray);
                 
                 request.getSession().setAttribute("usuario", UUsuario);
@@ -105,6 +107,23 @@ public class AnadirCarrito extends HttpServlet {
                 
                 response.sendRedirect("ProductoServlet?formid=8");
             }  
+        
+        if(strFormId.equals("3"))
+            {
+                
+                
+                              
+                HttpSession sesion  = request.getSession(true);
+                ArrayList<ArticuloObj> AArray = sesion.getAttribute("carrito") == null ? new ArrayList<>() : (ArrayList) sesion.getAttribute("carrito");
+                
+                
+                 if( AArray == null ){
+                    response.sendRedirect("ProductoServlet?formid=8");
+                }                
+                sesion.setAttribute("carrito",  AArray);
+                
+                response.sendRedirect("ProductoServlet?formid=8");
+            }
         }
     }
     

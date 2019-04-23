@@ -3,21 +3,22 @@ table {
   line-height: 40px;
   border-collapse: separate;
   border-spacing: 0;
-  border: 2px solid #ed1c40;
-  width: 500px;
+  border: 2px solid orangered;
+  width: 100%;
   margin: 50px auto;
   border-radius: .25rem;
 }
 
 thead tr:first-child {
-  background: #ed1c40;
+  background: orangered;
   color: #fff;
   border: none;
 }
 
 th:first-child,
 td:first-child {
-  padding: 0 15px 0 20px;
+  padding: 0 30px 0 30px;
+
 }
 
 th {
@@ -26,6 +27,7 @@ th {
 
 thead tr:last-child th {
   border-bottom: 3px solid #ddd;
+  
 }
 
 tbody tr:hover {

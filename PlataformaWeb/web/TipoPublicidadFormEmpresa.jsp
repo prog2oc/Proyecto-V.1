@@ -52,11 +52,13 @@
         <br><br>
         
         <table>
+            <thead>
         <tr>
             <th>Id</th>
             <th>Name</th>
             <th>Description</th>
         </tr>
+        </thead>
         <%
             if(iteArray!=null)
             {
