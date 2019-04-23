@@ -1,3 +1,4 @@
+<%@page import="oc.plataformaweb.logic.CategoriaLogic"%>
 <%@page import="oc.plataformaweb.objects.CategoriaObj"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="oc.plataformaweb.objects.ProductoObj"%>
@@ -31,93 +32,90 @@
         
     %> 
     <body onload="showSlides(0)">
-        <div class="header">
-            <h1 class="logo">e<span class="blue">S</span>e<span class="blue">V</span>olado</h1>
-            <input type="checkbox" id="chk">
-            <label for="chk" class="show-menu-btn">
-                <i class="fas fa-ellipsis-h"></i>
-            </label>
-
-            <div class="menu">
-                <a href="inicioSesion.html">Iniciar Sesión</a>
-                <a href="usuarioNew.html">Registrarse</a>
-                <label for="chk" class="hide-menu-btn" >
-                        <i class="fas fa-times"></i>
-                </label>                
-            </div>
-
-        </div>
         
+ <div class="header">
+            <img src="img/esevolado.png" width="150" height="100" top="5" > 
+            
+            <div class="menu">
+                <a href="inicioSesion.html">Iniciar sesión</a>
+                <a href="usuarioNew.html">Registrarse</a>
+                <a href="empresaNew.html">Registrarse empresa</a>
+                <a href="inicioSesionEmpresa.html">Inicar sesión empresa</a>
+                              
+            </div>
+        </div>
 
+       
         <div class="navbar">
-                <a href="ProductoServlet?formid=7">Inicio</a>
+                <a href="ProductoServlet?formid=7"><i class="fa fa-fw fa-home"></i>INICIO</a>
+                
+                
+                <div class="subnav">
+                    <a><button class="contenedorbutton">CATEGORIAS<i class="fa fa-caret-down"></i></button></a>
+                    <br><br><br><br>
+                    <div class="subnav-contenedor">
+                        
+                        
+                        <a href="#link1">Moda</a>
+                        <a href="#link2">Muebles</a>
+                        <a href="#link3">Juguetes</a>
+                        <a href="#link3">Electrodomésticos</a>
+                        <a href="#link3">Belleza</a>
+                        <a href="#link1">Todas</a>
+                        
+                    </div>
+                </div>
+                
+        </div>
+
+                <br>
                 <%
-                    if(iteCArray!=null)
+                    if(itePArray!=null)
                     {
-                        CategoriaObj CTemp;
-                        while(iteCArray.hasNext())
+                     
+                        ProductoObj PTemp;
+                        while(itePArray.hasNext())
                         {
-                            CTemp = iteCArray.next();
-                %>                
-                            <a href="ProductoServlet?formid=11&idcategoria=<%= CTemp.getId() %>" ><%= CTemp.getNombre() %></a>                                     
+                            PTemp = itePArray.next(); 
+                            CategoriaLogic CLog = new CategoriaLogic();
+                            CategoriaObj Categoria = CLog.getCategoriaById(PTemp.getIdCategoria());
+
+                %>
+                
+                
+                    <div class="column <%= Categoria.getNombre() %>">
+                        <div class="content">
+                          <img src="/w3images/mountains.jpg" alt="Mountains" style="width:100%">
+                          <h4>Mountains</h4>
+                          <p>Lorem ipsum dolor..</p>
+                        </div>
+                    </div>
+               
                 <%
+                   
+                            
                         }
                     }
                 %>
-                 <a href="inicioSesionEmpresa.html">Inicio Sesión Empresa</a>
-        </div>
-            
-
-            <table>
-        <%
-            if(itePArray!=null)
-            {
-                int SaltoLinea = 0;
-                ProductoObj CTemp;
-                while(itePArray.hasNext())
-                {
-                    CTemp = itePArray.next(); 
-                    SaltoLinea++;
-                    
-        %>
-                    <td>
-                        <img src="img/Productos/<%= CTemp.getImagen() %> " width="200px" height="200px"> 
-                        <h2><%= CTemp.getNombreProducto() %></h2>                 
-                        <h3>$ <%= CTemp.getPrecioUnidad() %>0</h3>
-                        <a href="ProductoServlet?formid=14&idproducto=<%= CTemp.getId() %>">Ver Detalle</a>
-                    </td>                   
-        <%
-                    if(SaltoLinea==4){
-                      %>
-                      <tr>
-                      <%
-                          SaltoLinea=0;
-                    }
-                }
-            }
-        %>
-        
-        </table>
                 
-                   
-
-        </div>
+                
+              <br>
+              <br>
         
-        <div  class="slideshow-container">
-                <div class="mySlides fade">                  
-                  <img src="img/Publicidad/officedepot1.png" style="width:100%">
-                </div>
+        <div class="navbar">
+            
+            <br><br><br>
+            <p> Todos los derechos reservados eSeVolado©</p>
+        </div>
               
-                <div class="mySlides fade">                  
-                  <img src="img/Publicidad/officedepot2.png" style="width:100%">
-                </div>
-              
-                <div class="mySlides fade">                  
-                  <img src="img/Publicidad/siman1.jpg" style="width:100%">
-                </div>
-            </div>
-              <br><br>
-        <div class="catalogo">
+
+  
+        
+    </body>
+
+      
+        
+       
         
     </body>
 </html>
