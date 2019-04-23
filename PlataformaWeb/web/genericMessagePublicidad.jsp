@@ -12,13 +12,11 @@
         Integer iRowsObj = (Integer)request.getSession().getAttribute("rows");   
         int iRows = iRowsObj.intValue();
         
-        EmpresaObj CEmpresa = 
-                (EmpresaObj)request.getSession().getAttribute("empresa");
     %>
     
     <body>
         <span class="close-btn">
-        <a href="PublicidadServlet?formid=9&<%= CEmpresa.getId() %>">
+        <a href="javascript:window.history.back(-1);">
         <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png">
         </a>
         </span>

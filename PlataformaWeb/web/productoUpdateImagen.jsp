@@ -12,7 +12,7 @@
         
     %>
     <body>
-        <h1>Cambiar Imagen Publicidad</h1>
+        <h1>Cambiar Imagen Producto</h1>
         <br><br>
         
         <form id="myform" name="myform" action="cambiarImagenProducto.jsp" method="post" enctype="multipart/form-data">

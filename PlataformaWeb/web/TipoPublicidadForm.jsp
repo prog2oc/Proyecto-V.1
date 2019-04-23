@@ -72,12 +72,12 @@
                     <td><%= PTemp.getDescripcion()%></td>
                     <td>
                         <a href="TipoPublicidadServlet?formid=4&id=<%= PTemp.getid()%>">
-                            <i class="fas fa-edit"></i>
+                            Modificar
                         </a>
                     </td>
                     <td>
                         <a href="TipoPublicidadServlet?formid=3&id=<%= PTemp.getid() %>">
-                            <i class="fas fa-trash"></i>
+                            Delete
                         </a>
                     </td>
                 </tr>

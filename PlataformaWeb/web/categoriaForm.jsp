@@ -55,7 +55,7 @@
             <th>Id</th>
             <th>Nombre</th>
             <th>Descripcion</th>
-            <th>Edición</th>
+            <th colspan="2">Edición</th>
         </tr>
         </thead>
         <%
@@ -72,7 +72,7 @@
                     <td><%= CTemp.getDescripcion() %></td>
                     <td>
                         <a href="CategoriaServlet?formid=4&id=<%= CTemp.getId() %>">
-                            <i class="fas fa-edit"></i>
+                            Modificar
                         </a>
                     </td>
                     <td>

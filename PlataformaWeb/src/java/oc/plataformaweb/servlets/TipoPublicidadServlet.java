@@ -58,7 +58,7 @@ public class TipoPublicidadServlet extends HttpServlet {
                 
                 //send to frontend
                 request.getSession().setAttribute("rows", iRows);
-                response.sendRedirect("genericMessage.jsp"); 
+                response.sendRedirect("genericMessageTipoPublicidad.jsp"); 
             }
               if(strFormId.equals("4"))
             {
@@ -89,7 +89,7 @@ public class TipoPublicidadServlet extends HttpServlet {
                 
                 //send to frontend
                 request.getSession().setAttribute("rows", new Integer(iRows) );
-                response.sendRedirect("genericMessage.jsp");
+                response.sendRedirect("genericMessageTipoPublicidad.jsp");
             }            
               if(strFormId.equals("6"))
             {

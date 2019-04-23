@@ -191,7 +191,7 @@ public class ProductoServlet extends HttpServlet {
                 
                 iRows = PLogic.updateImagenProductoRows(iId, strImagen);                
                 request.getSession().setAttribute("rows", new Integer(iRows) );
-                response.sendRedirect("productoInfoMessage.jsp");
+                response.sendRedirect("productoGenericMessage.jsp");
             }
             
             if(strFormId.equals("11"))
