@@ -17,8 +17,6 @@
         <title>eSeVolado</title>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
         <link href="Style/menus.css" rel="stylesheet" type="text/css"/>
-        <link href="Style/publicidad.css" rel="stylesheet" type="text/css"/>
-        <script src="Scripts/publicidad.js" type="text/javascript"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Yanone+Kaffeesatz" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
@@ -27,7 +25,10 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+           <link href="Style/catalogo.css" rel="stylesheet" type="text/css"/>
+           <script src="Scripts/catalogo.js" type="text/javascript"></script>
     </head>
+ 
     <%
         UsuarioObj UUsuario = (UsuarioObj)request.getSession().getAttribute("usuario");
         
@@ -40,7 +41,7 @@
 
         
     %> 
-    <body>
+    <body onload="filterSelection('all')">
         
         <div class="header">
             <img src="img/esevolado.png" width="150" height="100"> 
@@ -60,8 +61,7 @@
                 <div class="subnav">
                     <a><button class="contenedorbutton">CATEGORIAS<i class="fa fa-caret-down"></i></button></a>
                     <br><br><br><br>
-                    <div class="subnav-contenedor">
-                        
+                    <div class="subnav-contenedor">                        
                         
                         <a href="ProductoServlet?formid=8">Moda</a>
                         <a href="ProductoServlet?formid=8">Muebles</a>
@@ -73,33 +73,36 @@
                     </div>
                 </div>
                 
+                
         </div>
-        
-        <div class="detalle">
+                
+
+                <div id="#center" class="card">                                    
+
             
-            <table>
                 <form id="myform" name="myform" action="AnadirCarrito" method="get">
-                    <tr>
-                    <td rowspan="5"><img src="img/Productos/<%= CProducto.getImagen() %> " width="300px" height="300px"> </td>
-                    <td>Código</td>
-                    <td><input type="text" name="idproducto" id="idproducto" value="<%= CProducto.getId() %>" readonly></td>
-                    </tr><tr>
-                    <td>Nombre</td>
-                    <td><input type="text" name="nombre" id="nombre" value="<%= CProducto.getNombreProducto() %>" readonly></td>    
-                    </tr><tr>
-                    <td>Precio:</td>
-                    <td><input type="number" name="precio" id="precio" value="<%= CProducto.getPrecioUnidad() %>" readonly></td>    
-                    </tr><tr>
-                    <td>Cantidad:</td>
-                    <td><input type="number" name="cantidad" id="cantidad" value="1"></td>    
-                    </tr><tr>
+
+                    <img src="img/Productos/<%= CProducto.getImagen() %> " width="100px">
+                    <input type="hidden" name="idproducto" id="idproducto" value="<%= CProducto.getId() %>"></td>
+                    <br>
+                    <h2> <%= CProducto.getNombreProducto() %></h2>
+                    <input type="hidden" name="nombre" id="nombre" value="<%= CProducto.getNombreProducto() %>">   
+                    <br>
+                    <h2> <%= CProducto.getDescripcion() %> </h2>
+                    <br>
+                    <h3 class="price">Precio: $<%= CProducto.getPrecioUnidad() %>0</h3>
+                    <input type="hidden" name="precio" id="precio" value="<%= CProducto.getPrecioUnidad() %>">
+                    <br>
+                    <h3>Cantidad:<input type="number" name="cantidad" id="cantidad" value="1"></h3>   
+                    <br>
                     <input type="hidden" id="id" name="id" value="<%= UUsuario.getId() %>" />
                     <input type="hidden" id="formid" name="formid" value="1" />
-                    <td><input type="submit" id="mysubmit" name="mysubmit" value="Agregar"/></td>
-                    </tr>
+                    
+                    <input type="submit" id="mysubmit" name="mysubmit" value="Agregar"/></input>
                 </form>
-            </table>
-        </div>                
+
+        </div>    
+
                 
     </body>
 </html>
