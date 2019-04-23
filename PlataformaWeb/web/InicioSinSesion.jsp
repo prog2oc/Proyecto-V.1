@@ -20,6 +20,8 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
         <link href="Style/tablas.css" rel="stylesheet" type="text/css"/>
+        <link href="Style/catalogo.css" rel="stylesheet" type="text/css"/>
+        <script src="Scripts/catalogo.js" type="text/javascript"></script>
     </head>
     <%
         ArrayList<ProductoObj> PArray = 
@@ -56,12 +58,12 @@
                     <div class="subnav-contenedor">
                         
                         
-                        <a href="#link1">Moda</a>
+                        <a >Moda</a>
                         <a href="#link2">Muebles</a>
                         <a href="#link3">Juguetes</a>
                         <a href="#link3">Electrodomésticos</a>
-                        <a href="#link3">Belleza</a>
-                        <a href="#link1">Todas</a>
+                        <a class="btn active" onclick="filterSelection('Herramientas')">Belleza</a>
+                        <a class="btn active" onclick="filterSelection('all')">Todas</a>
                         
                     </div>
                 </div>
@@ -85,9 +87,10 @@
                 
                     <div class="column <%= Categoria.getNombre() %>">
                         <div class="content">
-                          <img src="/w3images/mountains.jpg" alt="Mountains" style="width:100%">
-                          <h4>Mountains</h4>
-                          <p>Lorem ipsum dolor..</p>
+                          <img src="img/Productos/<%= PTemp.getImagen() %>" style="width:100px">
+                          <h1><%= PTemp.getNombreProducto() %> <%= Categoria.getNombre() %></h1>
+                          <h2>$<%= PTemp.getPrecioUnidad() %></h2>
+                          <button  onclick="ProductoServlet?formid=14&idproducto=<%= PTemp.getId() %>" class="contenedorbutton">Ver Detalle</button>
                         </div>
                     </div>
                
