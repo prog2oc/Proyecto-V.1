@@ -5,26 +5,42 @@
         <script src="Scripts/jquery.validate.js" type="text/javascript"></script>
         <script src="Scripts/additional-methods.js" type="text/javascript"></script>
         <script src="Scripts/generalScript.js" type="text/javascript"></script>
-        
+        <link href="Style/registrar.css" rel="stylesheet" type="text/css"/>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>Tipo de Publicidad</h1>
-        <br><br>
-        <form id="myform" name="myform" action="TipoPublicidadServlet" method="get">
-            <label>Nombre:</label><br>
-            <input type="text" id="nombre" name="nombre" />
+        <span class="close-btn">
+            <a href="ProductoServlet?formid=7">
+            <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png">
+        </a>
+        </span>
+        
+        
+        <div class="registrar">
+            <img src="img/esevolado.png"> 
+            
+            <h1>Tipo de Publicidad</h1>
+            <p>Seleccione el tipo de publicidad con que quiere adquirir</p>
             <br><br>
-            
-            <label>Descripcion:</label><br>
-            <textarea rows="4" cols="50">  </textarea> 
-            <br><br>
-            
-            <input type="submit" id="mysubmit" name="mysubmit" value="Create"/>
-            <input type="hidden" id="formid" name="formid" value="1" />
-            
-        </form>
+            <form id="myform" name="myform" action="TipoPublicidadServlet" method="get">
+                <div class="nuevomiembro">
+                    <label class="label">Nombre:<span class="req">*</span></label><br>
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" autocomplete="off" class="input"/>
+                    <br><br>
+                </div>
+                <div class="nuevomiembro">
+                    <label class="label">Descripcion:<span class="req">*</span></label><br>
+                    <textarea rows="4" cols="50">  placeholder="Descripción" autocomplete="off" class="input"</textarea> 
+                    <br><br>
+                </div>
+                <div class="nuevomiembro">
+                    <input type="submit" id="mysubmit" name="mysubmit" value="Crear" class="button"/>
+                </div>
+                <input type="hidden" id="formid" name="formid" value="1" />
+
+            </form>
+        </div>
     </body>
-    
+        
 </html>
